@@ -1,0 +1,197 @@
+% !TEX program = xelatex
+
+\documentclass[normal,founder,mtpro2,cn]{elegantnote}
+    \title{2021年春季学期/数理统计/第二周/课后作业解答}
+    \author{龚梓阳}
+    \date{\zhtoday}
+
+\begin{document}
+    \maketitle
+    \begin{enumerate}
+        \item[4]
+        \begin{proof}
+            样本容量为 $n+1$ 时的样本均值 $\bar{x}_{n+1}$：
+            \begin{equation*}
+                \begin{aligned}
+                    \bar{x}_{n+1}=&\frac{1}{n+1}\sum_{i=1}^{n+1}x_i=\frac{1}{n+1}\left(\sum_{i=1}^nx_i+x_{n+1}\right)=\frac{1}{n+1}\left(n\bar{x}_n+x_{n+1}\right) \\
+                    =&\frac{1}{n+1}[\left(n+1\right)\bar{x}_n-\bar{x}_n+x_{n+1}]=\bar{x}_n+\frac{1}{n+1}\left(x_{n+1}-\bar{x}_n\right) \\
+                \end{aligned}
+            \end{equation*}
+    
+            样本容量为 $n+1$ 时的样本方差 $s^2_{n+1}$：
+            \begin{equation*}
+                \begin{aligned}
+                    s^2_{n+1}=&\frac{1}{n}\sum_{i=1}^{n+1}\left(x_i-\bar{x}_{n+1}\right)^2 \\
+                    =&\frac{1}{n}\sum_{i=1}^{n}\left\{x_i-\left[\bar{x}_n+\frac{1}{n+1}\left(x_{n+1}-\bar{x}_n\right)\right]\right\}^2 \\
+                    =&\frac{1}{n}\sum_{i=1}^{n+1}\left[\left(x_i-\bar{x}_n\right)-\frac{1}{n+1}\left(x_{n+1}-\bar{x}_n\right)\right]^2 \\
+                    =&\frac{1}{n}\sum_{i=1}^{n+1}\left\{\left(x_i-\bar{x}_n\right)^2-\frac{2}{n+1}\left(x_i-\bar{x}_n\right)\left(x_{n+1}-\bar{x}_n\right)+\frac{1}{\left(n+1\right)^2}\left(x_{n+1}-\bar{x}_n\right)^2\right\} \\
+                    =&\frac{1}{n}\left[\sum_{i=1}^{n}\left(x_i-\bar{x}_n\right)^2\right]+\frac{1}{n}\left(x_{n+1}-\bar{x}_n\right)^2-\frac{2}{n\left(n+1\right)}\left(x_{n+1}-\bar{x}_n\right)\left[\sum_{i=1}^n\left(x_i-\bar{x}_n\right)\right] \\
+                    &-\frac{2}{n\left(n+1\right)}\left(x_{n+1}-\bar{x}_n\right)^2+\frac{1}{n\left(n+1\right)}\left(x_{n+1}-\bar{x}_n\right)^2 \\
+                    =&\frac{n-1}{n}s_{n}^{2}+\frac{1}{n+1}\left(x_{n+1}-\bar{x}_{n}\right)^{2} \\
+                \end{aligned}
+            \end{equation*}
+
+            （另一种思路）
+            \begin{equation*}
+                \begin{aligned}
+                    s_{n+1}^{2}=&\frac{1}{n}\sum_{i=1}^{n+1}\left(x_{i}-\bar{x}_{n+1}\right)^{2}=\frac{1}{n}\sum_{i=1}^{n+1}\left[(x_{i}-\bar{x}_n)+(\bar{x}_n-\bar{x}_{n+1})\right]^{2} \\
+                    =&\frac{1}{n}\left[\sum_{i=1}^{n+1}\left(x_{i}-\bar{x}_{n}\right)^{2}\right]+\frac{2}{n}\left(\bar{x}_{n}-\bar{x}_{n+1}\right)\sum_{i=1}^{n+1}\left(x_{i}-\bar{x}_{n}\right)+\frac{1}{n}\left(\bar{x}_{n}-\bar{x}_{n+1}\right)^{2} \\
+                    =&\frac{1}{n}\left[\sum_{i=1}^{n+1}\left(x_{i}-\bar{x}_{n}\right)^{2}\right]-\frac{1}{n}\left(\bar{x}_{n}-\bar{x}_{n+1}\right)^{2} \\
+                    =&\frac{1}{n}\left[\sum_{i=1}^{n+1}\left(x_{i}-\bar{x}_{n}\right)^{2}\right]-\frac{n+1}{n}\left(\bar{x}_{n}-\bar{x}_{n+1}\right)^{2} \\
+                    =&\frac{1}{n}\left[\sum_{i=1}^{n}\left(x_{i}-\bar{x}_{n}\right)^{2}+\left(x_{n+1}-\bar{x}_{n}\right)^{2}\right]-\frac{n+1}{n}\frac{1}{(n+1)^{2}}\left(x_{n+1}-\bar{x}_{n}\right)^{2} \\
+                    =&\frac{1}{n}\left[(n-1) \frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i}-\bar{x}_{n}\right)^{2}+\frac{n}{n+1}\left(x_{n+1}-\bar{x}_{n}\right)^{2}\right] \\
+                    =&\frac{n-1}{n} s_{n}^{2}+\frac{1}{n+1}\left(x_{n+1}-\bar{x}_{n}\right)^{2}
+                \end{aligned}
+            \end{equation*}
+        \end{proof}
+
+        \item[6] 
+        \begin{proof}
+            样本 $B$ 的均值 $\bar{y}_{B}$：
+            \begin{equation*}
+                \begin{aligned}
+                    \bar{y}_{B}=&\frac{1}{n}\sum_{i=1}^{n}y_{i}=\frac{1}{n}\sum_{i=1}^{n}\left(ax_{i}+b\right)=\frac{1}{n}\left(a\sum_{i=1}^{n}x_{i}+nb\right) \\
+                    =&a\cdot\frac{1}{n}\sum_{i=1}^{n}x_{i}+b=a\bar{x}_{A}+b \\
+                \end{aligned}
+            \end{equation*}
+    
+            样本 $B$ 的标准差 $s_{B}$：
+            \begin{equation*}
+                \begin{aligned}
+                    s_{B}=&\sqrt{\frac{1}{n-1} \sum_{i=1}^{n}\left(y_{i}-\bar{y}_{B}\right)^{2}}=\sqrt{\frac{1}{n-1} \sum_{i=1}^{n}\left(a x_{i}+b-a \bar{x}_{A}-b\right)^{2}} \\
+                    =&|a| \cdot \sqrt{\frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i}-\bar{x}_{A}\right)^{2}}=|a| s_{A}\\
+                \end{aligned}
+            \end{equation*}
+    
+            样本 $B$ 的极差 $R_{B}$：
+            \begin{equation*}
+                R_{B}=y_{(n)}-y_{(1)}=a x_{(n)}+b-a x_{(1)}-b=a\left[x_{(n)}-x_{(1)}\right]=a R_{A}
+            \end{equation*}
+    
+            样本 $B$ 的中位数 ${m_{0.5}}_{B}$：
+
+            \begin{enumerate}
+                \item 当 $n$ 为偶数时，
+                \begin{equation*}
+                    {m_{0.5}}_{B}=y_{\left(\frac{n+1}{2}\right)}=a x_{\left(\frac{n+1}{2}\right)}+b=a{m_{0.5}}_{A}+b
+                \end{equation*}
+                \item 当 $n$ 为奇数时，
+                \begin{equation*}
+                    \begin{aligned}
+                        {m_{0.5}}_{B}=&\frac{1}{2}\left[y_{\left(\frac{n}{2}\right)}+y_{\left(\frac{n}{2}+1\right)}\right]=\frac{1}{2}\left[a x_{\left(\frac{n}{2}\right)}+b+a x_{\left(\frac{n}{2}+1\right)}+b\right] \\
+                        =&\frac{a}{2}\left[x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right]+b=a {m_{0.5}}_A+b\\
+                    \end{aligned}
+                \end{equation*}
+            \end{enumerate}
+
+            因此，样本 $B$ 的中位数 ${m_{0.5}}_{B}$ 为
+            \begin{equation*}
+                {m_{0.5}}_{B}=a{m_{0.5}}_{A}+b.
+            \end{equation*}
+        \end{proof}
+    
+        \item[8] 
+        \begin{proof}
+            由定理 5.3.2 有，
+            \begin{equation*}
+                E(\bar{X})=E(X_i)=\mu=0,\quad \operatorname{Var}(\bar{X})=\frac{\sigma^2}{n}=\frac{1}{3n}.
+            \end{equation*}
+        \end{proof}
+    
+        \item[9] 
+        \begin{proof}
+            因为样本 $X_{i},i=1,2,\ldots,n$ 是相互独立的，所以
+            \begin{equation*}
+                \operatorname{Cov}\left(X_{i},X_{j}\right)=0,\quad(i\neq j).
+            \end{equation*}
+            因此，
+            \begin{equation*}
+                \operatorname{Cov}\left(X_{i},\bar{X}\right)=\operatorname{Cov}\left(X_{i},\frac{1}{n}
+                \sum_{i=1}^nX_{i}\right)=\frac{1}{n}\operatorname{Cov}\left(X_{i},X_{i}\right)=\frac{\sigma^2}{n}.
+            \end{equation*}
+    
+            \begin{equation*}
+                \begin{aligned}
+                    \operatorname{Cov}\left(X_{i}-\bar{X}, X_{j}-\bar{X}\right)=&\operatorname{Cov}\left(X_{i}, X_{j}\right)-\operatorname{Cov}\left(X_{i}, \bar{X}\right)-\operatorname{Cov}\left(X_{j},\bar{X}\right)+\operatorname{Cov}(\bar{X}, \bar{X}) \\
+                    =&0-\frac{1}{n}\sigma^{2}-\frac{1}{n}\sigma^{2}+\frac{1}{n}\sigma^{2}=-\frac{1}{n}\sigma^{2} \\
+                \end{aligned}
+            \end{equation*}
+    
+            \begin{equation*}
+                \begin{aligned}
+                    \operatorname{Var}\left(X_{i}-\bar{X}\right)=&\operatorname{Var}\left(X_{i}\right)+\operatorname{Var}(\bar{X})-2 \operatorname{Cov}\left(X_{i}, \bar{X}\right) \\
+                    =&\sigma^{2}+\frac{1}{n} \sigma^{2}-\frac{2}{n} \sigma^{2}=\frac{n-1}{n} \sigma^{2} \\
+                \end{aligned}
+            \end{equation*}
+    
+            同理，我们有
+            \begin{equation*}
+                \operatorname{Var}\left(X_{j}-\bar{X}\right)=\frac{n-1}{n} \sigma^{2};
+            \end{equation*}
+    
+            所以，
+            \begin{equation*}
+                \begin{aligned}
+                    \operatorname{Corr}\left(X_{i}-\bar{X},X_{j}-\bar{X}\right)=&\frac{\operatorname{Cov}\left(X_{i}-\bar{X},X_{j}-\bar{X}\right)}{\sqrt{\operatorname{Var}\left(X_{i}-\bar{X}\right)}\cdot\sqrt{\operatorname{Var}\left(X_{j}-\bar{X}\right)}} \\
+                    =&\frac{-\frac{1}{n}\sigma^{2}}{\sqrt{\frac{n-1}{n}\sigma^{2}}\cdot\sqrt{\frac{n-1}{n}\sigma^{2}}}=-\frac{1}{n-1} \\
+                \end{aligned}
+            \end{equation*}
+        \end{proof}
+        
+        \item[18] 
+        \begin{proof}
+            由定理 5.3.2 有，
+            \begin{equation*}
+                \operatorname{Var}(\bar{X})=\frac{\sigma^2}{n}=\frac{9}{8},\quad \sigma(\bar{X})=\sqrt{\operatorname{Var}(\bar{X})}=\frac{3\sqrt{2}}{4}.
+            \end{equation*}
+        \end{proof}
+    
+        \item[23] 
+        \begin{proof}
+            （可参考例 3.3.4 与例 3.3.5） 
+
+            \begin{equation*}
+                P\left(X\leq k\right)=\sum_{i=1}^{k}pq^{i-1}=\frac{p\left(1-q^{k}\right)}{1-q}=1-q^{k},\quad k=1,2,\ldots,
+            \end{equation*}
+
+            对于 $X_{(n)}$，有
+            \begin{equation*}
+                \begin{aligned}
+                    P\left(X_{(n)}=k\right)=&P\left(X_{(n)}\leq k\right)-P\left(X_{(n)}\leq k-1\right) \\
+                    =&\prod_{i=1}^{n}P\left(X_{i}\leq k\right)-\prod_{i=1}^{n}P\left(X_{i}\leq k-1\right) \\
+                    =&\left(1-q^{k}\right)^{n}-\left(1-q^{k-1}\right)^{n}
+                \end{aligned}
+            \end{equation*}
+
+            对于 $X_{(1)}$，有
+            \begin{equation*}
+                \begin{aligned}
+                    P\left(X_{(1)}=k\right)=&P\left(X_{(1)}\leq k\right)-P\left(X_{(1)}\leq k-1\right) \\
+                    =&1-P\left(X_{(1)}>k\right)-\left[1-P\left(X_{(1)}>k-1\right)\right]\\
+                    =&\prod_{i=1}^{n}P\left(X_{i}>k-1\right)-\prod_{i=1}^{n}P\left(X_{i}>k\right) \\
+                    =&q^{n(k-1)}-q^{n k}=q^{n(k-1)}\left(1-q^n\right)
+                \end{aligned}
+            \end{equation*}
+        \end{proof}
+
+        \item[25]
+        \begin{proof}
+            韦布尔分布的总体分布函数 $F(x)$ 为
+            \begin{equation*}
+                \begin{aligned}
+                    F(x)=&\int_{0}^{x} p(t) \mathrm{d} t=\int_{0}^{x} \frac{m t^{m-1}}{\eta^{m}} \mathrm{e}^{-\left(\frac{t}{\eta}\right)^{m}} \mathrm{~d} t=\int_{0}^{x} \mathrm{e}^{-\left(\frac{t}{\eta}\right)^{m}} \mathrm{~d}\left(\frac{t}{\eta}\right)^{m} \\
+                    =&-\left.\mathrm{e}^{-\left(\frac{t}{\eta}\right)^{m}}\right|_{0} ^{x}=1-\mathrm{e}^{-\left(\frac{x}{\eta}\right)^{m}}
+                \end{aligned}
+            \end{equation*}
+            因此，
+            \begin{equation*}
+                \begin{aligned}
+                    p_{(1)}(x)=&n[1-F(x)]^{n-1} p(x)=n \mathrm{e}^{-(n-1)\left(\frac{x}{\eta}\right)^{m}} \cdot \frac{m x^{m-1}}{\eta^{m}} \mathrm{e}^{-\left(\frac{x}{\eta}\right)^{m}} \\
+                    =&\frac{m n x^{m-1}}{\eta^{m}} \mathrm{e}^{-n\left(\frac{x}{\eta}\right)^{m}}
+                    =\frac{m x^{m-1}}{(\eta / \sqrt[m]{n})^{m}} \mathrm{e}^{-\left(\frac{x}{\eta / \sqrt[m]{n}}\right)^{m}}
+                \end{aligned}
+            \end{equation*}
+        \end{proof}
+        所以，$X_{(1)}$ 服从参数为 $\left(m,\frac{\eta}{\sqrt[m]{n}}\right)$ 的韦布尔分布。
+    \end{enumerate}
+\end{document}
