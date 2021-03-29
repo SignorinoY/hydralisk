@@ -107,9 +107,13 @@
             因此，
             \begin{equation*}
                 \operatorname{Cov}\left(X_{i},\bar{X}\right)=\operatorname{Cov}\left(X_{i},\frac{1}{n}
-                \sum_{i=1}^nX_{i}\right)=\frac{1}{n}\operatorname{Cov}\left(X_{i},X_{i}\right)=\frac{\sigma^2}{n}.
+                \sum_{i=1}^nX_{i}\right)=\frac{1}{n}\operatorname{Cov}\left(X_{i},X_{i}\right)=\frac{\sigma^2}{n},
             \end{equation*}
-    
+
+            \begin{equation*}
+                \operatorname{Cov}(\bar{X}, \bar{X})=\operatorname{Var}\left(\bar{X}\right)=\frac{1}{n}\sum_{i=1}^{n}\operatorname{Cov}\left(X_{i},\bar{X}\right)=\frac{\sigma^2}{n}.
+            \end{equation*}
+
             \begin{equation*}
                 \begin{aligned}
                     \operatorname{Cov}\left(X_{i}-\bar{X}, X_{j}-\bar{X}\right)=&\operatorname{Cov}\left(X_{i}, X_{j}\right)-\operatorname{Cov}\left(X_{i}, \bar{X}\right)-\operatorname{Cov}\left(X_{j},\bar{X}\right)+\operatorname{Cov}(\bar{X}, \bar{X}) \\
