@@ -1,0 +1,162 @@
+% !TEX program = xelatex
+
+\documentclass[normal,founder,mtpro2,cn]{elegantnote}
+\title{2021年春季学期/数理统计/第三周/课后作业解答}
+\author{龚梓阳}
+\date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[2]
+        \begin{proof}
+            因为 $X\sim N(\mu,16)$，所以 $\bar{X}\sim N\left(\mu,\frac{16}{n}\right)$。因此，
+            \begin{equation*}
+                \begin{aligned}
+                    P(|\bar{X}-\mu|<1)= & P\left(\left|\frac{\bar{X}-\mu}{\sqrt{16/n}}\right|<\frac{1}{\sqrt{16/n}}\right) \\
+                    =                   & \Phi\left(\frac{\sqrt{n}}{4}\right)-\Phi\left(-\frac{\sqrt{n}}{4}\right)         \\
+                    =                   & 2\Phi\left(\frac{\sqrt{n}}{4}\right)-1\geq0.95
+                \end{aligned}
+            \end{equation*}
+
+            所以，$\Phi\left(\frac{\sqrt{n}}{4}\right)\geq0.975$，$\frac{\sqrt{n}}{4}\geq1.96$，即 $n\geq61.47$。
+            因此，当 $n$ 至少为 $62$ 时，上述概率不等式才成立。
+        \end{proof}
+    \item[5]
+        \begin{proof}
+            因为，$\frac{\sqrt{n}(\bar{X}-\mu)}{s}\sim t(n-1)$，所以，
+            \begin{equation*}
+                \begin{aligned}
+                    P(|\bar{X}-\mu|<0.6)= & P\left(\left|\frac{\sqrt{n}(\bar{X}-\mu)}{s}\right|<\frac{\sqrt{n}\times0.6}{s}\right) \\
+                    =                     & 2t_{15}(\frac{4\times0.6}{\sqrt{5.32}})-1\approx2\times0.8427-1=0.6854
+                \end{aligned}.
+            \end{equation*}
+        \end{proof}
+    \item[8]
+        \begin{proof}
+            因为 $X\sim F(n,m)$，其密度函数为
+            \begin{equation*}
+                p_{X}(x)=\frac{\Gamma\left(\frac{n+m}{2}\right)\left(\frac{n}{m}\right)^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}\right)\Gamma\left(\frac{m}{2}\right)}x^{\frac{n}{2}-1}\left(1+\frac{n}{m}x\right)^{-\frac{n+m}{2}},\quad x>0,
+            \end{equation*}
+
+            由于 $z=\frac{n}{m}x/\left(1+\frac{n}{m}x\right)$ 在 $(0,\infty)$ 上严格单调递增，其反函数为 $x=\frac{m}{n}\cdot\frac{z}{1-z}$，导数为 $\frac{\mathrm{d}x}{\mathrm{d}z}=\frac{m}{n}\cdot\frac{1}{(1-z)^{2}}$，因此，$Z$ 的密度函数为
+            \begin{equation*}
+                \begin{aligned}
+                    p_{Z}(z)= & \frac{\Gamma\left(\frac{n+m}{2}\right)\left(\frac{n}{m}\right)^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}\right)\Gamma\left(\frac{m}{2}\right)}\left(\frac{m}{n}\cdot\frac{z}{1-z}\right)^{\frac{n}{2}-1}\left(1+\frac{z}{1-z}\right)^{-\frac{n+m}{2}}\cdot\frac{m}{n}\cdot\frac{1}{(1-z)^{2}} \\
+                    =         & \frac{\Gamma\left(\frac{n+m}{2}\right)}{\Gamma\left(\frac{n}{2}\right)\Gamma\left(\frac{m}{2}\right)}\left(\frac{z}{1-z}\right)^{\frac{n}{2}-1}\left(\frac{1}{1-z}\right)^{-\frac{n+m}{2}}\cdot\frac{1}{(1-z)^{2}}                                                                         \\
+                    =         & \frac{\Gamma\left(\frac{n+m}{2}\right)}{\Gamma\left(\frac{n}{2}\right)\Gamma\left(\frac{m}{2}\right)}z^{\frac{n}{2}-1}(1-z)^{\frac{m}{2}-1},\quad 0<z<1
+                \end{aligned}
+            \end{equation*}
+
+            所以，$Z$ 服从贝塔分布 $\text{Be}\left(\frac{n}{2},\frac{m}{2}\right)$。
+        \end{proof}
+    \item[9]
+        \begin{proof}
+            因为，
+            \begin{equation*}
+                X_{1}\sim N(0,\sigma^2),\quad X_{2}\sim N(0,\sigma^2),
+            \end{equation*}
+            \begin{equation*}
+                X_{1}+X_{2}\sim N(0,2\sigma^2),\quad X_{1}-X_{2}\sim N(0,2\sigma^2),
+            \end{equation*}
+            因此，根据卡方分布定义有
+            \begin{equation*}
+                \left(\frac{X_{1}+X_{2}}{\sqrt{2}\sigma}\right)^2\sim\chi^{2}(1),\quad\left(\frac{X_{1}-X_{2}}{\sqrt{2}\sigma}\right)^2\sim\chi^{2}(1).
+            \end{equation*}
+
+            因为，
+            \begin{equation*}
+                \begin{aligned}
+                    \operatorname{Cov}(X_{1}+X_{2},X_{1}-X_{2})= & 2\operatorname{Cov}(X_{1},X_{2})+\operatorname{Var}(X_{1})-\operatorname{Var}(X_{2}) \\
+                    =                                            & 0+\sigma^2-\sigma^2=0
+                \end{aligned}
+            \end{equation*}
+
+            所以，由性质 3.4.13 有，对于二维正态分布 $(X_{1}+X_{2},X_{1}-X_{2})$，不相关与独立是等价的。
+
+            于是，根据 F 分布的定义有
+            \begin{equation*}
+                Y=\left(\frac{X_{1}+X_{2}}{X_{1}-X_{2}}\right)^{2}=\frac{\frac{\left(X_{1}+X_{2}\right)^{2}}{2\sigma^{2}}}{\frac{\left(X_{1}-X_{2}\right)^{2}}{2\sigma^{2}}}\sim F(1,1)
+            \end{equation*}
+        \end{proof}
+    \item[13]
+        \begin{proof}
+            假设正态总体的方差为 $\sigma^2$，则由定理 5.4.1 有，
+            \begin{equation*}
+                \frac{\left(n_{1}-1\right)s_{1}^{2}}{\sigma^{2}}=\frac{14s_{1}^{2}}{\sigma^{2}}\sim\chi^{2}(14),\quad\frac{\left(n_{2}-1\right)s_{2}^{2}}{\sigma^{2}}=\frac{19s_{2}^{2}}{\sigma^{2}}\sim\chi^{2}(19),
+            \end{equation*}
+
+            由 $F$ 分布的定义有
+            \begin{equation*}
+                \frac{\frac{14s_{1}^{2}}{\sigma^{2}}/14}{\frac{19s_{2}^{2}}{\sigma^{2}}/19}=\frac{s_{1}^{2}}{s_{2}^{2}}\sim F(14,19),
+            \end{equation*}
+
+            因此，
+            \begin{equation*}
+                P\left(\frac{s_{1}^{2}}{s_{2}^{2}}>2\right)=P(F>2)=1-P(F\leq 2)\approx 0.0798.
+            \end{equation*}
+        \end{proof}
+    \item[18]
+        \begin{proof}
+            对于 $F\sim F(k,m)$，其密度函数为
+            \begin{equation*}
+                p(x)=\frac{\Gamma\left(\frac{k+m}{2}\right)\left(\frac{k}{m}\right)^{\frac{k}{2}}}{\Gamma\left(\frac{k}{2}\right)\Gamma\left(\frac{m}{2}\right)}x^{\frac{k}{2}-1}\left(1+\frac{k}{m}x\right)^{-\frac{k+m}{2}},\quad x>0.
+            \end{equation*}
+
+            因此，
+            \begin{equation*}
+                \begin{aligned}
+                    E\left(F^{r}\right)= & \frac{\Gamma\left(\frac{k+m}{2}\right)\left(\frac{k}{m}\right)^{\frac{k}{2}}}{\Gamma\left(\frac{k}{2}\right)\Gamma\left(\frac{m}{2}\right)}\int_{0}^{+\infty}x^{r}\cdot x^{\frac{k}{2}-1}\left(1+\frac{k}{m}x\right)^{\frac{k+m}{2}}\mathrm{d}x \\
+                    =                    & \frac{\Gamma\left(\frac{k+m}{2}\right)\left(\frac{k}{m}\right)^{\frac{k}{2}}}{\Gamma\left(\frac{k}{2}\right)\Gamma\left(\frac{m}{2}\right)}\int_{0}^{+\infty}x^{\frac{k}{2}+r-1}\left(1+\frac{k}{m}x\right)^{-\frac{k+m}{2}}\mathrm{d}x
+                \end{aligned}
+            \end{equation*}
+
+            令 $t=\left(1+\frac{k}{m} x\right)^{-1}$，则 $x=\frac{m}{k}\left(\frac{1}{t}-1\right)$，$\mathrm{d}x=\frac{m}{k}\cdot\left(-\frac{1}{t^{2}}\right)\mathrm{d}t$，因此，
+
+            \begin{equation*}
+                \begin{aligned}
+                    = & \frac{\Gamma\left(\frac{k+m}{2}\right)\left(\frac{k}{m}\right)^{\frac{k}{2}}}{\Gamma\left(\frac{k}{2}\right)\Gamma\left(\frac{m}{2}\right)}\int_{1}^{0}\left(\frac{m}{k}\right)^{\frac{k}{2}+r-1}\left(\frac{1-t}{t}\right)^{\frac{k}{2}+r-1}\cdot t^{\frac{k+m}{2}}\cdot\frac{m}{k}\left(-\frac{1}{t^{2}}\right)\mathrm{d}t \\
+                    = & \frac{\Gamma\left(\frac{k+m}{2}\right)\left(\frac{k}{m}\right)^{\frac{k}{2}}}{\Gamma\left(\frac{k}{2}\right)\Gamma\left(\frac{m}{2}\right)}\left(\frac{m}{k}\right)^{\frac{k}{2}+r}\int_{0}^{1}t^{\frac{m}{2}-r-1}(1-t)^{\frac{k}{2}+r-1}\mathrm{d}t                                                                         \\
+                    = & \frac{\Gamma\left(\frac{k+m}{2}\right)\left(\frac{k}{m}\right)^{\frac{k}{2}}}{\Gamma\left(\frac{k}{2}\right)\Gamma\left(\frac{m}{2}\right)}\left(\frac{m}{k}\right)^{\frac{k}{2}+r}B\left(\frac{m}{2}-r,\frac{k}{2}+r\right)                                                                                                 \\
+                    = & \frac{\Gamma\left(\frac{k+m}{2}\right)\left(\frac{k}{m}\right)^{\frac{k}{2}}}{\Gamma\left(\frac{k}{2}\right)\Gamma\left(\frac{m}{2}\right)}\left(\frac{m}{k}\right)^{\frac{k}{2}+r}\frac{\Gamma\left(\frac{m}{2}-r\right)\Gamma\left(\frac{k}{2}+r\right)}{\Gamma\left(\frac{m+k}{2}\right)}                                 \\
+                    = & \frac{m^{r}\Gamma\left(\frac{k}{2}+r\right)\Gamma\left(\frac{m}{2}-r\right)}{k^{r}\Gamma\left(\frac{k}{2}\right)\Gamma\left(\frac{m}{2}\right)}
+                \end{aligned}
+            \end{equation*}
+
+            当 $r=1$ 时，由于 $k>0$，只要 $m>2$，就有
+            \begin{equation*}
+                E(F)=\frac{m\Gamma\left(\frac{k}{2}+1\right)\Gamma\left(\frac{m}{2}-1\right)}{k\Gamma\left(\frac{k}{2}\right)\Gamma\left(\frac{m}{2}\right)}=\frac{m\cdot\frac{k}{2}}{k\left(\frac{m}{2}-1\right)}=\frac{m}{m-2}
+            \end{equation*}
+
+            当 $r=2$ 时，由于 $k>0$，只要 $m>4$，就有
+            \begin{equation*}
+                E\left(F^{2}\right)=\frac{m^{2}\Gamma\left(\frac{k}{2}+2\right)\Gamma\left(\frac{m}{2}-2\right)}{k^{2}\Gamma\left(\frac{k}{2}\right)\Gamma\left(\frac{m}{2}\right)}=\frac{m^{2}(k+2)}{k(m-2)(m-4)}
+            \end{equation*}
+
+            因此，
+            \begin{equation*}
+                \operatorname{Var}(F)=E\left(F^{2}\right)-[E(F)]^{2}=\frac{m^{2}(k+2)}{k(m-2)(m-4)}-\left(\frac{m}{m-2}\right)^{2}=\frac{2m^{2}(m+k-2)}{k(m-2)^{2}(m-4)}
+            \end{equation*}
+        \end{proof}
+    \item[19]
+        \begin{proof}
+            $Y_{i}=-2\ln F\left(X_{i}\right)$ 的分布函数为
+            \begin{equation*}
+                \begin{aligned}
+                    F_{Y}(y)= & P\left(-2\ln F\left(X_{i}\right)\leq y\right)                        \\
+                    =         & P\left(X_{i}\geq F^{-1}\left(\mathrm{e}^{-\frac{y}{2}}\right)\right) \\
+                    =         & 1-F\left[F^{-1}\left(\mathrm{e}^{-\frac{y}{2}}\right)\right]         \\
+                    =         & 1-\mathrm{e}^{-\frac{y}{2}},\quad y>0
+                \end{aligned}
+            \end{equation*}
+            因此，
+            \begin{equation*}
+                Y_{i}\sim\text{Exp}\left(\frac{1}{2}\right)=\chi^{2}(2).
+            \end{equation*}
+            因 $X_{1},X_{2},\cdots,X_{n}$ 相互独立，有 $Y_{1},Y_{2},\cdots,Y_{n}$ 相互独立，由 $\chi^{2}$ 分布的可加性，可知
+            \begin{equation*}
+                T=-2\sum_{i=1}^{n}\ln F\left(X_{i}\right)\sim\chi^{2}(2n).
+            \end{equation*}
+        \end{proof}
+\end{enumerate}
+\end{document}
