@@ -1,0 +1,168 @@
+% !TEX program = xelatex
+
+\documentclass[normal,founder,mtpro2,cn]{elegantnote}
+\title{2021年春季学期/数理统计/第四周/课后作业解答}
+\author{龚梓阳}
+\date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[5]
+        \begin{proof}
+            样本的联合密度函数为
+            \begin{equation*}
+                p\left(x_{1},x_{2},\ldots,x_{n};\theta\right)=\theta^{n}\left(x_{1}x_{2}\ldots x_{n}\right)^{\theta-1}=\prod_{i=1}^{n}\theta x_{i}^{\theta-1}
+            \end{equation*}
+
+            令
+            \begin{equation*}
+                T=\prod_{i=1}^{n}x_{i},\quad g\left(t;\theta\right)=t^{\theta-1}\theta^{n},\quad h\left(x_{1},x_{2},\ldots,x_{n}\right)=1.
+            \end{equation*}
+
+            由因子分解定理有，$T=\prod_{i=1}^{n}x_{i}$ 为 $\theta$ 的充分统计量。
+        \end{proof}
+    \item[6]
+        \begin{proof}
+            样本的联合密度函数为
+            \begin{equation*}
+                \begin{aligned}
+                    p\left(x_{1},x_{2},\ldots,x_{n};\theta\right)= & \prod_{i=1}^{n}mx_{i}^{m-1}\theta^{-m}\mathrm{e}^{-\left(x_{i}/\theta\right)^{m}}                                       \\
+                    =                                              & m^{n}\left(x_{1} x_{2}\ldots x_{n}\right)^{m-1}\theta^{-mn}\mathrm{e}^{-\sum_{i=1}^{n}\left(x_{i}/\theta\right)^{m}}    \\
+                    =                                              & =\theta^{-mn}\mathrm{e}^{-\frac{\sum_{i=1}^{n}x_{i}^{m}}{\theta^{m}}}\cdot m^{n}\left(\prod_{i=1}^{n}x_{i}\right)^{m-1} \\
+                \end{aligned}
+            \end{equation*}
+
+            令
+            \begin{equation*}
+                T=\sum_{i=1}^{n}x_{i}^{m},\quad g\left(t;\theta\right)=\theta^{-mn}\mathrm{e}^{-\frac{t}{\theta^{m}}},\quad h\left(x_{1},x_{2},\ldots,x_{n}\right)=m^{n}\left(\prod_{i=1}^{n}x_{i}\right)^{m-1}.
+            \end{equation*}
+
+            由因子分解定理有，$T=\sum_{i=1}^{n}x_{i}^{m}$ 为 $\theta$ 的充分统计量。
+        \end{proof}
+    \item[8]
+        \begin{proof}
+            样本的联合密度函数为
+            \begin{equation*}
+                p\left(x_{1},x_{2},\ldots,x_{n};\mu\right)=\prod_{i=1}^{n}\frac{1}{2\theta}\mathrm{e}^{-\frac{\left|x_{i}\right|}{\theta}}=\frac{1}{(2\theta)^{n}}\mathrm{e}^{-\frac{1}{\theta}\sum_{i=1}^{n}\left|x_{i}\right|}
+            \end{equation*}
+
+            令
+            \begin{equation*}
+                T=\sum_{i=1}^{n}\left|X_{i}\right|,\quad g\left(t;\theta\right)=\frac{1}{(2\theta)^{n}}\mathrm{e}^{-\frac{1}{\theta}t},\quad h\left(x_{1},x_{2},\ldots,x_{n}\right)=1.
+            \end{equation*}
+
+            由因子分解定理有，$T=\sum_{i=1}^{n}\left|X_{i}\right|$ 为 $\theta$ 的充分统计量。
+        \end{proof}
+    \item[10]
+        \begin{proof}
+            \begin{enumerate}
+                \item 在 $\mu$ 已知时，样本联合密度函数为
+                      \begin{equation*}
+                          \begin{aligned}
+                              p_{1}\left(x_{1},x_{2},\ldots,x_{n};\sigma^{2}\right)= & \prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}\sigma}\exp\left(\frac{\left(x_{i}-\mu\right)^{2}}{2\sigma^{2}}\right)        \\
+                              =                                                      & \frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left(-\frac{1}{2\sigma^{2}}\sum_{i=1}^{n}\left(x_{i}-\mu\right)^{2}\right)
+                          \end{aligned}
+                      \end{equation*}
+
+                      令
+                      \begin{equation*}
+                          T=\sum_{i=1}^{n}\left(x_{i}-\mu\right)^{2},\quad g\left(t;\sigma^{2}\right)=\frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left(-\frac{t}{2\sigma^{2}}\right),\quad h\left(x_{1},x_{2},\ldots,x_{n}\right)=1.
+                      \end{equation*}
+
+                      由因子分解定理有，$T=\sum_{i=1}^{n}\left(x_{i}-\mu\right)^{2}$ 为 $\sigma^{2}$ 的充分统计量。
+                \item 在 $\sigma^2$ 已知时，样本联合密度函数为
+                      \begin{equation*}
+                          \begin{aligned}
+                              p_{1}\left(x_{1},x_{2},\ldots,x_{n};\mu\right)= & \prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}\sigma}\exp\left(\frac{\left(x_{i}-\mu\right)^{2}}{2\sigma^{2}}\right)                                                                               \\
+                              =                                               & \frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left(-\frac{1}{2\sigma^{2}}\sum_{i=1}^{n}\left(x_{i}^{2}-2\mu x_{i}+\mu^{2}\right)\right)                                                         \\
+                              =                                               & \frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left(-\frac{\sum_{i=1}^{n}x_{i}^{2}}{2\sigma^{2}}\right)\cdot\exp\left[-\frac{1}{2\sigma^{2}}\left(n\mu^{2}-2\mu\sum_{i=1}^{n}x_{i}\right)\right]
+                          \end{aligned}
+                      \end{equation*}
+
+                      令
+                      \begin{gather*}
+                          T=\sum_{i=1}^{n}x_{i},\quad g\left(t;\mu\right)=\exp\left[-\frac{1}{2\sigma^{2}}\left(n\mu^{2}-2\mu t\right)\right], \\
+                          h\left(x_{1},x_{2},\ldots,x_{n}\right)=\frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left(-\frac{\sum_{i=1}^{n}x_{i}^{2}}{2\sigma^{2}}\right).
+                      \end{gather*}
+
+                      由因子分解定理有，$T=\sum_{i=1}^{n}x_{i}$ 为 $\mu$ 的充分统计量。
+            \end{enumerate}
+        \end{proof}
+    \item[12]
+        \begin{proof}
+            样本的联合密度函数为
+            \begin{equation*}
+                \begin{aligned}
+                    p\left(x_{1},x_{2},\ldots,x_{n};\theta\right)= & \prod_{i=1}^{n}\frac{1}{\theta}I_{\{\theta<x_{i}<2\theta\}}         \\
+                    =                                              & \frac{1}{\theta^{n}}I_{\{\theta<x_{1},x_{2},\ldots,x_{n}<2\theta\}} \\
+                    =                                              & \frac{1}{\theta^{n}}I_{\{\theta<x_{(1)}\leq x_{(n)}<2\theta\}}
+                \end{aligned}
+            \end{equation*}
+
+            令
+            \begin{equation*}
+                \left(T_{1},T_{2}\right)=\left(X_{(1)},X_{(n)}\right),\quad g\left(t_{1},t_{2};\theta\right)=\frac{1}{\theta^{n}}I_{\{\theta<t_{1}\leq t_{2}<2\theta\}},\quad h\left(x_{1},x_{2},\ldots, x_{n}\right)=1.
+            \end{equation*}
+
+            由因子分解定理有，$\left(T_{1},T_{2}\right)=\left(X_{(1)},X_{(n)}\right)$ 为 $\theta$ 的充分统计量。
+        \end{proof}
+    \item[14]
+        \begin{proof}
+            样本的联合密度函数为
+            \begin{equation*}
+                \begin{aligned}
+                    p\left(x_{1},x_{2},\ldots,x_{n};a,b\right)= & \prod_{i=1}^{n}\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}x_{i}^{a-1}\left(1-x_{i}\right)^{b-1}                                                           \\
+                    =                                           & \left[\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\right]^{n}\left(\prod_{i=1}^{n}x_{i}\right)^{a-1}\left[\prod_{i=1}^{n}\left(1-x_{i}\right)\right]^{b-1}
+                \end{aligned}
+            \end{equation*}
+
+            令
+            \begin{gather*}
+                \left(T_{1},T_{2}\right)=\left(\prod_{i=1}^{n}x_{i},\prod_{i=1}^{n}\left(1-x_{i}\right)\right),\quad g\left(t_{1},t_{2};a,b\right)=\left[\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\right]^{n}t_{1}^{a-1}t_{2}^{b-1}, \\
+                h\left(x_{1},x_{2},\ldots,x_{n}\right)=1.
+            \end{gather*}
+
+            由因子分解定理有，$\left(T_{1},T_{2}\right)=\left(\prod_{i=1}^{n}x_{i},\prod_{i=1}^{n}\left(1-x_{i}\right)\right)$ 为 $\left(a,b\right)$ 的充分统计量。
+        \end{proof}
+    \item[15]
+        \begin{proof}
+            样本的联合密度函数为
+            \begin{equation*}
+                \begin{aligned}
+                    p\left(x_{1},x_{2},\ldots,x_{n};\theta\right)= & \prod_{j=1}^{n}C(\theta)\exp\left[\sum_{i=1}^{k}Q_{i}(\theta)T_{i}\left(x_{j}\right)\right]h\left(x_{j}\right)                         \\
+                    =                                              & C(\theta)^{n}\exp\left[\sum_{j=1}^{n} \sum_{i=1}^{k}Q_{i}(\theta)T_{i}\left(x_{j}\right)\right]\cdot\prod_{j=1}^{n}h\left(x_{j}\right) \\
+                    =                                              & C(\theta)^{n}\exp\left[\sum_{i=1}^{k} Q_{i}(\theta)\sum_{j=1}^{n}T_{i}\left(x_{j}\right)\right]\cdot\prod_{j=1}^{n}h\left(x_{j}\right)
+                \end{aligned}
+            \end{equation*}
+
+            令
+            \begin{gather*}
+                T(x)=\left(\sum_{j=1}^{n}T_{1}\left(x_{j}\right),\ldots,\sum_{j=1}^{n}T_{k}\left(x_{j}\right)\right),\quad g(T(x);\theta)=C(\theta)^{n}\exp\left[\sum_{i=1}^{k}Q_{i}(\theta)t_{i}\right], \\
+                h\left(x_{1},x_{2},\ldots,x_{n}\right)=\prod_{j=1}^{n}h\left(x_{j}\right).
+            \end{gather*}
+
+            由因子分解定理有，$T(x)=\left(\sum_{j=1}^{n}T_{1}\left(x_{j}\right),\ldots,\sum_{j=1}^{n}T_{k}\left(x_{j}\right)\right)$为 $\theta$ 的充分统计量。
+        \end{proof}
+    \item[20]
+        \begin{proof}
+            样本的联合密度函数为
+            \begin{equation*}
+                \begin{aligned}
+                    p\left(y_{1},y_{2},\ldots,y_{n};\beta_{0},\beta_{1},\sigma^{2}\right)= & \prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{\left(y_{i}-\beta_{0}-\beta_{1}x_{i}\right)^{2}}{2\sigma^{2}}\right)            \\
+                    =                                                                      & \frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left(-\frac{1}{2\sigma^{2}}\sum_{i=1}^{n}\left(y_{i}-\beta_{0}-\beta_{1}x_{i}\right)^{2}\right)      \\
+                    =                                                                      & \frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left[-\frac{1}{2\sigma^{2}}\left(\sum_{i=1}^{n}y_{i}^{2}-2\beta_{0}\sum_{i=1}^{n}y_{i}\right.\right. \\
+                                                                                           & \left.\left.-2\beta_{1}\sum_{i=1}^{n}x_{i}y_{i}+\sum_{i=1}^{n}\left(\beta_{0}+\beta_{1}x_{i}\right)^{2}\right)\right]
+                \end{aligned}
+            \end{equation*}
+
+            令
+            \begin{gather*}
+                \left(T_{1},T_{2},T_{3}\right)=\left(\sum_{i=1}^{n}y_{i},\sum_{i=1}^{n}x_{i}y_{i},\sum_{i=1}^{n}y_{i}^{2}\right),\\
+                g\left(t_{1},t_{2},t_{3};\beta_{0},\beta_{1},\sigma^{2}\right)=\frac{1}{(\sqrt{2\pi}\sigma)^{n}}\exp\left[-\frac{1}{2\sigma^{2}}\left(t_{3}-2\beta_{0}t_{1}-2\beta_{1}t_{2}+\sum_{i=1}^{n}\left(\beta_{0}+\beta_{1}x_{i}\right)^{2}\right)\right],\\
+                h\left(y_{1},y_{2},\ldots,y_{n}\right)=1.
+            \end{gather*}
+            由因子分解定理有，$\left(T_{1},T_{2},T_{3}\right)=\left(\sum_{i=1}^{n}y_{i},\sum_{i=1}^{n}x_{i}y_{i},\sum_{i=1}^{n}y_{i}^{2}\right)$ 为 $\left(\beta_{0},\beta{1},\sigma^{2}\right)$ 的充分统计量。
+        \end{proof}
+\end{enumerate}
+\end{document}
