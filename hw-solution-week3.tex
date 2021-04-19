@@ -137,6 +137,51 @@
             \begin{equation*}
                 \operatorname{Var}(F)=E\left(F^{2}\right)-[E(F)]^{2}=\frac{m^{2}(k+2)}{k(m-2)(m-4)}-\left(\frac{m}{m-2}\right)^{2}=\frac{2m^{2}(m+k-2)}{k(m-2)^{2}(m-4)}
             \end{equation*}
+
+            （另一种思路）
+
+            由 $F$ 变量的构造知
+            \begin{equation*}
+                F=\frac{v/k}{w/m}=\frac{m}{k}v\cdot w^{-1}
+            \end{equation*}
+            ，其中 $v\sim\chi^{2}(k)$，$w\sim\chi^{2}(m)$。由于 $v$ 与 $w$ 相互独立，因此 $F$ 变量的 $r$ 阶矩有，
+            \begin{equation*}
+                E\left(F^{r}\right)=\frac{m^{r}}{k^{r}}E\left(v^{r}\right)\cdot E\left(w^{-r}\right)
+            \end{equation*}
+
+            由于 $\chi^{2}(k)=\text{Ga}\left(\frac{k}{2},\frac{1}{2}\right)$，
+            \begin{equation*}
+                \begin{aligned}
+                    E\left(v^{r}\right)= & \int_{0}^{+\infty}x^{r}\cdot p_{v}(x)\mathrm{d}x                                                                                 \\
+                    =                    & \int_{0}^{+\infty}x^{r}\cdot \frac{1}{2^{\frac{k}{2}}\Gamma\left(\frac{k}{2}\right)}e^{-\frac{x}{2}}x^{\frac{k}{2}-1}\mathrm{d}x \\
+                    =                    & \int_{0}^{+\infty}\frac{1}{2^{\frac{k}{2}}\Gamma\left(\frac{k}{2}\right)}e^{-\frac{x}{2}}x^{\frac{k}{2}+r-1}\mathrm{d}x          \\
+                    =                    & \frac{1}{2^{\frac{k}{2}}\Gamma\left(\frac{k}{2}\right)}\int_{0}^{+\infty}e^{-\frac{x}{2}}x^{\frac{k}{2}+r-1}\mathrm{d}x          \\
+                \end{aligned}
+            \end{equation*}
+            令 $t=\frac{x}{2}$，则 $x=2t$，$\mathrm{d}x=2\mathrm{d}t$，因此
+            \begin{equation*}
+                \begin{aligned}
+                    = & \frac{2^{\frac{k}{2}+r}}{2^{\frac{k}{2}}\Gamma\left(\frac{k}{2}\right)}\int_{0}^{+\infty}e^{-t}t^{\frac{k}{2}+r-1}\mathrm{d}t \\
+                    = & \frac{2^{r}\Gamma\left(\frac{k}{2}+r\right)}{\Gamma\left(\frac{k}{2}\right)}
+                \end{aligned}
+            \end{equation*}
+
+            同理，由于 $\chi^{2}(m)=\text{Ga}\left(\frac{m}{2},\frac{1}{2}\right)$，
+            \begin{equation*}
+                \begin{aligned}
+                    E\left(w^{-r}\right)= & \int_{0}^{+\infty}x^{-r}\cdot p_{w}(x)\mathrm{d}x                             \\
+                    =                     & \frac{2^{-r}\Gamma\left(\frac{m}{2}-r\right)}{\Gamma\left(\frac{m}{2}\right)}
+                \end{aligned}
+            \end{equation*}
+
+            因此，
+            \begin{equation*}
+                \begin{aligned}
+                    E\left(F^{r}\right)= & \frac{m^{r}}{k^{r}}E\left(v^{r}\right)\cdot E\left(w^{-r}\right)                                                                                \\
+                    =                    & \frac{m^{r}\Gamma\left(\frac{k}{2}+r\right)\Gamma\left(\frac{m}{2}-r\right)}{k^{r}\Gamma\left(\frac{k}{2}\right)\Gamma\left(\frac{m}{2}\right)}
+                \end{aligned}
+            \end{equation*}
+
         \end{proof}
     \item[19]
         \begin{proof}
