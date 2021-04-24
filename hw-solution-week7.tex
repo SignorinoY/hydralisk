@@ -1,0 +1,116 @@
+% !TEX program = xelatex
+
+\documentclass[normal,founder,mtpro2,cn]{elegantnote}
+    \title{2021年春季学期/数理统计/第七周/课后作业解答}
+    \author{龚梓阳}
+    \date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[3]
+        \begin{proof}
+            \begin{enumerate}
+                \item
+                      由于，
+                      \begin{equation*}
+                          E(X)=\frac{1}{N}\sum_{k=0}^{n-1}k=\frac{N-1}{2}
+                      \end{equation*}
+                      即 $N=2E(X)+1$，故 $N$ 的矩估计为 $\hat{N}=2\bar{X}+1$
+                \item
+                      由于，
+                      \begin{equation*}
+                          \begin{aligned}
+                              E(X)= & \sum_{k=2}^{+\infty}k\cdot(k-1)\theta^{2}(1-\theta)^{k-2}                                                                                                             \\
+                              =     & \theta^{2}\sum_{k=2}^{+\infty} \frac{\partial^{2}}{\partial\theta^{2}}(1-\theta)^{k}                                                                                  \\
+                              =     & \theta^{2}\frac{\partial^{2}}{\partial\theta^{2}}\left[\sum_{k=2}^{+\infty}(1-\theta)^{k}\right]                                                                      \\
+                              =     & \theta^{2}\frac{\partial^{2}}{\partial\theta^{2}}\left\{\lim_{t\rightarrow+\infty}\frac{(1-\theta)^{2}\left[1-\left(1-\theta\right)^{t}\right]}{1-(1-\theta)}\right\} \\
+                              =     & \theta^{2}\frac{\partial^{2}}{\partial\theta^{2}}\left[\frac{(1-\theta)^{2}}{1-(1-\theta)}\right]                                                                     \\
+                              =     & \theta^{2}\frac{\partial^{2}}{\partial\theta^{2}}\left(\frac{1}{\theta}-2+\theta\right)                                                                               \\
+                              =     & \theta^{2}\cdot\frac{2}{\theta^{3}}=\frac{2}{\theta}
+                          \end{aligned}
+                      \end{equation*}
+                      即 $\theta=\frac{2}{E(X)}$，故 $\theta$ 的矩估计为 $\hat{\theta}=\frac{2}{\bar{X}}$。
+            \end{enumerate}
+        \end{proof}
+    \item[4]
+        \begin{proof}
+            \begin{enumerate}
+                \item
+                      由于，
+                      \begin{equation*}
+                          E(X)=\int_{0}^{\theta}x\cdot\frac{2}{\theta^{2}}(\theta-x)\mathrm{d}x=\left.\frac{2}{\theta^{2}}\left(\theta\cdot\frac{x^{2}}{2}-\frac{x^{3}}{3}\right)\right|_{0}^{\theta}=\frac{\theta}{3}
+                      \end{equation*}
+                      即 $\theta=3E(X)$，故 $\theta$ 的矩估计为 $\hat{\theta}=3\bar{X}$。
+                \item
+                      由于，
+                      \begin{equation*}
+                          E(X)=\int_{0}^{1}x\cdot(\theta+1)x^{\theta}\mathrm{d}x=\left.(\theta+1)\cdot\frac{x^{\theta+2}}{\theta+2}\right|_{0}^{1}=\frac{\theta+1}{\theta+2}
+                      \end{equation*}
+                      即 $\theta=\frac{2E(X)-1}{1-E(X)}$，
+                      故 $\theta$ 的矩估计为 $\hat{\theta}=\frac{2\bar{X}-1}{1-\bar{X}}$。
+                \item
+                      由于，
+                      \begin{equation*}
+                          E(X)=\int_{0}^{1}x\cdot\sqrt{\theta}x^{\sqrt{\theta}-1}\mathrm{d}x=\left.\sqrt{\theta}\cdot\frac{x^{\sqrt{\theta}+1}}{\sqrt{\theta}+1}\right|_{0} ^{1}=\frac{\sqrt{\theta}}{\sqrt{\theta}+1}
+                      \end{equation*}
+                      即 $\theta=\left[\frac{E(X)}{1-E(X)}\right]^{2}$，故 $\theta$ 的矩估计为 $\hat{\theta}=\left(\frac{\bar{X}}{1-\bar{X}}\right)^{2}$。
+                \item
+                      由于，
+                      \begin{equation*}
+                          \begin{aligned}
+                              E(X)= & \int_{\mu}^{+\infty}x\cdot\frac{1}{\theta}e^{\frac{x-\mu}{\theta}}\mathrm{d}x                                   \\
+                              =     & \int_{\mu}^{+\infty}x\cdot(-1)\mathrm{d}e^{\frac{x-\mu}{\theta}}                                                \\
+                              =     & -\left.xe^{\frac{x-\mu}{\theta}}\right|_{\mu}^{+\infty}+\int_{\mu}^{+\infty}e^{\frac{x-\mu}{\theta}}\mathrm{d}x \\
+                              =     & \mu-\left.\theta e^{\frac{x-\mu}{\theta}}\right|_{\mu}^{+\infty}                                                \\
+                              =     & \mu+\theta
+                          \end{aligned}
+                      \end{equation*}
+                      \begin{equation*}
+                          \begin{aligned}
+                              E\left(X^{2}\right)  = & \int_{\mu}^{+\infty}x^{2}\cdot\frac{1}{\theta}e^{\frac{x-\mu}{\theta}}\mathrm{d}x                                     \\
+                              =                      & \int_{\mu}^{+\infty}x^{2}\cdot(-1)\mathrm{d}e^{\frac{x-\mu}{\theta}}                                                  \\
+                              =                      & -\left.x^{2}e^{\frac{x-\mu}{\theta}}\right|_{\mu}^{+\infty}+\int_{\mu}^{+\infty}2xe^{\frac{x-\mu}{\theta}}\mathrm{d}x \\
+                              =                      & \mu^{2}+2\theta E(X)                                                                                                  \\
+                              =                      & \mu^{2}+2\mu\theta+2\theta^{2}
+                          \end{aligned}
+                      \end{equation*}
+                      因此，
+                      \begin{equation*}
+                          E(X)=\mu+\theta,\quad\operatorname{Var}(X)=E\left(X^{2}\right)-[E(X)]^{2}=\theta^{2}
+                      \end{equation*}
+                      即
+                      \begin{equation*}
+                          \theta=\sqrt{\operatorname{Var}(X)},\quad\mu=E(X)-\sqrt{\operatorname{Var}(X)}
+                      \end{equation*}
+                      故 $\theta,\mu$ 的矩估计为
+                      \begin{equation*}
+                          \hat{\theta}=\sqrt{S^2},\quad\hat{\mu}=\bar{X}-\sqrt{S^2}
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+    \item[5]
+        \begin{proof}
+            由于，
+            \begin{equation*}
+                p=P\{X>0\}=P\{X-\mu>-\mu\}=1-\Phi(-\mu)=\Phi(\mu)
+            \end{equation*}
+            即 $\mu=\Phi^{-1}(p)$，故 $\mu$ 的矩估计为 $\hat{\mu}=\Phi^{-1}(\hat{p})=\Phi^{-1}\left(\frac{k}{n}\right)$。
+        \end{proof}
+    \item[7]
+        \begin{proof}
+            由于，
+            \begin{equation*}
+                E(X)=mp,\quad\operatorname{Var}(X)=mp(1-p)
+            \end{equation*}
+            即
+            \begin{equation*}
+                p=1-\frac{\operatorname{Var}(X)}{E(X)},\quad m=\frac{E(X)}{p}=\frac{[E(X)]^{2}}{E(X)-\operatorname{Var}(X)}
+            \end{equation*}
+            故 $m,p$ 的矩估计为
+            \begin{equation*}
+                \hat{m}=\frac{\bar{X}^{2}}{\bar{X}-S^{2}},\quad\hat{p}=1-\frac{S^{2}}{\bar{X}}
+            \end{equation*}
+        \end{proof}
+\end{enumerate}
+\end{document}
