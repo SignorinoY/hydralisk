@@ -1,0 +1,155 @@
+% !TEX program = xelatex
+
+\documentclass[normal,founder,mtpro2,cn]{elegantnote}
+    \title{2021年春季学期/数理统计/第六周/课后作业解答}
+    \author{龚梓阳}
+    \date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[2]
+        \begin{proof}
+            因 $X_{1},X_{2},\ldots,X_{n}\sim_{i.i.d}\text{Exp}(\lambda)=\text{Ga}(1,\lambda)$，由伽玛分布的可加性知 $Y=\sum_{i=1}^{n}X_{i}\sim\text{Ga}(n,\lambda)$，其密度函数为
+            \begin{equation*}
+                p_{Y}(y)=\frac{\lambda^{n}}{\Gamma(n)}y^{n-1}\mathrm{e}^{-\lambda y},\quad y>0
+            \end{equation*}
+            则，
+            \begin{equation*}
+                \begin{aligned}
+                    E\left(\frac{1}{\bar{X}}\right)= & E\left(\frac{n}{Y}\right)                                                                                \\
+                    =                                & \int_{0}^{+\infty}\frac{n}{y}\cdot\frac{\lambda^{n}}{\Gamma(n)}y^{n-1}\mathrm{e}^{-\lambda y}\mathrm{d}y \\
+                    =                                & \frac{n\lambda^{n}}{\Gamma(n)}\int_{0}^{+\infty}y^{n-2}\mathrm{e}^{-\lambda y}\mathrm{d}y                \\
+                    =                                & \frac{n\lambda^{n}}{\Gamma(n)}\cdot\frac{\Gamma(n-1)}{\lambda^{n-1}}                                     \\
+                    =                                & \frac{n\lambda}{n-1}
+                \end{aligned}
+            \end{equation*}
+            故，$1/\bar{X}$ 不是 $\lambda$ 的无偏估计。
+        \end{proof}
+    \item[3]
+        \begin{proof}
+            由于 $\hat{\theta}$ 是 $\theta$ 的无偏估计，即 $E(\hat{\theta})=\theta$，因此，
+            \begin{equation*}
+                E\left[(\hat{\theta})^{2}\right]=\operatorname{Var}(\hat{\theta})+[E(\hat{\theta})]^{2}=\operatorname{Var}(\hat{\theta})+\theta^{2}>\theta^{2}
+            \end{equation*}
+            故，$(\hat{\theta})^{2}$ 不是 $\theta^{2}$ 的无偏估计。
+        \end{proof}
+    \item[4]
+        \begin{proof}
+            \begin{equation*}
+                \begin{aligned}
+                    E\left[\left(X_{i+1}-X_{i}\right)^{2}\right]= & \operatorname{Var}\left(X_{i+1}-X_{i}\right)+\left[E\left(X_{i+1}-X_{i}\right)\right]^{2}                                              \\
+                    =                                             & \operatorname{Var}\left(X_{i+1}\right)+\operatorname{Var}\left(X_{i}\right)+\left[E\left(X_{i+1}\right)-E\left(X_{i}\right)\right]^{2} \\
+                    =                                             & 2\sigma^{2}
+                \end{aligned}
+            \end{equation*}
+            因此，
+            \begin{equation*}
+                \begin{aligned}
+                    E\left[c\sum_{i=1}^{n-1}\left(X_{i+1}-X_{i}\right)^{2}\right]= & c\sum_{i=1}^{n-1}E\left[\left(X_{i+1}-X_{i}\right)^{2}\right] \\
+                    =                                                              & c\cdot(n-1)\cdot 2\sigma^{2}=2c(n-1)\sigma^{2}
+                \end{aligned}
+            \end{equation*}
+            所以，当 $c=\frac{1}{2(n-1)}$ 时，
+            \begin{equation*}
+                E\left[c\sum_{i=1}^{n-1}\left(X_{i+1}-X_{i}\right)^{2}\right]=\sigma^{2}
+            \end{equation*}
+            故，$c\sum_{i=1}^{n-1}\left(X_{i+1}-X_{i}\right)^{2}$ 是 $\sigma^{2}$ 的无偏估计。
+        \end{proof}
+    \item[6]
+        \begin{proof}
+            由 $X\sim U(0,\theta)$，可知 $x_{(1)},x_{(3)}$ 的密度函数分别为
+            \begin{gather*}
+                p_{1}(x)=3[1-F(x)]^{2}p(x)=\frac{3(\theta-x)^{2}}{\theta^{3}},\quad 0<x<\theta \\
+                p_{3}(x)=3[F(x)]^{2}p(x)=\frac{3x^{2}}{\theta^{3}},\quad 0<x<\theta
+            \end{gather*}
+            则，
+            \begin{gather*}
+                E\left(X_{(1)}\right)=\int_{0}^{\theta}x\cdot\frac{3(\theta-x)^{2}}{\theta^{3}}\mathrm{d}x=\left.\frac{3}{\theta^{3}}\left(\theta^{2}\cdot\frac{x^{2}}{2}-2\theta\cdot\frac{x^{3}}{3}+\frac{x^{4}}{4}\right)\right|_{0}^{\theta}=\frac{\theta}{4}\\
+                E\left(X_{(1)}^{2}\right)=\int_{0}^{\theta} x^{2}\cdot\frac{3(\theta-x)^{2}}{\theta^{3}}\mathrm{d}x=\left.\frac{3}{\theta^{3}}\left(\theta^{2}\cdot\frac{x^{3}}{3}-2\theta\cdot\frac{x^{4}}{4}+\frac{x^{5}}{5}\right)\right|_{0}^{\theta}=\frac{\theta^{2}}{10}\\
+                E\left(X_{(3)}\right)=\int_{0}^{\theta}x\cdot\frac{3x^{2}}{\theta^{3}}dy=\left.\frac{3}{\theta^{3}}\cdot\frac{x^{4}}{4}\right|_{0}^{\theta}=\frac{3\theta}{4} \\
+                E\left(X_{(3)}^{2}\right)=\int_{0}^{\theta}x^{2}\cdot\frac{3x^{2}}{\theta^{3}}dy=\left.\frac{3}{\theta^{3}}\cdot\frac{x^{5}}{5}\right|_{0}^{\theta}=\frac{3\theta^{2}}{5}
+            \end{gather*}
+            因此，
+            \begin{equation*}
+                E\left(4X_{(1)}\right)=4\cdot\frac{\theta}{4}=\theta,\quad E\left(\frac{4}{3}X_{(3)}\right)=\frac{4}{3}\cdot\frac{3\theta}{4}=\theta
+            \end{equation*}
+            故，$4X_{(1)}$ 及 $\frac{4}{3}X_{(3)}$ 都是 $\theta$ 的无偏估计；
+
+            同时，
+            \begin{gather*}
+                \operatorname{Var}\left(4X_{(1)}\right)=16\cdot\left[\frac{\theta^{2}}{10}-\left(\frac{\theta}{4}\right)^{2}\right]=\frac{3\theta^{2}}{5} \\
+                \operatorname{Var}\left(\frac{4}{3}X_{(3)}\right)=\frac{16}{9}\cdot\left[\frac{3\theta^{2}}{5}-\left(\frac{3\theta}{4}\right)^{2}\right]=\frac{\theta^{2}}{15}
+            \end{gather*}
+            故，$\operatorname{Var}\left(4X_{(1)}\right)>\operatorname{Var}\left(\frac{4}{3}X_{(3)}\right)$，即 $\frac{4}{3}X_{(3)}$ 比 $4X_{(1)}$ 更有效。
+        \end{proof}
+    \item[7]
+        \begin{proof}
+            由于，
+            \begin{equation*}
+                E(Y)=aE\left(\bar{X}_{1}\right)+bE\left(\bar{X}_{2}\right)=a\mu+b\mu=(a+b)\mu=\mu
+            \end{equation*}
+            故 $Y$ 是 $\mu$ 的无偏估计；
+
+            同时，
+            \begin{equation*}
+                \begin{aligned}
+                    \operatorname{Var}(Y)= & a^{2}\operatorname{Var}\left(\bar{X}_{1}\right)+b^{2}\operatorname{Var}\left(\bar{X}_{2}\right) \\
+                    =                      & a^{2}\cdot\frac{\sigma^{2}}{n_{1}}+(1-a)^{2}\cdot\frac{\sigma^{2}}{n_{2}}                       \\
+                    =                      & \left(\frac{n_{1}+n_{2}}{n_{1}n_{2}}a^{2}-\frac{2}{n_{2}}a+\frac{1}{n_{2}}\right) \sigma^{2}
+                \end{aligned}
+            \end{equation*}
+
+            对 $\operatorname{Var}(Y)$ 求导，可得
+            \begin{equation*}
+                \frac{\partial\operatorname{Var}(Y)}{\partial a}=\left(\frac{n_{1}+n_{2}}{n_{1}n_{2}}\cdot2a-\frac{2}{n_{2}}\right)\sigma^{2}
+            \end{equation*}
+            令 $\frac{\partial\operatorname{Var}(Y)}{\partial a}=0$，得 $a=\frac{n_{1}}{n_{1}+n_{2}}$。
+
+            同时，
+            \begin{equation*}
+                \frac{\partial^{2}\operatorname{Var}(Y)}{\partial^{2}a}=\frac{n_{1}+n_{2}}{n_{1}n_{2}}\cdot 2\sigma^{2}>0
+            \end{equation*}
+
+            故当 $a=\frac{n_{1}}{n_{1}+n_{2}},\quad b=1-a=\frac{n_{2}}{n_{1}+n_{2}}$ 时，$\operatorname{Var}(Y)$ 达到最小，此时 $\frac{1}{n_{1}+n_{2}}\sigma^{2}$。
+        \end{proof}
+    \item[8]
+        \begin{proof}
+            因 $T\left(X_{1},\ldots,X_{n}\right)$ 为 $\mu$ 的任一线性无偏估计量，不妨设
+            \begin{equation*}
+                T\left(X_{1},\ldots,X_{n}\right)=\sum_{i=1}^{n}a_{i}X_{i}
+            \end{equation*}
+            则，
+            \begin{equation*}
+                E(T)=\sum_{i=1}^{n}a_{i}E\left(X_{i}\right)=\mu\sum_{i=1}^{n}a_{i}=\mu
+            \end{equation*}
+            因此 $\sum_{i=1}^{n}a_{i}=1$。
+
+            同时，由于 $X_{1},\ldots,X_{n}$ 相互独立，当 $i\neq j$ 时，有
+            \begin{equation*}
+                \operatorname{Cov}\left(X_{i},X_{j}\right)=0
+            \end{equation*}
+            则，
+            \begin{equation*}
+                \begin{aligned}
+                    \operatorname{Cov}(\bar{X},T)= & \operatorname{Cov}\left(\frac{1}{n}\sum_{i=1}^{n}X_{i},\sum_{i=1}^{n}a_{i}X_{i}\right) \\
+                    =                              & \sum_{i=1}^{n}\operatorname{Cov}\left(\frac{1}{n}X_{i},a_{i}X_{i}\right)               \\
+                    =                              & \sum_{i=1}^{n}\frac{a_{i}}{n}\operatorname{Cov}\left(X_{i},X_{i}\right)                \\
+                    =                              & \frac{\sigma^{2}}{n}\sum_{i=1}^{n}a_{i}=\frac{\sigma^{2}}{n}
+                \end{aligned}
+            \end{equation*}
+            因此，
+            \begin{equation*}
+                \operatorname{Var}(\bar{X})=\frac{1}{n}\operatorname{Var}(X)=\frac{\sigma^{2}}{n}=\operatorname{Cov}(\bar{X},T)
+            \end{equation*}
+            故 $\bar{X}$ 与 $T$ 的相关系数为
+            \begin{equation*}
+                \begin{aligned}
+                    \operatorname{Corr}(\bar{X},T)= & \frac{\operatorname{Cov}(\bar{X},T)}{\sqrt{\operatorname{Var}(\bar{X})}\sqrt{\operatorname{Var}(T)}} \\
+                    =                               & \frac{\operatorname{Var}(\bar{X})}{\sqrt{\operatorname{Var}(\bar{X})}\sqrt{\operatorname{Var}(T)}}   \\
+                    =                               & \sqrt{\frac{\operatorname{Var}(\bar{X})}{\operatorname{Var}(T)}}
+                \end{aligned}
+            \end{equation*}
+        \end{proof}
+\end{enumerate}
+\end{document}
