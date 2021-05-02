@@ -1,0 +1,318 @@
+% !TEX program = xelatex
+
+\documentclass[normal,founder,mtpro2,cn]{elegantnote}
+    \title{2021年春季学期/数理统计/第八周/课后作业解答}
+    \author{龚梓阳}
+    \date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[2]
+        \begin{proof}
+            \begin{enumerate}
+                \item
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的似然函数为
+                      \begin{equation*}
+                          \begin{aligned}
+                              L(\theta)= & \prod_{i=1}^{n}c\theta^{c}x_{i}^{-(c+1)}\mathrm{I}_{x_{i}>\theta}                       \\
+                              =          & c^{n}\theta^{nc}\Pi_{i=1}^{n}x_{i}^{-(c+1)}\mathrm{I}_{x_{1},x_{2},\ldots,x_{n}>\theta}
+                          \end{aligned}
+                      \end{equation*}
+
+                      $c^{n}\theta^{nc}\Pi_{i=1}^{n}x_{i}^{-(c+1)}$ 关于 $\theta$ 单调递增，且由于示性函数的限制，仅当 $x_{1},x_{2},\ldots,x_{n}>\theta$ 时，$L(\theta)>0$。因此，$\theta=\min\left\{x_{1},x_{2},\ldots,x_{n}\right\}=x_{(1)}$ 时，$L(\theta)$ 达到最大。
+
+                      故 $\theta$ 的最大似然估计为 $\hat{\theta}=X_{(1)}$。
+                \item
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的似然函数为
+                      \begin{equation*}
+                          \begin{aligned}
+                              L(\theta,\mu)= & \prod_{i=1}^{n}\frac{1}{\theta}\mathrm{e}^{-\frac{x_{i}-\mu}{\theta}}\mathrm{I}_{x_{i}>\mu}                                      \\
+                              =              & \frac{1}{\theta^{n}}\mathrm{e}^{-\frac{1}{\theta}\left(\sum_{i=1}^{n}x_{i}-n\mu\right)}\mathrm{I}_{x_{1},x_{2},\ldots,x_{n}>\mu}
+                          \end{aligned}
+                      \end{equation*}
+
+                      当 $x_{1},x_{2},\ldots,x_{n}>\mu$ 时，
+                      \begin{equation*}
+                          \ln L(\theta,\mu)=-n\ln\theta-\frac{1}{\theta}\left(\sum_{i=1}^{n}x_{i}-n\mu\right)
+                      \end{equation*}
+
+                      对于给定的 $\theta_{0}$，
+                      \begin{equation*}
+                          \frac{\partial\ln L(\theta_{0},\mu)}{\partial\mu}=\frac{n}{\theta_{0}}>0
+                      \end{equation*}
+                      $\ln L(\theta_{0},\mu)$ 关于 $\mu$ 单调递增，且由于示性函数的限制，仅当 $x_{1},x_{2},\ldots,x_{n}>\mu$ 时，$\ln L(\theta_{0},\mu)>0$，因此，$\mu=\min\left\{x_{1},x_{2},\ldots,x_{n}\right\}=x_{(1)}$ 时，$\ln L(\theta_{0},\mu)$ 达到最大。
+
+                      因此，令
+                      \begin{equation*}
+                          \frac{\partial\ln L(\theta,\hat{\mu})}{\partial\theta}=-\frac{n}{\theta}+\frac{1}{\theta^{2}}\left(\sum_{i=1}^{n}x_{i}-n\hat{\mu}\right)=0
+                      \end{equation*}
+                      解得 $\theta=\frac{1}{n}\left(\sum_{i=1}^{n}x_{i}-n\hat{\mu}\right)=\bar{x}-\hat{\mu}=\bar{x}-x_{(1)}$。
+
+                      故 $\mu$ 的极大似然估计为 $\hat{\mu}=X_{(1)}$，$\theta$ 的极大似然估计为 $\bar{X}-X_{(1)}$。
+                \item
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的似然函数为
+                      \begin{equation*}
+                          \begin{aligned}
+                              L(\theta)= & \prod_{i=1}^{n}(k\theta)^{-1}\mathrm{I}_{\theta<x_{i}<(k+1)\theta}     \\
+                              =          & (k\theta)^{-n}\mathrm{I}_{\theta<x_{1},x_{2},\ldots,x_{n}<(k+1)\theta}
+                          \end{aligned}
+                      \end{equation*}
+
+                      $(k\theta)^{-n}$ 关于 $\theta$ 单调递减，且由于示性函数的限制，仅当 $\theta<x_{1},x_{2},\ldots,x_{n}<(k+1)\theta$ 时，$L(\theta)>0$。因此，$\theta=\frac{1}{k+1}\max\left\{x_{1},x_{2},\ldots,x_{n}\right\}=\frac{x_{(n)}}{k+1}$ 时，$L(\theta)$ 达到最大。
+
+                      故 $\theta$ 的最大似然估计为 $\hat{\theta}=\frac{X_{(n)}}{k+1}$。
+            \end{enumerate}
+        \end{proof}
+    \item[3]
+        \begin{proof}
+            \begin{enumerate}
+                \item
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的似然函数为
+                      \begin{equation*}
+                          L(\theta)=\prod_{i=1}^{n}\frac{1}{2\theta}\mathrm{e}^{-\frac{|x_{i}|}{\theta}}=\frac{1}{2^{n}\theta^{n}}\mathrm{e}^{\frac{1}{\theta}\sum_{i=1}^{n}\left|x_{i}\right|}
+                      \end{equation*}
+                      其对数似然函数为
+                      \begin{equation*}
+                          \ln L(\theta)=-n\ln 2-n\ln\theta-\frac{1}{\theta}\sum_{i=1}^{n}|x_{i}|
+                      \end{equation*}
+                      令
+                      \begin{equation*}
+                          \frac{\partial\ln L(\theta)}{\partial\theta}=-n\frac{1}{\theta}+\frac{1}{\theta^{2}}\sum_{i=1}^{n}|x_{i}|=0
+                      \end{equation*}
+                      解得 $\theta=\frac{1}{n}\sum_{i=1}^{n}|x_{i}|$。
+
+                      同时，由于，
+                      \begin{equation*}
+                          \begin{aligned}
+                              \left.\frac{\partial^{2}\ln L(\theta)}{\partial\theta^{2}}\right|_{\theta=\frac{1}{n}\sum_{i=1}^{n}|x_{i}|}= & \left.\left(\frac{n}{\theta^{2}}-\frac{2\sum_{i=1}^{n}|x_{i}|}{\theta^{3}}\right)\right|_{\theta=\frac{1}{n}\sum_{i=1}^{n}|x_{i}|} \\
+                              =                                                                                                            & -\frac{n^{3}}{\left(\sum_{i=1}^{n}|x_{i}|\right)^{2}}<0
+                          \end{aligned}
+                      \end{equation*}
+                      故 $\theta$ 的最大似然估计为 $\hat{\theta}=\frac{1}{n} \sum_{i=1}^{n}\left|X_{i}\right|$。
+                \item
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的似然函数为
+                      \begin{equation*}
+                          L(\theta)=\prod^{n}\mathrm{I}_{\theta-\frac{1}{2}<x_{i}<\theta+\frac{1}{2}}=\mathrm{I}_{\theta-\frac{1}{2}<x_{1},x_{2},\ldots,x_{n}<\theta+\frac{1}{2}}
+                      \end{equation*}
+                      $L(\theta)$ 仅存在两个取值 0 和 1，且当 $x_{(n)}-\frac{1}{2}<\theta<x_{(1)}+\frac{1}{2}$ 时，有 $L(\theta)=1$。
+
+                      故 $\theta$ 的最大似然估计为 $\hat{\theta}$ 是 $\left(X_{(n)}-\frac{1}{2},X_{(1)}+\frac{1}{2}\right)$ 中任何一个值。
+                \item
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的似然函数为
+                      \begin{equation*}
+                          \begin{aligned}
+                              L\left(\theta_{1},\theta_{2}\right)= & \prod_{i=1}^{n}\frac{1}{\theta_{2}-\theta_{1}}\mathrm{I}_{\theta_{1}<x_{i}<\theta_{2}}                      \\
+                              =                                    & \frac{1}{\left(\theta_{2}-\theta_{1}\right)^{n}}\mathrm{I}_{\theta_{1}<x_{1},x_{2},\ldots,x_{n}<\theta_{2}}
+                          \end{aligned}
+                      \end{equation*}
+
+                      显然 $\theta_{1}$ 越大且 $\theta_{2}$ 越小时， $\frac{1}{\left(\theta_{2}-\theta_{1}\right)^{n}}$ 越大，且由于示性函数的限制，仅当 $\theta_{1}<x_{1},x_{2},\ldots,x_{n}<\theta_{2}$ 时，$L\left(\theta_{1},\theta_{2}\right)>0$。因此，$\theta_{1}=\min\left\{x_{1},x_{2},\ldots,x_{n}\right\}=x_{(1)},\theta_{2}=\max\left\{x_{1},x_{2},\ldots,x_{n}\right\}=x_{(n)}$ 时, $L\left(\theta_{1},\theta_{2}\right)$ 达到最大。
+
+                      故 $\theta_{1}$ 的最大似然估计为 $\hat{\theta}_{1}=X_{(1)}$，$\theta_{2}$ 的最大似然估计为 $\hat{\theta}_{2}=X_{(n)}$。
+            \end{enumerate}
+        \end{proof}
+    \item[5]
+        \begin{proof}
+            当 $m=2$ 时，$X$ 只能取值 1 或 2，且
+            \begin{gather*}
+                P\left(X=1\right)=\frac{2p(1-p)}{1-(1-p)^{2}}=\frac{2-2p}{2-p} \\
+                P\left(X=2\right)=\frac{p^{2}}{1-(1-p)^{2}}=\frac{p}{2-p}
+            \end{gather*}
+            因此，
+            \begin{equation*}
+                P\left(X=x;p\right)=\left(\frac{2-2p}{2-p}\right)^{2-x}\left(\frac{p}{2-p}\right)^{x-1}=\frac{(2-2p)^{2-x}p^{x-1}}{2-p},\quad x=1,2
+            \end{equation*}
+
+            样本 $x_{1},x_{2},\ldots,x_{n}$ 的似然函数为
+            \begin{equation*}
+                L(p)=\prod_{i=1}^{n}\frac{(2-2p)^{2-x_{i}}p^{x_{i}-1}}{2-p}=\frac{(2-2p)^{2n-\sum_{i=1}^{n}x_{i}}p^{\sum_{i=1}^{n}x_{i}-n}}{(2-p)^{n}}
+            \end{equation*}
+            其对数似然函数为
+            \begin{equation*}
+                \ln L(p)=\left(2 n-\sum_{i=1}^{n} x_{i}\right) \cdot \ln (2-2 p)+\left(\sum_{i=1}^{n} x_{i}-n\right) \cdot \ln p-n \ln (2-p)
+            \end{equation*}
+
+            令
+            \begin{equation*}
+                \frac{\partial\ln L(p)}{\partial p}=\left(2 n-\sum_{i=1}^{n} x_{i}\right) \cdot \frac{-2}{2-2 p}+\left(\sum_{i=1}^{n} x_{i}-n\right) \cdot \frac{1}{p}-n \cdot \frac{-1}{2-p}=0
+            \end{equation*}
+            解得
+            \begin{equation*}
+                p=2-\frac{2n}{\sum_{i=1}^{n}x_{i}}=2-\frac{2}{\bar{x}}
+            \end{equation*}
+
+            故 $p$ 的最大似然估计为 $\hat{p}=2-\frac{2}{\bar{X}}$。
+        \end{proof}
+    \item[7]
+        \begin{proof}
+            \begin{enumerate}
+                \item
+                      因为 $X\sim U(\theta,2\theta)$，有，
+                      \begin{equation*}
+                          E(X)=\frac{\theta+2\theta}{2}=\frac{3}{2}\theta,\quad\operatorname{Var}(X)=\frac{(2\theta-\theta)^{2}}{12}=\frac{1}{12}\theta^{2}
+                      \end{equation*}
+                      故，
+                      \begin{equation*}
+                          E(\hat{\theta})=\frac{2}{3}E(\bar{X})=\frac{2}{3}E(X)=\frac{2}{3}\cdot\frac{3}{2}\theta=\theta
+                      \end{equation*}
+                      即 $\hat{\theta}=\frac{2}{3}\bar{X}$ 是参数 $\theta$ 的无偏估计；
+
+                      同时，因
+                      \begin{equation*}
+                          \operatorname{Var}(\hat{\theta})=\frac{4}{9}\operatorname{Var}(\bar{X})=\frac{4}{9n}\operatorname{Var}(X)=\frac{4}{9n}\cdot\frac{1}{12}\theta^{2}=\frac{\theta^{2}}{27n}
+                      \end{equation*}
+                      有，
+                      \begin{equation*}
+                          \lim_{n\rightarrow\infty}E(\hat{\theta})=\theta,\quad\lim_{n\rightarrow\infty}\operatorname{Var}(\hat{\theta})=0
+                      \end{equation*}
+                      故 $\hat{\theta}=\frac{2}{3}\bar{X}$ 是参数 $\theta$ 的相合估计。
+                \item
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的似然函数为
+                      \begin{equation*}
+                          L(\theta)=\prod_{i=1}^{n}\frac{1}{\theta}\mathrm{I}_{\theta<x_{i}<2\theta}=\frac{1}{\theta^{n}}\mathrm{I}_{\theta<x_{1},x_{2},\ldots,x_{n}<2\theta}
+                      \end{equation*}
+
+                      $\frac{1}{\theta^{n}}$ 关于 $\theta$ 单调递减，且由于示性函数的限制，仅当 $\theta<x_{1},x_{2},\ldots,x_{n}<2\theta$ 时，$L(\theta)>0$。因此，$\theta=\frac{1}{2}\max\left\{x_{1},x_{2},\ldots,x_{n}\right\}=\frac{1}{2}x_{(n)}$ 时，$L(\theta)$ 达到最大。
+
+                      故 $\theta$ 的最大似然估计为 $\hat{\theta}_{\text{MLE}}=\frac{1}{2}X_{(n)}$。
+
+                      由于 $X$ 的密度函数与分布函数为
+                      \begin{equation*}
+                          p(x)=\left\{\begin{array}{ll}
+                              \frac{1}{\theta}, & \theta<x<2 \theta \\
+                              0,                & \text { 其他 }
+                          \end{array}\right.\quad
+                          F(x)=\left\{\begin{array}{ll}0, & x<\theta \\ \frac{x-\theta}{\theta}, & \theta \leq x<2 \theta ; \\ 1, & x \geq 2 \theta .\end{array}\right.
+                      \end{equation*}
+                      则 $X_{(n)}$ 的密度函数为
+                      \begin{equation*}
+                          p_{n}(x)=n[F(x)]^{n-1}p(x)=\left\{\begin{array}{ll}
+                              \frac{n(x-\theta)^{n-1}}{\theta^{n}}, & \theta<x<2 \theta \\
+                              0,                                    & \text { 其他 }
+                          \end{array}\right.
+                      \end{equation*}
+
+                      所以，
+                      \begin{equation*}
+                          E\left(X_{(n)}-\theta\right)=\int_{\theta}^{2\theta}(x-\theta)\cdot\frac{n(x-\theta)^{n-1}}{\theta^{n}}\mathrm{d}x=\left.\frac{n}{\theta^{n}}\cdot\frac{(x-\theta)^{n+1}}{n+1}\right|_{\theta}^{2\theta}=\frac{n}{n+1}\theta
+                      \end{equation*}
+                      有，
+                      \begin{equation*}
+                          E\left(X_{(n)}\right)=\frac{2 n+1}{n+1}\theta
+                      \end{equation*}
+
+                      \begin{equation*}
+                          E\left[\left(X_{(n)}-\theta\right)^{2}\right]=\int_{\theta}^{2\theta}(x-\theta)^{2}\cdot\frac{n(x-\theta)^{n-1}}{\theta^{n}}\mathrm{d}x=\left.\frac{n}{\theta^{n}}\cdot\frac{(x-\theta)^{n+2}}{n+2}\right|_{\theta}^{2\theta}=\frac{n}{n+2}\theta^{2}
+                      \end{equation*}
+                      有，
+                      \begin{equation*}
+                          \operatorname{Var}\left(X_{(n)}\right)=\operatorname{Var}\left(X_{(n)}-\theta\right)=\frac{n}{n+2}\theta^{2}-\left(\frac{n}{n+1}\theta\right)^{2}=\frac{n}{(n+1)^{2}(n+2)}\theta^{2}
+                      \end{equation*}
+
+                      又由于，$\hat{\theta}_{\text{MLE}}=\frac{1}{2}X_{(n)}$
+                      \begin{gather*}
+                          E\left(\hat{\theta}_{\text{MLE}}\right)=\frac{1}{2}E\left(X_{(n)}\right)=\frac{2n+1}{2(n+1)}\theta\neq\theta \\
+                          \operatorname{Var}\left(\hat{\theta}_{\text{MLE}}\right)=\frac{1}{4}\operatorname{Var}\left(X_{(n)}\right)=\frac{n}{4(n+1)^{2}(n+2)}\theta^{2}
+                      \end{gather*}
+                      故 $\hat{\theta}_{\text{MLE}}=\frac{1}{2}X_{(n)}$ 不是参数 $\theta$ 的无偏估计。
+
+                      因为，
+                      \begin{gather*}
+                          \lim_{n\rightarrow\infty}E\left(\hat{\theta}_{\text{MLE}}\right)=\lim_{n\rightarrow\infty}\frac{2n+1}{2(n+1)}\theta=\theta \\
+                          \lim_{n\rightarrow\infty}\operatorname{Var}\left(\hat{\theta}_{\text{MLE}}\right)=\lim_{n\rightarrow\infty}\frac{n}{4(n+1)^{2}(n+2)}\theta^{2}=0
+                      \end{gather*}
+                      故 $\theta$ 的最大似然估计 $\hat{\theta}_{\text{MLE}}=\frac{1}{2}X_{(n)}$ 是参数 $\theta$ 的相合估计。
+            \end{enumerate}
+        \end{proof}
+    \item[8]
+        \begin{proof}
+            \begin{enumerate}
+                \item
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的似然函数为
+                      \begin{equation*}
+                          L(\theta)=\prod_{i=1}^{n}\mathrm{e}^{-\left(x_{i}-\theta\right)}\mathrm{I}_{x_{i}>\theta}=\exp\left(-\sum_{i=1}^{n}x_{i}+n\theta\right)\mathrm{I}_{x_{1},x_{2},\ldots,x_{n}>\theta}
+                      \end{equation*}
+                      $\exp\left(-\sum_{i=1}^{n}x_{i}+n\theta\right)$ 关于 $\theta$ 单调递增，且由于示性函数的限制，仅当 $x_{1},x_{2},\ldots,x_{n}>\theta$ 时，$L(\theta)>0$。因此，$\theta=\min\left\{x_{1},x_{2},\ldots,x_{n}\right\}=x_{(1)}$ 时，$L(\theta)$ 达到最大。
+
+                      故 $\theta$ 的最大似然估计为 $\hat{\theta}_{1}=X_{(1)}$。
+
+                      由于 $X$ 的密度函数与分布函数为
+                      \begin{equation*}
+                          p(x)=\left\{\begin{array}{ll}
+                              \mathrm{e}^{-(x-\theta)}, & x>\theta      \\
+                              0,                        & x \leq \theta
+                          \end{array}\right.\quad
+                          F(x)=\left\{\begin{array}{ll}
+                              1-\mathrm{e}^{-(x-\theta)}, & x>\theta      \\
+                              0,                          & x \leq \theta
+                          \end{array}\right.
+                      \end{equation*}
+                      则 $X_{(1)}$ 的密度函数为
+                      $$
+                          p_{1}(x)=n[1-F(x)]^{n-1}p(x)=\left\{\begin{array}{ll}
+                              n \mathrm{e}^{-n(x-\theta)}, & x>\theta        \\
+                              0,                           & x \leq \theta .
+                          \end{array}\right.
+                      $$
+                      可得 $X_{(1)}-\theta$ 服从指数分布 $\operatorname{Exp}(n)$。
+
+                      所以，
+                      \begin{equation*}
+                          E\left(X_{(1)}-\theta\right)=\frac{1}{n},\quad\operatorname{Var}\left(X_{(1)}-\theta\right)=\frac{1}{n^{2}}
+                      \end{equation*}
+                      则，
+                      \begin{gather*}
+                          E\left(\hat{\theta}_{1}\right)=E\left(X_{(1)}\right)=\theta+\frac{1}{n}\neq\theta \\
+                          \operatorname{Var}\left(\hat{\theta}_{1}\right)=\operatorname{Var}\left(X_{(1)}\right)=\operatorname{Var}\left(X_{(1)}-\theta\right)=\frac{1}{n^{2}}
+                      \end{gather*}
+                      故 $\hat{\theta}_{1}=X_{(1)}$ 不是 $\theta$ 的无偏估计。
+
+                      由于，
+                      \begin{equation*}
+                          \lim_{n\rightarrow\infty}E\left(\hat{\theta}_{1}\right)=\lim_{n\rightarrow\infty}\left(\theta+\frac{1}{n}\right)=\theta,\quad\lim_{n\rightarrow\infty}\operatorname{Var}\left(\hat{\theta}_{1}\right)=\lim_{n\rightarrow\infty}\frac{1}{n^{2}}=0
+                      \end{equation*}
+                      故 $\hat{\theta}_{1}=X_{(1)}$ 是 $\theta$ 的相合估计;
+                \item
+                      总体 $X$ 的密度函数为
+                      \begin{equation*}
+                          p(x;\theta)=\mathrm{e}^{-(x-\theta)},x>\theta
+                      \end{equation*}
+                      有 $X-\theta$ 服从指数分布 $\operatorname{Exp}(1)$。
+
+                      则 $E(X-\theta)=E(X)-\theta=1$，即 $\theta=E(X)-1$，故 $\theta$ 的矩估计 $\hat{\theta}_{2}=\bar{X}-1$。
+
+                      因，
+                      \begin{equation*}
+                          E(X)=\theta+1,\quad\operatorname{Var}(X)=\operatorname{Var}(X-\theta)=\theta^{2}
+                      \end{equation*}
+                      则，
+                      \begin{equation*}
+                          E\left(\hat{\theta}_{2}\right)=E(\bar{X})-1=E(X)-1=\theta,\quad\operatorname{Var}\left(\hat{\theta}_{2}\right)=\operatorname{Var}(\bar{X})=\frac{1}{n}\operatorname{Var}(X)=\frac{\theta^{2}}{n}
+                      \end{equation*}
+                      故 $\hat{\theta}_{2}=\bar{X}-1$ 是 $\theta$ 的无偏估计。
+
+                      因，
+                      \begin{equation*}
+                          \lim_{n\rightarrow\infty}E\left(\hat{\theta}_{2}\right)=\theta,\quad\lim_{n\rightarrow\infty}\operatorname{Var}\left(\hat{\theta}_{2}\right)=\lim_{n\rightarrow\infty}\frac{\theta^{2}}{n}=0
+                      \end{equation*}
+                      故 $\hat{\theta}_{2}=\bar{X}-1$ 是 $\theta$ 的相合估计。
+            \end{enumerate}
+        \end{proof}
+    \item[10]
+        \begin{proof}
+            若只有一个观测值 $x$，似然函数为
+            \begin{equation*}
+                L\left(\mu,\sigma^{2}\right)=\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+            \end{equation*}
+            对于任一固定的 $\sigma$，当 $\mu=x$ 时，$L(\mu)$ 取得最大值 $\frac{1}{\sqrt{2\pi}\sigma}$。
+
+            由于 $\frac{1}{\sqrt{2\pi}\sigma}$ 关于 $\sigma$ 单调递减，且
+            \begin{equation*}
+                \lim_{\sigma\rightarrow 0}\frac{1}{\sqrt{2\pi}\sigma}=\infty
+            \end{equation*}
+            即 $\frac{1}{\sqrt{2\pi}\sigma}$ 不存在最大值，故 $\mu,\sigma^{2}$ 的最大似然估计不存在。
+        \end{proof}
+\end{enumerate}
+
+\end{document}
