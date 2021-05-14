@@ -16,7 +16,7 @@
                       \begin{equation*}
                           E(X)=\frac{1}{N}\sum_{k=0}^{n-1}k=\frac{N-1}{2}
                       \end{equation*}
-                      即 $N=2E(X)+1$，故 $N$ 的矩估计为 $\hat{N}=2\bar{X}+1$
+                      即 $N=2E(X)+1$，也就是 $\hat{N}=2\bar{X}+1$。同时由于 $N$ 是正整数，故 $\theta$ 的矩估计为 $\hat{N}=\lceil 2\bar{X}\rceil+1$，其中 $\lceil*\rceil$ 为向上取整。
                 \item
                       由于，
                       \begin{equation*}
@@ -110,6 +110,10 @@
             故 $(m,p)$ 的矩估计为
             \begin{equation*}
                 \hat{m}=\frac{\bar{X}^{2}}{\bar{X}-S^{2}},\quad\hat{p}=1-\frac{S^{2}}{\bar{X}}
+            \end{equation*}
+            同时，由于 $m$ 为正整数，故 $m$ 的矩估计应修改为
+            \begin{equation*}
+                \hat{m}=\lceil\frac{\bar{X}^{2}}{\bar{X}-S^{2}}\rceil
             \end{equation*}
         \end{proof}
 \end{enumerate}
