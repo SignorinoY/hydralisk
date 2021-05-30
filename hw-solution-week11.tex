@@ -1,0 +1,269 @@
+% !TEX program = xelatex
+
+\documentclass[normal,founder,mtpro2,cn]{elegantnote}
+    \title{2021年春季学期/数理统计/第十一周/课后作业解答}
+    \author{龚梓阳}
+    \date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[2]
+        \begin{proof}
+            由于 $T_{1},T_{2}$ 分别为 $\theta_{1},\theta_{2}$ 的 UMVUE，所以
+            \begin{equation*}
+                E\left(T_{i}\right)=\theta_{i},\quad i=1,2
+            \end{equation*}
+            且对于任意满足 $E\left(\varphi\right)=0,\operatorname{Var}\left(\varphi\right)<\infty$ 的 $\varphi$ 有
+            \begin{equation*}
+                \operatorname{Cov}\left(T_{i},\theta_{i}\right),\quad i=1,2
+            \end{equation*}
+            因此，
+            \begin{equation*}
+                E\left(aT_{1}+bT_{2}\right)=a\theta_{1}+b\theta_{2}
+            \end{equation*}
+            \begin{equation*}
+                \operatorname{Cov}\left(aT_{1}+bT_{2},\varphi\right)=a\operatorname{Cov}\left(T_{1},\varphi\right)+b\operatorname{Cov}\left(T_{2},\varphi\right)
+            \end{equation*}
+            故，由 UMVUE 的判断准则有，$aT_{1}+bT_{2}$ 是 $a\theta_{1}+b\theta_{2}$ 的 UMVUE。
+        \end{proof}
+    \item[3]
+        \begin{proof}
+            由于 $T,\hat{g}$ 是 $g\left(\theta\right)$ 的无偏估计，故
+            \begin{equation*}
+                E\left(T\right)=g\left(\theta\right),\quad E\left(\hat{g}\right)=g\left(\theta\right)
+            \end{equation*}
+            因此，
+            \begin{equation*}
+                E\left(T-\hat{g}\right)=0
+            \end{equation*}
+            由于 $\operatorname{Var}\left(T\right)<\infty,\operatorname{Var}\left(\hat{g}\right)<\infty$，故
+            \begin{equation*}
+                \operatorname{Var}\left(T-\hat{g}\right)<\infty
+            \end{equation*}
+            所以，由判断准则有，
+            \begin{equation*}
+                \operatorname{Cov}\left(T,T-\hat{g}\right)=\operatorname{Var}\left(T\right)-\operatorname{Cov}\left(T,\hat{g}\right)=0
+            \end{equation*}
+            故，
+            \begin{equation*}
+                \operatorname{Cov}\left(T,\hat{g}\right)=\operatorname{Var}\left(T\right)\geq 0
+            \end{equation*}
+        \end{proof}
+    \item[5]
+        \begin{proof}
+            令
+            \begin{equation*}
+                S_{\theta}=\frac{\partial\ln p\left(x;\theta\right)}{\partial\theta}
+            \end{equation*}
+            则，
+            \begin{equation*}
+                \begin{aligned}
+                    E\left(S_{\theta}\right)= & \int_{-\infty}^{+\infty}\frac{1}{p\left(x;\theta\right)}\cdot\frac{\partial p\left(x;\theta\right)}{\partial\theta}\cdot p\left(x;\theta\right)\,\mathrm{d}x                            \\
+                    =                         & \int_{-\infty}^{+\infty}\frac{\partial}{\partial\theta}p\left(x;\theta\right)\,\mathrm{d}x=\frac{\partial}{\partial\theta}\int_{-\infty}^{+\infty}p\left(x;\theta\right)\,\mathrm{d}x=0
+                \end{aligned}
+            \end{equation*}
+            所以，
+            \begin{equation*}
+                \frac{\partial}{\partial\theta}E\left(S_{\theta}\right)=0
+            \end{equation*}
+            同时，
+            \begin{equation*}
+                \begin{aligned}
+                    \frac{\partial E\left(S_{\theta}\right)}{\partial\theta} & =\frac{\partial}{\partial\theta} \int_{-\infty}^{+\infty}S_{\theta}\cdot p\left(x;\theta\right)\,\mathrm{d}x=\int_{-\infty}^{+\infty}\frac{\partial}{\partial\theta}\left[S_{\theta}\cdot p\left(x;\theta\right)\right]\,\mathrm{d}x                                           \\
+                    =                                                        & \int_{-\infty}^{\infty}\left[\frac{\partial S_{\theta}}{\partial\theta}\cdot p\left(x;\theta\right)+S_{\theta}\cdot\frac{\partial p\left(x;\theta\right)}{\partial\theta}\right]\,\mathrm{d}x                                                                                  \\
+                    =                                                        & \int_{-\infty}^{+\infty}\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}\cdot p\left(x;\theta\right)\,\mathrm{d}x+\int_{-\infty}^{+\infty}\left[\frac{\partial\ln p\left(x;\theta\right)}{\partial\theta}\right]^{2}\cdot p\left(x;\theta\right)\,\mathrm{d}x \\
+                    =                                                        & E\left[\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}\right]+E\left(S_{\theta}^{2}\right)                                                                                                                                                                   \\
+                    =                                                        & E\left[\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}\right]+I\left(\theta\right)=0
+                \end{aligned}
+            \end{equation*}
+            故，
+            \begin{equation*}
+                I\left(\theta\right)=-E\left[\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}\right]
+            \end{equation*}
+        \end{proof}
+    \item[6]
+        \begin{proof}
+            \begin{enumerate}
+                \item 样本 $x_{1},x_{2},\ldots,x_{n}$ 的似然函数为
+                      \begin{equation*}
+                          L\left(\theta\right)=\prod_{i=1}^{n}\theta x_{i}^{\theta-1}
+                      \end{equation*}
+                      对数似然函数为
+                      \begin{equation*}
+                          \ln L\left(\theta\right)=n\ln\theta+\left(\theta-1\right)\sum_{i=1}^{n}\ln x_{i}=-n\ln g\left(\theta\right)+\left[\frac{1}{g\left(\theta\right)}-1\right]\sum_{i=1}^{n}\ln x_{i}
+                      \end{equation*}
+                      令
+                      \begin{equation*}
+                          \frac{\partial\ln L\left(\theta\right)}{\partial g\left(\theta\right)}=-\frac{n}{g\left(\theta\right)}-\frac{1}{g^{2}\left(\theta\right)}\sum_{i=1}^{n}\ln x_{i}=0
+                      \end{equation*}
+                      所以，$g\left(\theta\right)$ 的极大似然估计为
+                      \begin{equation*}
+                          \hat{g}\left(\theta\right)=-\frac{1}{n}\sum_{i=1}^{n}\ln x_{i}
+                      \end{equation*}
+                \item 令 $Y=-\ln X$，则
+                      \begin{equation*}
+                          P\left(Y<y\right)=P\left(-\ln X<y\right)=P\left(X>\mathrm{e}^{-y}\right)=\int_{e^{-y}}^{1} \theta x^{\theta-1} \mathrm{~d} x=1-\mathrm{e}^{-\theta y}
+                      \end{equation*}
+                      因此，
+                      \begin{equation*}
+                          Y\sim\operatorname{Exp}(\theta),\quad\hat{g}\left(\theta\right)=\frac{1}{n}\sum_{i=1}^{n}Y\sim\operatorname{Ga}\left(n,n\theta\right)
+                      \end{equation*}
+                      于是，
+                      \begin{equation*}
+                          E\left(\hat{g}\right)=\frac{n}{n\theta}=\frac{1}{\theta}=g(\theta),\quad\operatorname{Var}\left(\hat{g}\right)=\frac{n}{\left(n\theta\right)^{2}}=\frac{1}{n\theta^{2}}
+                      \end{equation*}
+                      \begin{equation*}
+                          \frac{\partial p\left(x;\theta\right)}{\partial \theta}=\frac{1}{\theta}+\ln x,\quad\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}=-\frac{1}{\theta^{2}}
+                      \end{equation*}
+                      因此，$\theta$ 的费舍尔信息量为
+                      \begin{equation*}
+                          I\left(\theta\right)=-E\left[\frac{\partial^{2}}{\partial\theta^{2}}\ln p\left(x;\theta\right)\right]=\frac{1}{\theta^{2}}
+                      \end{equation*}
+                      故，$g\left(\theta\right)$ 的任一无偏估计的 C-R 下界为
+                      \begin{equation*}
+                          \frac{\left[g^{\prime}\left(\theta\right)\right]^{2}}{nI\left(\theta\right)}=\frac{1}{n\theta^{2}}
+                      \end{equation*}
+                      所以，$\hat{g}\left(\theta\right)=-\frac{1}{n}\sum_{i=1}^{n}\ln x_{i}$ 是 $g\left(\theta\right)$ 的有效估计。
+            \end{enumerate}
+        \end{proof}
+    \item[7]
+        \begin{proof}
+            对数密度函数为
+            \begin{equation*}
+                \ln p\left(x;\theta\right)=\ln 2+\ln\theta-3\ln x-\frac{\theta}{x^{2}}
+            \end{equation*}
+            于是，
+            \begin{equation*}
+                \frac{\partial\ln p\left(x;\theta\right)}{\partial\theta}=\frac{1}{\theta}-\frac{1}{x^{2}},\quad\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}=-\frac{1}{\theta^{2}}
+            \end{equation*}
+            因此，$\theta$ 的费舍尔信息量为
+            \begin{equation*}
+                I\left(\theta\right)=-E\left[\frac{\partial^{2}}{\partial\theta^{2}}\ln p\left(x;\theta\right)\right]=\frac{1}{\theta^{2}}
+            \end{equation*}
+        \end{proof}
+    \item[10]
+        \begin{proof}
+            总体 $\operatorname{Ga}\left(\alpha,\lambda\right)$ 的密度函数为
+            \begin{equation*}
+                p\left(x;\lambda\right)=\frac{\lambda^{\alpha}}{\Gamma(\alpha)}x^{\alpha-1}\mathrm{e}^{-\lambda x},\quad x>0
+            \end{equation*}
+            对数密度函数为
+            \begin{equation*}
+                \ln p\left(x;\lambda\right)=\alpha\ln\lambda-\ln \Gamma\left(\alpha\right)+\left(\alpha-1\right)\ln x-\lambda x \\
+            \end{equation*}
+            于是，
+            \begin{equation*}
+                \frac{\partial\ln p\left(x;\lambda\right)}{\partial\lambda}=\frac{\alpha}{\lambda}-x,\quad\frac{\partial^{2}\ln p\left(x;\lambda\right)}{\partial\lambda^{2}}=-\frac{\alpha}{\lambda^{2}}
+            \end{equation*}
+            因此，$\lambda$ 的费舍尔信息量为
+            \begin{equation*}
+                I\left(\lambda\right)=-E\left[\frac{\partial^{2}}{\partial\lambda^{2}}\ln p\left(x;\lambda\right)\right]=\frac{\alpha}{\lambda^{2}}
+            \end{equation*}
+            故，$g\left(\lambda\right)=\frac{1}{\lambda}$ 的任一无偏估计的 C-R 下界为
+            \begin{equation*}
+                \frac{\left[g^{\prime}\left(\lambda\right)\right]^{2}}{nI\left(\lambda\right)}=\frac{1}{n\alpha\lambda^{2}}
+            \end{equation*}
+            同时，
+            \begin{equation*}
+                \frac{\bar{x}}{\alpha}=\frac{1}{n\alpha}\sum_{i=1}^{n}x_{i}\sim\operatorname{Ga}\left(n\alpha,n\alpha\lambda\right)
+            \end{equation*}
+            因此，
+            \begin{equation*}
+                E\left(\frac{\bar{x}}{\alpha}\right)=\frac{n\alpha}{n\alpha\lambda}=\frac{1}{\lambda}=g\left(\lambda\right),\quad\operatorname{Var}\left(\frac{\bar{x}}{\alpha}\right)=\frac{n\alpha}{\left(n\alpha\lambda\right)^{2}}=\frac{1}{n\alpha\lambda^{2}}
+            \end{equation*}
+            故，$\frac{\bar{x}}{\alpha}$ 是 $g(\lambda)=\frac{1}{\lambda}$ 的有效估计，从而也是 UMVUE。
+        \end{proof}
+    \item[12]
+        \begin{proof}
+            设 $\varphi\left(x_{1},x_{2},\ldots,x_{n}\right)$ 是 $0$ 的任一无偏估计，则
+            \begin{equation*}
+                \begin{aligned}
+                      & E\left(\varphi\right)=\int_{-\infty}^{+\infty}\ldots\int_{-\infty}^{+\infty}\varphi\cdot\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}}\exp\left\{-\frac{\left(x_{i}-\mu\right)^{2}}{2}\right\}\,\mathrm{d}x_{1}\ldots\,\mathrm{d}x_{n} \\
+                    = & \int_{-\infty}^{+\infty}\ldots\int_{-\infty}^{+\infty}\varphi\cdot(2\pi)^{-\frac{1}{2}}\exp\left\{-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}+n\bar{x}\mu-\frac{n\mu^{2}}{2}\right\}\,\mathrm{d}x_{1}\ldots\,\mathrm{d}x_{n}=0
+                \end{aligned}
+            \end{equation*}
+            上式两端对 $\mu$ 求导，有
+            \begin{equation*}
+                \int_{-\infty}^{+\infty}\ldots\int_{-\infty}^{+\infty}\left(n\bar{x}-n\mu\right)\varphi\cdot(2\pi)^{-\frac{1}{2}}\exp\left\{-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}+n\bar{x\mu}-\frac{n\mu^{2}}{2}\right\}\,\mathrm{d}x_{1}\ldots\,\mathrm{d}x_{n}=0
+            \end{equation*}
+            同时，由于 $E\left(\varphi\right)=0$，有
+            \begin{equation*}
+                \int_{-\infty}^{+\infty}\ldots\int_{-\infty}^{+\infty}n\bar{x}\varphi\cdot(2\pi)^{-\frac{1}{2}}\exp\left\{-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}+n\bar{x\mu}-\frac{n\mu^{2}}{2}\right\}\,\mathrm{d}x_{1}\ldots\,\mathrm{d}x_{n}=0
+            \end{equation*}
+            上式两端对 $\mu$ 求导，有
+            \begin{equation*}
+                \begin{aligned}
+                      & \int_{-\infty}^{+\infty}\ldots\int_{-\infty}^{+\infty}\left(n\bar{x}\right)^{2}\varphi\cdot(2\pi)^{-\frac{n}{2}}\exp\left\{-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}+n\bar{x}\mu-\frac{n\mu^{2}}{2}\right\}\,\mathrm{d}x_{1}\ldots\,\mathrm{d}x_{n} \\
+                    - & \int_{-\infty}^{+\infty}\ldots\int_{-\infty}^{\infty}n\bar{x}\cdot n\mu\varphi\cdot(2\pi)^{-\frac{n}{2}}\exp\left\{-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}+n\bar{x} \mu-\frac{n\mu^{2}}{2}\right\}\,\mathrm{d}x_{1}\ldots\,\mathrm{d}x_{n}=0
+                \end{aligned}
+            \end{equation*}
+            结合前两式，有
+            \begin{equation*}
+                E\left(\bar{x}^{2}\varphi\right)=0
+            \end{equation*}
+            同时，
+            \begin{equation*}
+                E\left(\bar{x}^{2}\right)=\operatorname{Var}\left(\bar{x}\right)+\left[E\left(\bar{x}\right)\right]^{2}=\frac{1}{n}+\mu^{2},\quad E\left(\bar{x}^{2}-\frac{1}{n}\right)=\mu^{2}
+            \end{equation*}
+
+            记
+            \begin{equation*}
+                T=\bar{x}^{2}-\frac{1}{n}
+            \end{equation*}
+            则
+            \begin{equation*}
+                \operatorname{Cov}\left(T,\varphi\right)=E\left(T\varphi\right)-E\left(T\right)E\left(\varphi\right)=0,\quad E\left(T\right)=\mu^{2}
+            \end{equation*}
+            因此，$T=\bar{x}^{2}-\frac{1}{n}$ 为 $\mu^{2}$ 的 UMVUE。
+
+            由于 $\bar{x}\sim N\left(\mu,1\right)$，有
+            \begin{equation*}
+                E(\bar{x})=\mu,\quad\operatorname{Var}(\bar{x})=E\left[\left(\bar{x}-\mu\right)^{2}\right]=\frac{1}{n},\quad E\left[\left(\bar{x}-\mu\right)^{3}\right]=0,\quad E\left[\left(\bar{x}-\mu\right)^{4}\right]=\frac{3}{n^{2}}
+            \end{equation*}
+
+            则，
+            \begin{equation*}
+                \begin{aligned}
+                    E\left(\bar{x}^{4}\right) & =E\left[\left(\bar{x}-\mu+\mu\right)^{4}\right]                                            \\
+                    =                         & E\left[\left(\bar{x}-\mu\right)^{4}\right]+4\mu E\left[\left(\bar{x}-\mu\right)^{3}\right] \\
+                                              & +6\mu^{2}E\left[\left(\bar{x}-\mu\right)^{2}\right]+4\mu^{3}E(\bar{x}-\mu)+\mu^{4}         \\
+                    =                         & \frac{3}{n^{2}}+\frac{6\mu^{2}}{n}+\mu^{4}
+                \end{aligned}
+            \end{equation*}
+            可得，
+            \begin{equation*}
+                \begin{aligned}
+                    \operatorname{Var}\left(T\right)= & \operatorname{Var}\left(\bar{x}^{2}\right)                                      \\
+                    =                                 & E\left(\bar{x}^{4}\right)-\left[E\left(\bar{x}^{2}\right)\right]^{2}            \\
+                    =                                 & \frac{3}{n^{2}}+\frac{6\mu^{2}}{n}+\mu^{4}-\left(\frac{1}{n}+\mu^{2}\right)^{2} \\
+                    =                                 & \frac{2}{n^{2}}+\frac{4\mu^{2}}{n}
+                \end{aligned}
+            \end{equation*}
+
+            总体 $N\left(\mu,1\right)$ 的密度函数为
+            \begin{equation*}
+                p\left(x;\mu\right)=\frac{1}{\sqrt{2\pi}}\exp\left\{-\frac{\left(x-\mu\right)^{2}}{2}\right\}
+            \end{equation*}
+            对数密度函数为
+            \begin{equation*}
+                \ln p\left(x;\mu\right)==-\frac{1}{2}\ln\left(2\pi\right)-\frac{\left(x-\mu\right)^{2}}{2}
+            \end{equation*}
+            于是
+            \begin{equation*}
+                \frac{\partial}{\partial\mu}\ln p\left(x;\mu\right)=x-\mu
+            \end{equation*}
+            因此，$\mu$ 的费舍尔信息量为
+            \begin{equation*}
+                I\left(\mu\right)=E\left[\frac{\partial}{\partial \mu}\ln p\left(x;\mu\right)\right]^{2}=E\left(x-\mu\right)^{2}=1
+            \end{equation*}
+
+            故，$g\left(\mu\right)=\mu^{2}$ 的任一无偏估计的 C-R 下界为
+            \begin{equation*}
+                \frac{\left[g^{\prime}\left(\mu\right)\right]^{2}}{nI\left(\mu\right)}=\frac{\left(2\mu\right)^{2}}{n}=\frac{4\mu^{2}}{n}
+            \end{equation*}
+
+            因此，$\operatorname{Var}\left(T\right)=\frac{2}{n^{2}}+\frac{4\mu^{2}}{n}>\frac{4\mu^{2}}{n}$，故 $T=\bar{x}^{2}-\frac{1}{n}$ 不是 $\mu^{2}$ 的有效估计。
+        \end{proof}
+\end{enumerate}
+\end{document}
