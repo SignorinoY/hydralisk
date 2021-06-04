@@ -79,22 +79,22 @@
             \begin{equation*}
                 \begin{aligned}
                     h\left(x_{1},x_{2},\ldots,x_{n},\lambda\right) = & \frac{\lambda^{\sum_{i=1}^{n}x_{i}}}{x_{1}!\ldots x_{n}!}\mathrm{e}^{-n\lambda}\cdot\frac{\beta^{\alpha}}{\Gamma(\alpha)}\lambda^{\alpha-1}\mathrm{e}^{-\beta\lambda}\cdot\mathrm{I}_{\lambda>0} \\
-                    =                                                & \frac{\beta^{\alpha}\cdot\lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1}}{\Gamma(\alpha)\cdot x_{1}!\ldots x_{n}!}\mathrm{e}^{-\lambda\left(\beta+n\right)}\cdot\mathrm{I}_{\lambda>0}
+                    =                                                & \frac{\beta^{\alpha}\cdot\lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1}}{\Gamma(\alpha)\cdot x_{1}!\ldots x_{n}!}\mathrm{e}^{-\left(\beta+n\right)\lambda}\cdot\mathrm{I}_{\lambda>0}
                 \end{aligned}
             \end{equation*}
 
             可得样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
             \begin{equation*}
                 \begin{aligned}
-                    m(x_{1},x_{2},\ldots,x_{n})= & \int_{-\infty}^{+\infty}\frac{\beta^{\alpha}\cdot\lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1}}{\Gamma(\alpha)\cdot x_{1}!\ldots x_{n}!}\mathrm{e}^{-\lambda\left(\beta+n\right)}\cdot\mathrm{I}_{\lambda>0}\,\mathrm{d}\lambda \\
-                    =                            & \frac{\beta^{\alpha}}{\Gamma(\alpha)\cdot x_{1}!\ldots x_{n}!}\cdot\int_{0}^{+\infty}\lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1}\mathrm{e}^{-\lambda\left(\beta+n\right)}\,\mathrm{d}\lambda                                  \\
+                    m(x_{1},x_{2},\ldots,x_{n})= & \int_{-\infty}^{+\infty}\frac{\beta^{\alpha}\cdot\lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1}}{\Gamma(\alpha)\cdot x_{1}!\ldots x_{n}!}\mathrm{e}^{-\left(\beta+n\right)\lambda}\cdot\mathrm{I}_{\lambda>0}\,\mathrm{d}\lambda \\
+                    =                            & \frac{\beta^{\alpha}}{\Gamma(\alpha)\cdot x_{1}!\ldots x_{n}!}\cdot\int_{0}^{+\infty}\lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1}\mathrm{e}^{-\left(\beta+n\right)\lambda}\,\mathrm{d}\lambda                                  \\
                     =                            & \frac{\beta^{\alpha}}{\Gamma(\alpha)\cdot x_{1}!\ldots x_{n}!}\cdot\frac{\Gamma\left(\sum_{i=1}^{n}x_{i}+\alpha\right)}{(\beta+n)^{\sum_{i=1}^{n}x_{i}+\alpha}}
                 \end{aligned}
             \end{equation*}
 
             因此 $\lambda$ 的后验分布为
             \begin{equation*}
-                \pi\left(\lambda\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{(\beta+n)^{\sum_{i=1}^{n}x_{i}+\alpha}}{\Gamma\left(\sum_{i=1}^{n}x_{i}+\alpha\right)} \lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1} \mathrm{e}^{-(n+\beta) \lambda},\quad\lambda>0
+                \pi\left(\lambda\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{(\beta+n)^{\sum_{i=1}^{n}x_{i}+\alpha}}{\Gamma\left(\sum_{i=1}^{n}x_{i}+\alpha\right)} \lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1} \mathrm{e}^{-\left(\beta+n\right)\lambda},\quad\lambda>0
             \end{equation*}
 
             即，
@@ -106,7 +106,7 @@
         \end{proof}
     \item[5]
         \begin{proof}
-            设参数 $\sigma^{2}$ 的先验分布是倒伽玛分布 $IGa(\alpha,\lambda)$，密度函数为
+            设参数 $\sigma^{2}$ 的先验分布是倒伽玛分布 $\text{IGa}\left(\alpha,\lambda\right)$，密度函数为
             \begin{equation*}
                 \pi\left(\sigma^{2}\right)=\frac{\lambda^{\alpha}}{\Gamma(\alpha)}\left(\frac{1}{\sigma^{2}}\right)^{\alpha+1}\exp\left\{-\frac{\lambda}{\sigma^{2}}\right\}
             \end{equation*}
@@ -144,7 +144,7 @@
                 \pi\left(\sigma^{2}\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{\left[\lambda+\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right]^{\frac{n}{2}+\alpha}}{\Gamma\left(\frac{n}{2}+\alpha\right)}\left(\frac{1}{\sigma^{2}}\right)^{\frac{n}{2}+\alpha+1}\exp\left\{-\frac{1}{\sigma^{2}}\left[\lambda+\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right]\right\}
             $$
 
-            后验分布仍为倒伽玛分布 $IGa\left(\frac{n}{2}+\alpha,\lambda+\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right)$，故倒伽玛分布是参数 $\sigma^{2}$ 的共轭先验分布。
+            后验分布仍为倒伽玛分布 $\text{IGa}\left(\frac{n}{2}+\alpha,\lambda+\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right)$，故倒伽玛分布是参数 $\sigma^{2}$ 的共轭先验分布。
         \end{proof}
     \item[6]
         \begin{proof}
@@ -167,7 +167,7 @@
 
                       可得样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
                       \begin{equation*}
-                          m\left(x_{1},x_{2},\ldots,x_{n}\right)=\int_{x_{(n)}}^{1}\frac{2^{n}}{\theta^{2n}}\prod_{i=1}^{n}x_{i}\,\mathrm{d}\theta=\frac{2^{n}}{2n-1}\prod_{i=1}^{n}x_{i}\left[x_{(n)}^{-(2n-1)}-1\right]
+                          m\left(x_{1},x_{2},\ldots,x_{n}\right)=\int_{x_{(n)}}^{1}\frac{2^{n}}{\theta^{2n}}\prod_{i=1}^{n}x_{i}\,\mathrm{d}\theta=\frac{2^{n}}{2n-1}\prod_{i=1}^{n}x_{i}\cdot\left[x_{(n)}^{-(2n-1)}-1\right]
                       \end{equation*}
 
                       因此 $\theta$ 的后验分布为
