@@ -1,0 +1,286 @@
+% !TEX program = xelatex
+
+\documentclass[normal,founder,mtpro2,cn]{elegantnote}
+    \title{2021年春季学期/数理统计/第十二周/课后作业解答}
+    \author{龚梓阳}
+    \date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[3]
+        \begin{proof}
+            \begin{enumerate}
+                \item
+                      参数 $\theta$ 的先验分布为
+                      \begin{equation*}
+                          \pi(\theta)=\mathrm{I}_{0<\theta<1}
+                      \end{equation*}
+
+                      总体 $X$ 的条件分布为
+                      \begin{equation*}
+                          P(X=k\mid\theta)=\theta(1-\theta)^{k},\quad k=0,1,2,\ldots
+                      \end{equation*}
+
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的联合条件分布为
+                      \begin{equation*}
+                          p\left(x_{1},x_{2},\ldots,x_{n}\mid\theta\right)=\prod_{i=1}^{n}\theta(1-\theta)^{x_{i}}=\theta^{n}(1-\theta)^{\sum_{i=1}^{n}x_{i}}
+                      \end{equation*}
+
+                      则 $x_{1},x_{2},\ldots,x_{n}$ 和 $\theta$ 的联合分布为
+                      \begin{equation*}
+                          h\left(x_{1},x_{2},\ldots,x_{n},\theta\right)=\theta^{n}(1-\theta)^{\sum_{i=1}^{n}x_{i}}\cdot\mathrm{I}_{0<\theta<1}
+                      \end{equation*}
+
+                      可得样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
+                      \begin{equation*}
+                          m(x_{1},x_{2},\ldots,x_{n})=\int_{-\infty}^{+\infty}\theta^{n}(1-\theta)^{\sum_{i=1}^{n}x_{i}}\cdot\mathrm{I}_{0<\theta<1}\,\mathrm{d}\theta=B\left(n+1,\sum_{i=1}^{n}x_{i}+1\right)
+                      \end{equation*}
+
+                      因此 $\theta$ 的后验分布为
+                      \begin{equation*}
+                          \pi\left(\theta\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{\theta^{n}(1-\theta)^{\sum_{i=1}^{n}x_{i}}}{B\left(n+1,\sum_{i=1}^{n}x_{i}+1\right)},\quad 0<\theta<1
+                      \end{equation*}
+
+                      即，
+                      \begin{equation*}
+                          \theta\mid x_{1},x_{2},\ldots,x_{n}\sim\text{Be}\left(n+1,\sum_{i=1}^{n}x_{i}+1\right)
+                      \end{equation*}
+                \item
+                      在给定样本 $4,3,1,6$ 的条件下，$\theta$ 的后验分布为
+                      \begin{equation*}
+                          \theta\mid x_{1},x_{2},x_{3},x_{4}\sim\text{Be}\left(5,15\right)
+                      \end{equation*}
+
+                      若采用后验期望估计，则 $\theta$ 的贝叶斯估计为
+                      \begin{equation*}
+                          \hat{\theta}_{B}=\frac{5}{5+15}=0.25
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+    \item[4]
+        \begin{proof}
+            参数 $\lambda$ 的先验分布为
+            \begin{equation*}
+                \pi(\lambda)=\frac{\beta^{\alpha}}{\Gamma(\alpha)}\lambda^{\alpha-1}\mathrm{e}^{-\beta\lambda}\cdot\mathrm{I}_{\lambda>0}
+            \end{equation*}
+
+            总体 $X$ 的条件分布为
+            \begin{equation*}
+                P(X=x\mid\lambda)=\frac{\lambda^{x}}{x!}\mathrm{e}^{-\lambda},\quad x=0,1,2,\ldots
+            \end{equation*}
+
+            样本 $x_{1},x_{2},\ldots,x_{n}$ 的联合条件分布为
+            \begin{equation*}
+                p\left(x_{1},x_{2},\ldots,x_{n}\mid\lambda\right)=\prod_{i=1}^{n}\frac{\lambda^{x_{i}}}{x_{i}!}\mathrm{e}^{-\lambda}=\frac{\lambda^{\sum_{i=1}^{n}x_{i}}}{x_{1}!\ldots x_{n}!}\mathrm{e}^{-n\lambda}
+            \end{equation*}
+
+            则 $x_{1},x_{2},\ldots,x_{n}$ 和 $\lambda$ 的联合分布为
+            \begin{equation*}
+                \begin{aligned}
+                    h\left(x_{1},x_{2},\ldots,x_{n},\lambda\right) = & \frac{\lambda^{\sum_{i=1}^{n}x_{i}}}{x_{1}!\ldots x_{n}!}\mathrm{e}^{-n\lambda}\cdot\frac{\beta^{\alpha}}{\Gamma(\alpha)}\lambda^{\alpha-1}\mathrm{e}^{-\beta\lambda}\cdot\mathrm{I}_{\lambda>0} \\
+                    =                                                & \frac{\beta^{\alpha}\cdot\lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1}}{\Gamma(\alpha)\cdot x_{1}!\ldots x_{n}!}\mathrm{e}^{-\lambda\left(\beta+n\right)}\cdot\mathrm{I}_{\lambda>0}
+                \end{aligned}
+            \end{equation*}
+
+            可得样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
+            \begin{equation*}
+                \begin{aligned}
+                    m(x_{1},x_{2},\ldots,x_{n})= & \int_{-\infty}^{+\infty}\frac{\beta^{\alpha}\cdot\lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1}}{\Gamma(\alpha)\cdot x_{1}!\ldots x_{n}!}\mathrm{e}^{-\lambda\left(\beta+n\right)}\cdot\mathrm{I}_{\lambda>0}\,\mathrm{d}\lambda \\
+                    =                            & \frac{\beta^{\alpha}}{\Gamma(\alpha)\cdot x_{1}!\ldots x_{n}!}\cdot\int_{0}^{+\infty}\lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1}\mathrm{e}^{-\lambda\left(\beta+n\right)}\,\mathrm{d}\lambda                                  \\
+                    =                            & \frac{\beta^{\alpha}}{\Gamma(\alpha)\cdot x_{1}!\ldots x_{n}!}\cdot\frac{\Gamma\left(\sum_{i=1}^{n}x_{i}+\alpha\right)}{(\beta+n)^{\sum_{i=1}^{n}x_{i}+\alpha}}
+                \end{aligned}
+            \end{equation*}
+
+            因此 $\lambda$ 的后验分布为
+            \begin{equation*}
+                \pi\left(\lambda\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{(\beta+n)^{\sum_{i=1}^{n}x_{i}+\alpha}}{\Gamma\left(\sum_{i=1}^{n}x_{i}+\alpha\right)} \lambda^{\sum_{i=1}^{n}x_{i}+\alpha-1} \mathrm{e}^{-(n+\beta) \lambda},\quad\lambda>0
+            \end{equation*}
+
+            即，
+            \begin{equation*}
+                \lambda\mid x_{1},x_{2},\ldots,x_{n}\sim\text{Ga}\left(\sum_{i=1}^{n}x_{i}+\alpha,\beta+n\right)
+            \end{equation*}
+
+            故，伽玛分布是泊松分布的均值 $\lambda$ 的共轭先验分布。
+        \end{proof}
+    \item[5]
+        \begin{proof}
+            设参数 $\sigma^{2}$ 的先验分布是倒伽玛分布 $IGa(\alpha,\lambda)$，密度函数为
+            \begin{equation*}
+                \pi\left(\sigma^{2}\right)=\frac{\lambda^{\alpha}}{\Gamma(\alpha)}\left(\frac{1}{\sigma^{2}}\right)^{\alpha+1}\exp\left\{-\frac{\lambda}{\sigma^{2}}\right\}
+            \end{equation*}
+
+            设总体 $X$分布为 $N\left(\mu_{0},\sigma^{2}\right)$, 其中 $\mu_{0}$ 已知，密度函数为
+            \begin{equation*}
+                p\left(x\mid\sigma^{2}\right)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left\{-\frac{\left(x-\mu_{0}\right)^{2}}{2\sigma^{2}}\right\}
+            \end{equation*}
+
+            样本 $x_{1},x_{2},\ldots,x_{n}$ 的联合条件分布为
+            \begin{equation*}
+                \begin{aligned}
+                    p\left(x_{1},x_{2},\ldots,x_{n}\mid\sigma^{2}\right)= & \prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}\sigma}\exp\left\{-\frac{\left(x_{i}-\mu_{0}\right)^{2}}{2\sigma^{2}}\right\}                  \\
+                    =                                                     & \frac{1}{\left(\sqrt{2\pi}\sigma\right)^{n}}\exp\left\{-\frac{1}{2\sigma^{2}}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right\}
+                \end{aligned}
+            \end{equation*}
+
+            则样本 $x_{1},x_{2},\ldots,x_{n}$ 和 $\sigma^{2}$ 的联合分布为
+            \begin{equation*}
+                h\left(x_{1},x_{2},\ldots,x_{n},\sigma^{2}\right)=\frac{\lambda^{\alpha}}{(\sqrt{2\pi})^{n}\Gamma(\alpha)}\left(\frac{1}{\sigma^{2}}\right)^{\frac{n}{2}+\alpha+1}\exp\left\{-\frac{1}{\sigma^{2}}\left[\lambda+\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right]\right\}
+            \end{equation*}
+
+            样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
+            \begin{equation*}
+                \begin{aligned}
+                    m\left(x_{1},x_{2},\ldots,x_{n}\right)= & \int_{0}^{+\infty}\frac{\lambda^{\alpha}}{(\sqrt{2\pi})^{n}\Gamma(\alpha)}\left(\frac{1}{\sigma^{2}}\right)^{\frac{n}{2}+\alpha+1}\exp\left\{-\frac{1}{\sigma^{2}}\left[\lambda+\frac{1}{2} \sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right]\right\}\,\mathrm{d}\left(\sigma^{2}\right) \\
+                    =                                       & \frac{\lambda^{\alpha}}{(\sqrt{2\pi})^{n}\Gamma(\alpha)}\cdot\int_{+\infty}^{0}t^{\frac{n}{2}+\alpha+1}\exp\left\{-t\left[\lambda+\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right]\right\}\left(-\frac{1}{t^{2}}\right)\,\mathrm{d}t                                         \\
+                    =                                       & \frac{\lambda^{\alpha}}{(\sqrt{2\pi})^{n}\Gamma(\alpha)}\cdot\int_{0}^{+\infty}t^{\frac{n}{2}+\alpha-1}\exp\left\{-t\left[\lambda+\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right]\right\}\,\mathrm{d}t                                                                      \\
+                    =                                       & \frac{\lambda^{\alpha}}{(\sqrt{2\pi})^{n}\Gamma(\alpha)}\cdot\frac{\Gamma\left(\frac{n}{2}+\alpha\right)}{\left[\lambda+\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right]^{\frac{n}{2}+\alpha}}
+                \end{aligned}
+            \end{equation*}
+
+            因此 $\sigma^{2}$ 的后验分布为
+            $$
+                \pi\left(\sigma^{2}\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{\left[\lambda+\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right]^{\frac{n}{2}+\alpha}}{\Gamma\left(\frac{n}{2}+\alpha\right)}\left(\frac{1}{\sigma^{2}}\right)^{\frac{n}{2}+\alpha+1}\exp\left\{-\frac{1}{\sigma^{2}}\left[\lambda+\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right]\right\}
+            $$
+
+            后验分布仍为倒伽玛分布 $IGa\left(\frac{n}{2}+\alpha,\lambda+\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-\mu_{0}\right)^{2}\right)$，故倒伽玛分布是参数 $\sigma^{2}$ 的共轭先验分布。
+        \end{proof}
+    \item[6]
+        \begin{proof}
+            样本 $x_{1},x_{2},\ldots,x_{n}$ 的联合条件分布为
+            \begin{equation*}
+                p\left(x_{1},x_{2},\ldots,x_{n}\mid\theta\right)=\prod_{i=1}^{n}\frac{2x_{i}}{\theta^{2}}\mathrm{I}_{0<x_{i}<\theta}=\frac{2^{n}}{\theta^{2n}}\prod_{i=1}^{n}x_{i}\cdot\mathrm{I}_{x_{(n)}<\theta}
+            \end{equation*}
+
+            \begin{enumerate}
+                \item
+                      参数 $\theta$ 的先验分布为
+                      \begin{equation*}
+                          \pi(\theta)=\mathrm{I}_{0<\theta<1}
+                      \end{equation*}
+
+                      则样本 $x_{1},x_{2},\ldots,x_{n}$ 和 $\theta$ 的联合分布为
+                      \begin{equation*}
+                          h\left(x_{1},x_{2},\ldots,x_{n},\theta\right)=\frac{2^{n}}{\theta^{2n}}\prod_{i=1}^{n}x_{i}\cdot\mathrm{I}_{x_{(n)}<\theta<1}
+                      \end{equation*}
+
+                      可得样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
+                      \begin{equation*}
+                          m\left(x_{1},x_{2},\ldots,x_{n}\right)=\int_{x_{(n)}}^{1}\frac{2^{n}}{\theta^{2n}}\prod_{i=1}^{n}x_{i}\,\mathrm{d}\theta=\frac{2^{n}}{2n-1}\prod_{i=1}^{n}x_{i}\left[x_{(n)}^{-(2n-1)}-1\right]
+                      \end{equation*}
+
+                      因此 $\theta$ 的后验分布为
+                      \begin{equation*}
+                          \pi\left(\theta\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{2n-1}{\theta^{2n}\left[x_{(n)}^{-(2n-1)}-1\right]},\quad x_{(n)}<\theta<1
+                      \end{equation*}
+                \item
+                      参数 $\theta$ 的先验分布为
+                      \begin{equation*}
+                          \pi(\theta)=3\theta^{2}\cdot\mathrm{I}_{0<\theta<1}
+                      \end{equation*}
+
+                      则样本 $x_{1},x_{2},\ldots,x_{n}$ 和 $\theta$ 的联合分布为
+                      \begin{equation*}
+                          h\left(x_{1},x_{2},\ldots,x_{n},\theta\right)=\frac{3\cdot 2^{n}}{\theta^{2n-2}}\prod_{i=1}^{n}x_{i}\cdot I_{x_{(n)}<\theta<1}=\frac{3\cdot 2^{n}}{\theta^{2n-2}}\prod_{i=1}^{n}x_{i}\cdot I_{x_{(n)}<\theta<1}
+                      \end{equation*}
+
+                      可得样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
+                      \begin{equation*}
+                          m\left(x_{1},x_{2},\ldots,x_{n}\right)=\int_{x(n)}^{1}\frac{3\cdot 2^{n}}{\theta^{2n-2}}\prod_{i=1}^{n}x_{i}\,\mathrm{d}\theta=\frac{3\cdot 2^{n}}{2n-3}\prod_{i=1}^{n}x_{i}\left[x_{(n)}^{-(2n-3)}-1\right]
+                      \end{equation*}
+
+                      因此 $\theta$ 的后验分布为
+                      \begin{equation*}
+                          \pi\left(\theta\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{2n-3}{\theta^{2n-2}\left[x_{(n)}^{-(2n-3)}-1\right]},\quad x_{(n)}<\theta<1
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+    \item[7]
+        \begin{proof}
+            参数 $\theta$ 的先验分布为
+            \begin{equation*}
+                \pi(\theta)=\frac{\lambda^{\alpha}}{\Gamma(\alpha)}\theta^{\alpha-1}\mathrm{e}^{-\lambda\theta}\cdot\mathrm{I}_{\theta>0}
+            \end{equation*}
+
+            总体 $X$ 的条件分布为
+            \begin{equation*}
+                p\left(x\mid\theta\right)=\theta x^{\theta-1}
+            \end{equation*}
+
+            样本 $x_{1},x_{2},\ldots,x_{n}$ 的联合条件分布为
+            \begin{equation*}
+                \begin{aligned}
+                    p\left(x_{1},x_{2},\ldots,x_{n}\mid\theta\right)= & \prod_{i=1}^{n}\theta x_{i}^{\theta-1} = \theta^{n}\left(\prod_{i=1}^{n}x_{i}\right)^{\theta-1} \\
+                    =                                                 & \theta^{n}\exp\left[(\theta-1)\ln\left(\prod_{i=1}^{n}x_{i}\right)\right]                       \\
+                    =                                                 & \theta^{n}\exp\left[(\theta-1)\sum_{i=1}^{n}\ln x_{i}\right]
+                \end{aligned}
+            \end{equation*}
+
+            则 $x_{1},x_{2},\ldots,x_{n}$ 和 $\theta$ 的联合分布为
+            \begin{equation*}
+                h\left(x_{1},x_{2},\ldots,x_{n},\theta\right)=\frac{\lambda^{\alpha}}{\Gamma(\alpha)\cdot\prod_{i=1}^{n}x_{i}}\theta^{n+\alpha-1}\exp\left\{-\left[\lambda-\sum{i=1}^{n}\ln x_{i}\right]\theta\right\}\cdot\mathrm{I}_{\theta>0}
+            \end{equation*}
+
+            可得样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
+            \begin{equation*}
+                \begin{aligned}
+                    m(x_{1},x_{2},\ldots,x_{n})= & \frac{\lambda^{\alpha}}{\Gamma(\alpha)\cdot\prod_{i=1}^{n}x_{i}}\int_{0}^{+\infty}\theta^{n+\alpha-1}\exp\left\{-\left[\lambda-\sum_{i=1}^{n}\ln x_{i}\right]\theta\right\}\,\mathrm{d}\theta \\
+                    =                            & \frac{\lambda^{\alpha}}{\Gamma(\alpha)\cdot\prod_{i=1}^{n}x_{i}}\cdot\frac{\Gamma(n+\alpha)}{\left[\lambda-\sum_{i=1}^{n}\ln x_{i}\right]^{n+\alpha}},
+                \end{aligned}
+            \end{equation*}
+
+            因此 $\lambda$ 的后验分布为
+            \begin{equation*}
+                \pi\left(\theta\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{\left[\lambda-\sum_{i=1}^{n}\ln x_{i}\right]^{n+\alpha}}{\Gamma(n+\alpha)}\theta^{n+\alpha-1}\exp\left\{-\left[\lambda-\sum_{i=1}^{n}\ln x_{i}\right]\theta\right\}
+            \end{equation*}
+
+            后验分布仍为伽玛分布 $Ga\left(n+\alpha,\lambda-\sum_{i=1}^{n}\ln x_{i}\right)$，所以 $\theta$ 的后验期望估计为
+            \begin{equation*}
+                \hat{\theta}_{B}=\frac{n+\alpha}{\lambda-\sum_{i=1}^{n}\ln x_{i}}
+            \end{equation*}
+        \end{proof}
+    \item[8]
+        \begin{proof}
+            \begin{enumerate}
+                \item
+                      参数 $\theta$ 的先验分布为
+                      \begin{equation*}
+                          \pi(\theta)=\frac{\beta\theta_{0}^{\beta}}{\theta^{\beta+1}}\cdot\mathrm{I}_{\theta>\theta_{0}}
+                      \end{equation*}
+
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的联合条件分布为
+                      \begin{equation*}
+                          p\left(x_{1},x_{2},\ldots,x_{n}\mid\theta\right)=\prod_{i=1}^{n}\frac{1}{\theta}\mathrm{I}_{0<x_{i}<\theta}=\frac{1}{\theta^{n}}\mathrm{I}_{0<x_{1},x_{2},\ldots,x_{n}<\theta}
+                      \end{equation*}
+
+                      则 $x_{1},x_{2},\ldots,x_{n}$ 和 $\theta$ 的联合分布为
+                      \begin{equation*}
+                          h\left(x_{1},x_{2},\ldots,x_{n},\theta\right)=\frac{\beta\theta_{0}^{\beta}}{\theta^{n+\beta+1}}\mathrm{I}_{0<x_{1},x_{2},\ldots,x_{n}<\theta,\theta>\theta_{0}}=\frac{\beta\theta_{0}^{\beta}}{\theta^{n+\beta+1}}\cdot\mathrm{I}_{\theta>\max\left\{x_{(n)},\theta_{0}\right\}}
+                      \end{equation*}
+
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
+                      \begin{equation*}
+                          m\left(x_{1},x_{2},\ldots,x_{n}\right)=\int_{\max\left\{x_{(n)},\theta_{0}\right\}}^{+\infty}\frac{\beta\theta_{0}^{\beta}}{\theta^{n+\beta+1}}\,\mathrm{d}\theta=\beta\theta_{0}^{\beta}\cdot\frac{1}{(n+\beta)\left[\max\left\{x_{(n)},\theta_{0}\right\}\right]^{n+\beta}}
+                      \end{equation*}
+
+                      因此 $\theta$ 的后验分布为
+                      \begin{equation*}
+                          \pi\left(\theta\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{(n+\beta)\left[\max\left\{x_{(n)},\theta_{0}\right\}\right]^{n+\beta}}{\theta^{n+\beta+1}},\quad\theta>\max\left\{x_{(n)},\theta_{0}\right\}
+                      \end{equation*}
+
+                      后验分布仍为帕雷托分布，其参数为 $n+\beta$ 和 $\max\left\{x_{(n)},\theta_{0}\right\}$，故帕雷托分布是参数 $\theta$ 的共轭先验分布。
+                \item
+                      若采用后验期望估计，则 $\theta$ 的贝叶斯估计为
+                      \begin{equation*}
+                          \begin{aligned}
+                              \hat{\theta}_{B} & =\int_{\max\left\{x_{(n)},\theta_{0}\right\}}^{+\infty}\theta\cdot\pi\left(\theta\mid x_{1},x_{2},\ldots,x_{n}\right) d \theta                                     \\
+                                               & =\int_{\max \left\{x_{(n)},\theta_{0}\right\}}^{+\infty} \frac{(n+\beta)\left[\max \left\{x_{(n)},\theta_{0}\right\}\right]^{n+\beta}}{\theta^{n+\beta}} d \theta  \\
+                                               & =(n+\beta)\left[\max \left\{x_{(n)},\theta_{0}\right\}\right]^{n+\beta} \cdot \frac{\left[\max \left\{x_{(n)},\theta_{0}\right\}\right]^{-(n+\beta)+1}}{n+\beta-1} \\
+                                               & =\frac{n+\beta}{n+\beta-1} \max \left\{x_{(n)},\theta_{0}\right\}
+                          \end{aligned}
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+\end{enumerate}
+\end{document}
