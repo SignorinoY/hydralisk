@@ -1,0 +1,368 @@
+% !TEX program = xelatex
+
+\documentclass[normal,founder,mtpro2,cn]{elegantnote}
+    \title{2021年春季学期/数理统计/第十三周/课后作业解答}
+    \author{龚梓阳}
+    \date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[2]
+        \begin{proof}
+            由题设条件（$\sigma^{2}$ 已知），$\mu$ 的置信水平为 $1-\alpha$ 的置信区间为
+            \begin{equation*}
+                \left[\bar{x}-\mu_{1-\alpha/2} \frac{\sigma}{\sqrt{n}},\bar{x}+\mu_{1-\alpha/2} \frac{\sigma}{\sqrt{n}}\right]
+            \end{equation*}
+            其长度为 $2\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}$。给定置信度 $1-\alpha=0.95$，有 $\mu_{1-\alpha/2}=\mu_{0.975}=1.96$。若使置信区间的长度
+            \begin{equation*}
+                2\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}=2\times 1.96 \times\frac{\sigma}{\sqrt{n}}\leq k
+            \end{equation*}
+            故
+            \begin{equation*}
+                \sqrt{n}\geq 3.92\times\frac{\sigma}{k} \Rightarrow n\geq\frac{15.3664\sigma^{2}}{k^{2}}
+            \end{equation*}
+        \end{proof}
+    \item[3]
+        \begin{proof}
+            \begin{enumerate}
+                \item 由题设条件（$\sigma^{2}$ 已知），$\mu$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\bar{y}-\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}},\bar{y}+\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，有 $\mu_{1-\alpha/2}=\mu_{0.975}=1.96$，且有
+                      \begin{equation*}
+                          \sigma=1,\quad n=4,\quad \bar{y}=\frac{1}{4}(\ln 0.50+\ln 1.25+\ln 0.80+\ln 2.00)=0
+                      \end{equation*}
+                      故 $\mu$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[0 \pm 1.96 \times\frac{1}{\sqrt{4}}\right]=\left[-0.98,0.98\right]
+                      \end{equation*}
+                \item 因 $Y=\ln X$ 服从正态分布 $N\left(\mu,1\right)$，有 $X=\mathrm{e}^{Y}$。 且 $Y$ 的密度函数为
+                      \begin{equation*}
+                          p(y)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{(y-\mu)^{2}}{2}}
+                      \end{equation*}
+                      则
+                      \begin{equation*}
+                          \begin{aligned}
+                              E(X)= & \int_{-\infty}^{+\infty}\mathrm{e}^{y}\cdot\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{(y-\mu)^{2}}{2}}\,\mathrm{d}y                                           \\
+                              =     & \int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{y^{2}-2\mu y+\mu^{2}-2 }{2}}\,\mathrm{d}y                                                  \\
+                              =     & \int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{y^{2}-2(\mu+1)y+(\mu+1)^{2}-2\mu-1}{2}}\,\mathrm{d}y                                       \\
+                              =     & \mathrm{e}^{\mu+\frac{1}{2}}\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2 \pi}} \mathrm{e}^{-\frac{(y-\mu-1)^{2}}{2}}\,\mathrm{d}y=\mathrm{e}^{\mu+\frac{1}{2}}
+                          \end{aligned}
+                      \end{equation*}
+                      由于 $E(X)=\mathrm{e}^{\mu+\frac{1}{2}}$ 为 $\mu$ 的严格单调增函数，因此，$E(X)$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\mathrm{e}^{-0.98+0.5},\mathrm{e}^{0.98+0.5}\right]=[0.6188,4.3929]
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+    \item[5]
+        \begin{proof}
+            \begin{enumerate}
+                \item 由题设条件（$\sigma^{2}$ 未知），$\mu$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\bar{x}-t_{1-\alpha/2}(n-1)\frac{s}{\sqrt{n}},\bar{x}=t_{1-\alpha/2}(n-1)\frac{s}{\sqrt{n}}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，对于 $n=10$，有 $t_{1-\alpha/2}(n-1)=t_{0.975}(9)=2.2622$，且有
+                      \begin{equation*}
+                          \bar{x}=457.5,\quad s=35.2176
+                      \end{equation*}
+                      故 $\mu$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[457.5\pm 2.2622\times\frac{35.2176}{\sqrt{10}}\right]=[432.3064,482.6936]
+                      \end{equation*}
+                \item 由题设条件（$\sigma^{2}$ 已知），$\mu$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\bar{x}-\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}},\bar{x}+\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$ 有 $\mu_{1-\alpha/2}=u_{0.975}=1.96$  且有
+                      \begin{equation*}
+                          n=10,\bar{x}=457.5, \quad \sigma=30
+                      \end{equation*}
+                      故 $\mu$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[457.5 \pm 1.96\times\frac{30}{\sqrt{10}}\right]=[438.9058,476.0942]
+                      \end{equation*}
+                \item 由题设条件（$\mu$ 未知），$\sigma^{2}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\frac{(n-1)\cdot s^{2}}{\chi_{1-\alpha/2}^{2}(n-1)},\frac{(n-1)\cdot s^{2}}{\chi_{\alpha/2}^{2}(n-1)}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，对于 $n=10$，有
+                      \begin{equation*}
+                          \chi_{\alpha/2}^{2}(n-1)=\chi_{0.025}^{2}(9)=2.7004, \quad\chi_{1-\alpha/2}^{2}(n-1)=\chi_{0.975}^{2}(9)=19.0228
+                      \end{equation*}
+                      且有 $s=35.2176$。故 $\sigma^{2}$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\frac{9\times 35.2176^{2}}{19.0228},\frac{9\times 35.2176^{2}}{2.7004}\right]=[586.7958,4133.6469]
+                      \end{equation*}
+                      因此，$\sigma$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          [\sqrt{586.7958},\sqrt{4133.6469}]=[24.2239,64.2934]
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+    \item[9]
+        \begin{proof}
+            \begin{enumerate}
+                \item 由题设条件（$\sigma_{1}^{2},\sigma_{2}^{2}$ 已知），$\mu_{1}-\mu_{2}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\left(\bar{x}-\bar{y}\right)-\mu_{1-\alpha/2}\cdot\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}},\left(\bar{x}-\bar{y}\right)+\mu_{1-\alpha/2}\cdot\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，有 $\mu_{1-\alpha/2}=\mu_{0.975}=1.96$，且有
+                      \begin{equation*}
+                          \bar{x}=82,\quad\bar{y}=76,\quad\sigma_{1}^{2}=64,\quad\sigma_{2}^{2}=49,\quad n_{1}=10,\quad n_{2}=15
+                      \end{equation*}
+                      故 $\mu_{1}-\mu_{2}$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\left(82-76\right) \pm 1.96\times\sqrt{\frac{64}{10}+\frac{49}{15}}\right]=[-0.0939,12.0939]
+                      \end{equation*}
+                \item 由题设条件（$\sigma_{1}^{2}=\sigma_{2}^{2}$），$\mu_{1}-\mu_{2}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\left(\bar{x}-\bar{y}\right) \pm \sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}s_{w}\cdot t_{1-\alpha/2}\left(n_{1}+n_{2}-2\right)\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，对于 $n_{1}=10,n_{2}=15$，有 $t_{1-\alpha/2}\left(n_{1}+n_{2}-2\right)=t_{0.975}(23)=2.0687$，且有
+                      \begin{equation*}
+                          \bar{x}=82,\quad s_{x}^{2}=56.5,\quad \bar{y}=76,\quad s_{y}^{2}=52.4,\quad s_{w}=\sqrt{\frac{9\times 56.5+14 \times 52.4}{23}}=7.3488
+                      \end{equation*}
+                      故 $\mu_{1}-\mu_{2}$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\left(82-76\right) \pm 2.0687 \times 7.3488 \times \sqrt{\frac{1}{10}+\frac{1}{15}}\right]=[-0.2063,12.2063]
+                      \end{equation*}
+                \item 由题设条件（$\sigma_{1}^{2},\sigma_{2}^{2}$ 未知），$\mu_{1}-\mu_{2}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\left(\bar{x}-\bar{y}\right) \pm t_{1-\alpha/2}\left(l_{0}\right)\cdot\sqrt{\frac{s_{x}^{2}}{n_{1}}+\frac{s_{y}^{2}}{n_{2}}}\right]
+                      \end{equation*}
+                      其中，
+                      \begin{equation*}
+                          l_{0}\left\lfloor\frac{\left(\frac{s_{x}^{2}}{n_{1}}+\frac{s_{y}^{2}}{n_{2}}\right)^{2}}{\frac{s_{x}^{4}}{n_{1}^{2}\left(n_{1}-1\right)}+\frac{s_{y}^{4}}{n_{2}^{2}\left(n_{2}-1\right)}}\right\rceil
+                      \end{equation*}
+                      对于 $n_{1}=10,n_{2}=15,s_{x}^{2}=56.5,s_{y}^{2}=52.4$, 有
+                      \begin{equation*}
+                          \frac{\left(\frac{56.5}{10}+\frac{52.4}{15}\right)^{2}}{\frac{56.5^{2}}{10^{2}\times 9}+\frac{52.4^{2}}{15^{2}\times 14}}=18.9201
+                      \end{equation*}
+                      取 $l_{0}=19$。给定置信度为 $1-\alpha=0.95$，有 $t_{1-\alpha/2}\left(l_{0}\right)=t_{0.975}(19)=2.0930$，且有
+                      \begin{equation*}
+                          \bar{x}=82,\quad s_{x}^{2}=56.5,\quad \bar{y}=76,\quad s_{y}^{2}=52.4
+                      \end{equation*}
+                      故 $\mu_{1}-\mu_{2}$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\left(82-76\right) \pm 2.0930 \times \sqrt{\frac{56.5}{10}+\frac{52.4}{15}}\right]=[-0.3288,12.3288]
+                      \end{equation*}
+                \item $\sigma_{1}^{2}/\sigma_{2}^{2}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\frac{s_{x}^{2}}{s_{y}^{2}}\cdot\frac{1}{F_{1-\alpha/2}\left(n_{1}-1,n_{2}-1\right)},\frac{s_{x}^{2}}{s_{y}^{2}}\cdot\frac{1}{F_{\alpha/2}\left(n_{1}-1,n_{2}-1\right)}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，对于 $n_{1}=10,n_{2}=15$，有
+                      \begin{gather*}
+                          F_{1-\alpha/2}\left(n_{1}-1,n_{2}-1\right)=F_{0.975}(9,14)=3.21 \\
+                          F_{\alpha/2}\left(n_{1}-1,n_{2}-1\right)=F_{0.025}(9,14)=\frac{1}{F_{0.975}(14,9)}=\frac{1}{3.80}
+                      \end{gather*}
+                      且有 $s_{x}^{2}=56.5,\quad s_{y}^{2}=52.4$。故 $\sigma_{1}^{2}/\sigma_{2}^{2}$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\frac{56.50}{52.4}\times\frac{1}{3.21},\frac{56.50}{52.4}\times 3.80\right]=[0.3359,4.0973]
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+    \item[11]
+        \begin{proof}
+            总体 $X$ 服从指数分布 $\operatorname{Exp}(\lambda)$, 有
+            \begin{equation*}
+                Y=2\lambda X\sim\operatorname{Exp}\left(\frac{1}{2}\right)=\text{Ga}\left(1,\frac{1}{2}\right)=\chi^{2}(2)
+            \end{equation*}
+            因此，
+            \begin{equation*}
+                n\bar{Y}=Y_{1}+\ldots+Y_{n}\sim\chi^{2}(2n)
+            \end{equation*}
+            选取枢轴量
+            \begin{equation*}
+                \chi^{2}=2n\lambda\bar{x}\sim\chi^{2}(2n)
+            \end{equation*}
+            给定置信度 $1-\alpha$, 即
+            \begin{equation*}
+                P\left\{\chi_{\alpha/2}^{2}(2n)\leq 2n\lambda\bar{x}\leq\chi_{1-\alpha/2}^{2}(2n)\right\}=1-\alpha
+            \end{equation*}
+            则
+            \begin{equation*}
+                \chi_{\alpha/2}^{2}(2n)\leq 2n\lambda\bar{x}\leq\chi_{1-\alpha/2}^{2}(2n)
+            \end{equation*}
+            即
+            \begin{equation*}
+                \frac{\chi_{\alpha/2}^{2}(2n)}{2n\bar{x}}\leq\lambda\leq\frac{\chi_{1-\alpha/2}^{2}(2n)}{2n\bar{x}}
+            \end{equation*}
+            故$\lambda$ 的置信水平为 $1-\alpha$ 的置信区间为
+            \begin{equation*}
+                \left[\frac{\chi_{\alpha/2}^{2}(2n)}{2n\bar{x}},\frac{\chi_{1-\alpha/2}^{2}(2n)}{2n\bar{x}}\right]
+            \end{equation*}
+        \end{proof}
+    \item[17]
+        \begin{proof}
+            总体 $X$ 的密度函数与分布函数分别为
+            \begin{equation*}
+                p(x)=\frac{1}{\theta_{2}-\theta_{1}}\mathrm{I}_{\theta_{1}<x<\theta_{2}},\quad
+                F(x)=\left\{\begin{aligned}
+                    0,                                          & x<\theta_{1}                \\
+                    \frac{x-\theta_{1}}{\theta_{2}-\theta_{1}}, & \theta_{1}\leq x<\theta_{2} \\
+                    1,                                          & x \geq \theta_{2}
+                \end{aligned}\right.
+            \end{equation*}
+            则 $\left(x_{(1)},x_{(n)}\right)$ 的联合密度函数为
+            \begin{equation*}
+                \begin{aligned}
+                    p_{1n}\left(x_{(1)},x_{(n)}\right)= & n(n-1)\left[F\left(x_{(n)}\right)-F\left(x_{(1)}\right)\right]^{n-2}p\left(x_{(1)}\right)p\left(x_{(n)}\right)                             \\
+                    =                                   & \frac{n(n-1)\left(x_{(n)}-x_{(1)}\right)^{n-2}}{\left(\theta_{2}-\theta_{1}\right)^{n}},\quad\theta_{1}\leq x_{(1)}\leq x_{(n)}<\theta_{2}
+                \end{aligned}
+            \end{equation*}
+            \begin{enumerate}
+                \item 令
+                      \begin{equation*}
+                          u=x_{(n)}-x_{(1)}
+                      \end{equation*}
+                      当 $0<u<\theta_{2}-\theta_{1}$ 时，
+                      \begin{equation*}
+                          p_{u}(u)=\int_{\theta_{1}}^{\theta_{2}-u}\frac{n(n-1)\left[\left(u+x_{(1)}\right)-x_{(1)}\right]^{n-2}}{\left(\theta_{2}-\theta_{1}\right)^{n}}\,\mathrm{d}x_{(1)}=\frac{n(n-1)u^{n-2}\left(\theta_{2}-\theta_{1}-u\right)}{\left(\theta_{2}-\theta_{1}\right)^{n}}
+                      \end{equation*}
+                      当 $u\leq 0$ 或 $u\geq\theta_{2}-\theta_{1}$ 时，
+                      \begin{equation*}
+                          p_{u}(u)=0
+                      \end{equation*}
+                      令
+                      \begin{equation*}
+                          Y=\frac{u}{\theta_{2}-\theta_{1}}=\frac{x_{(n)}-x_{(1)}}{\theta_{2}-\theta_{1}}
+                      \end{equation*}
+                      因此，$Y$ 的密度函数与分布函数分别为
+                      \begin{equation*}
+                          p_{Y}(y)=\left(\theta_{2}-\theta_{1}\right)p_{u}\left(\left(\theta_{2}-\theta_{1}\right)y\right)=\left\{\begin{array}{ll}
+                              n(n-1) y^{n-2}(1-y), & 0<y<1       \\
+                              0,                   & \text{其他}
+                          \end{array}\right.
+                      \end{equation*}
+                      \begin{equation*}
+                          F_{Y}(y)=\left\{\begin{array}{ll}
+                              0,                    & y<0       \\
+                              ny^{n-1}-(n-1) y^{n}, & 0\leq y<1 \\
+                              1,                    & y\geq 1
+                          \end{array}\right.
+                      \end{equation*}
+                      可得 $Y$ 服从贝塔分布 $\operatorname{Be}(n-1,2)$，其分布与未知参数 $\theta_{1},\theta_{2}$ 无关。
+
+                      选取枢轴量
+                      \begin{equation*}
+                          Y=\frac{x_{(n)}-x_{(1)}}{\theta_{2}-\theta_{1}}
+                      \end{equation*}
+                      令其 $p$ 分位数为
+                      \begin{equation*}
+                          y_{p}=\operatorname{Be}_{p}(n-1,2)
+                      \end{equation*}
+                      满足方程
+                      \begin{equation*}
+                          F_{Y}\left(y_{p}\right)=ny_{p}^{n-1}-(n-1)y_{p}^{n}=p
+                      \end{equation*}
+                      给定置信度为 $1-\alpha$，即
+                      \begin{equation*}
+                          P\left\{\operatorname{Be}_{\alpha/2}(n-1,2)\leq\frac{x_{(n)}-x_{(1)}}{\theta_{2}-\theta_{1}}\leq\operatorname{Be}_{1-\alpha/2}(n-1,2)\right\}=1-\alpha
+                      \end{equation*}
+                      则
+                      \begin{equation*}
+                          \operatorname{Be}_{\alpha/2}(n-1,2)\leq\frac{x_{(n)}-x_{(1)}}{\theta_{2}-\theta_{1}}\leq\operatorname{Be}_{1-\alpha/2}(n-1,2)
+                      \end{equation*}
+                      即
+                      \begin{equation*}
+                          \frac{x_{(n)}-x_{(1)}}{\operatorname{Be}_{1-\alpha/2}(n-1,2)}\leq\theta_{2}-\theta_{1}\leq\frac{x_{(n)}-x_{(1)}}{\operatorname{Be}_{\alpha/2}(n-1,2)}
+                      \end{equation*}
+                      故 $\theta_{2}-\theta_{1}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\frac{x_{(n)}-x_{(1)}}{\operatorname{Be}_{1-\alpha/2}(n-1,2)},\frac{x_{(n)}-x_{(1)}}{\operatorname{Be}_{\alpha/2}(n-1,2)}\right]
+                      \end{equation*}
+                \item 令
+                      \begin{equation*}
+                          \left\{\begin{array}{l}
+                              u=x_{(n)}-x_{(1)} \\
+                              v=x_{(n)}+x_{(1)}
+                          \end{array}\right.,\quad
+                          \left\{\begin{array}{l}
+                              x_{(1)}=\frac{v-u}{2} \\
+                              x_{(n)}=\frac{u+v}{2}
+                          \end{array}\right.
+                      \end{equation*}
+                      则
+                      \begin{equation*}
+                          J=\left|\begin{array}{ll}
+                              -\frac{1}{2} & \frac{1}{2} \\
+                              \frac{1}{2}  & \frac{1}{2}
+                          \end{array}\right|=-\frac{1}{2}
+                      \end{equation*}
+                      根据 $\theta_{1}<x_{(1)}<x_{(n)}<\theta_{2}$，可得 $2\theta_{1}<v-u<v+u<2\theta_{2}$，即
+                      \begin{equation*}
+                          0<u<\theta_{2}-\theta_{1},\quad 2\theta_{1}+u<v<2\theta_{2}-u
+                      \end{equation*}
+                      有
+                      \begin{equation*}
+                          p_{uv}(u,v)=p_{1n}\left(\frac{v-u}{2},\frac{v+u}{2}\right)\cdot|J|=\frac{n(n-1)u^{n-2}}{2\left(\theta_{2}-\theta_{1}\right)^{n}}
+                      \end{equation*}
+                      令 $v^{*}=v-\left(\theta_{2}+\theta_{1}\right)$， $\left(u, v^{*}\right)$ 的联合密度函数为
+                      \begin{gather*}
+                          p_{uv^{*}}\left(u,v^{*}\right)=p_{uv}\left(u,v^{*}+\left(\theta_{2}+\theta_{1}\right)\right)=\frac{n(n-1)u^{n-2}}{2\left(\theta_{2}-\theta_{1}\right)^{n}} \\
+                          0<u<\theta_{2}-\theta_{1},u-\left(\theta_{2}-\theta_{1}\right)<v<\left(\theta_{2}-\theta_{1}\right)-u
+                      \end{gather*}
+                      令
+                      \begin{equation*}
+                          z=\frac{v^{*}}{2u}=\frac{\left(x_{(n)}+x_{(1)}\right)-\left(\theta_{2}+\theta_{1}\right)}{2\left(x_{(n)}-x_{(1)}\right)}
+                      \end{equation*}
+                      当 $z<0$ 时，
+                      \begin{equation*}
+                          p_{z}(z)=\int_{0}^{\theta_{2}-\theta_{1}}{1-2z}\frac{n(n-1)u^{n-2}}{2\left(\theta_{2}-\theta_{1}\right)^{n}}\cdot 2u\,\mathrm{d}u=\left.\frac{(n-1)u^{n}}{\left(\theta_{2}-\theta_{1}\right)^{n}}\right|_{0}^{\frac{\theta_{2}-\theta_{1}}{1-2z}}=\frac{n-1}{(1-2z)^{n}}
+                      \end{equation*}
+                      当 $z\geq 0$ 时，
+                      \begin{equation*}
+                          p_{z}(z)=\int_{0}^{\frac{\theta_{2}-\theta_{1}}{1+2z}}\frac{n(n-1)u^{n-2}}{2\left(\theta_{2}-\theta_{1}\right)^{n}}\cdot 2u\,\mathrm{d}u=\left.\frac{(n-1)u^{n}}{\left(\theta_{2}-\theta_{1}\right)^{n}}\right|_{0}^{\frac{\theta_{2}-\theta_{1}}{1+2z}}=\frac{n-1}{(1+2z)^{n}}
+                      \end{equation*}
+                      则 $Z$ 的分布函数为
+                      \begin{equation*}
+                          F_{Z}(z)=\left\{\begin{array}{ll}
+                              \frac{1}{2}(1-2 z)^{1-n},   & z<0 ;     \\
+                              1-\frac{1}{2}(1+2 z)^{1-n}, & z\geq 0 .
+                          \end{array}\right.
+                      \end{equation*}
+                      其分布与未知参数 $\theta_{1},\theta_{2}$ 无关。
+
+                      令枢轴量为
+                      \begin{equation*}
+                          z=\frac{\left(x_{(n)}+x_{(1)}\right)-\left(\theta_{2}+\theta_{1}\right)}{2\left(x_{(n)}-x_{(1)}\right)}
+                      \end{equation*}
+                      当 $p<0.5$ 时，其 $p$ 分位数 $z_{p}$ 满足
+                      \begin{equation*}
+                          F_{z}\left(z_{p}\right)=\frac{1}{2}\left(1-2z_{p}\right)^{1-n}=p
+                      \end{equation*}
+                      即
+                      \begin{equation*}
+                          z_{p}=\frac{1-(2p)^{\frac{1}{1-n}}}{2}
+                      \end{equation*}
+                      当 $p\geq 0.5$ 时，其 $p$ 分位数 $z_{p}$ 满足
+                      \begin{equation*}
+                          F_{z}\left(z_{p}\right)=1-\frac{1}{2}\left(1+2z_{p}\right)^{1-n}=p
+                      \end{equation*}
+                      即
+                      \begin{equation*}
+                          z_{p}=\frac{[2(1-p)]^{\frac{1}{1-n}}-1}{2}
+                      \end{equation*}
+                      给定置信度为 $1-\alpha$，即
+                      \begin{equation*}
+                          P\left\{z_{\alpha/2}\leq\frac{\left(x_{(n)}+x_{(1)}\right)-\left(\theta_{2}+\theta_{1}\right)}{2\left(x_{(n)}-x_{(1)}\right)}\leq z_{1-\alpha/2}\right\}=1-\alpha
+                      \end{equation*}
+                      即
+                      \begin{equation*}
+                          z_{\alpha/2}=-\frac{\alpha^{\frac{1}{1-n}}-1}{2}\leq\frac{\left(x_{(n)}+x_{(1)}\right)-\left(\theta_{2}+\theta_{1}\right)}{2\left(x_{(n)}-x_{(1)}\right)}\leq z_{1-\alpha/2}=\frac{\alpha^{\frac{1}{1-n}}-1}{2}
+                      \end{equation*}
+                      即
+                      \begin{equation*}
+                          \frac{x_{(n)}+x_{(1)}}{2}-\frac{\alpha^{\frac{1}{1-n}}-1}{2}\left(x_{(n)}-x_{(1)}\right)\leq\frac{\theta_{2}+\theta_{1}}{2}\leq\frac{x_{(n)}+x_{(1)}}{2}+\frac{\alpha^{\frac{1}{1-n}}-1}{2}\left(x_{(n)}-x_{(1)}\right)
+                      \end{equation*}
+                      故 $\frac{\theta_{2}+\theta_{1}}{2}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\frac{x_{(n)}+x_{(1)}}{2}-\frac{\alpha^{\frac{1}{1-n}}-1}{2}\left(x_{(n)}-x_{(1)}\right),\frac{x_{(n)}+x_{(1)}}{2}+\frac{\alpha^{\frac{1}{1-n}}-1}{2}\left(x_{(n)}-x_{(1)}\right)\right]
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+\end{enumerate}
+\end{document}
