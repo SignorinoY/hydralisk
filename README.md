@@ -11,8 +11,9 @@
 |  第7周 |          习题 6.2 - 3，4，5，7         | [hw-solution-week7.pdf](./hw-solution-week7.pdf) |
 |  第8周 |      习题 6.3 - 2，3，5，7，8，10      | [hw-solution-week8.pdf](./hw-solution-week8.pdf) |
 | 第11周 |    习题 6.4 - 2，3，5，6，7，10，12    | [hw-solution-week11.pdf](./hw-solution-week11.pdf) |
-| 第12周 |    习题 6.5 - 3，4，5，6，7，8         | [hw-solution-week12.pdf](./hw-solution-week12.pdf) | 
-| 第13周 |    习题 6.6 - 2，3，5，9，11，17       | [hw-solution-week13.pdf](./hw-solution-week13.pdf) | 
-| 第14周 |          习题 7.1 - 1，2，4，5         | [hw-solution-week14.pdf](./hw-solution-week14.pdf) | 
+| 第12周 |    习题 6.5 - 3，4，5，6，7，8         | [hw-solution-week12.pdf](./hw-solution-week12.pdf) |
+| 第13周 |    习题 6.6 - 2，3，5，9，11，17       | [hw-solution-week13.pdf](./hw-solution-week13.pdf) |
+| 第14周 |          习题 7.1 - 1，2，4，5         | [hw-solution-week14.pdf](./hw-solution-week14.pdf) |
+| 第15周 |     习题 7.2 - 3，6，12，13，18，25    | [hw-solution-week15.pdf](./hw-solution-week15.pdf) |
 
 参考教材：茆诗松, 程依明和濮晓龙. 2019. 概率论与数理统计教程. 第3版. “十二五”普通高等教育国家级规划教材. 北京: 高等教育出版社.
