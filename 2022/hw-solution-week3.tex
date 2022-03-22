@@ -1,0 +1,195 @@
+\documentclass[normal,cn]{elegantnote}
+
+\title{2022年春季学期/数理统计/第三周/课后作业解答}
+\author{龚梓阳}
+\date{\zhtoday}
+
+\begin{document}
+% \maketitle
+\begin{enumerate}
+    \item[4]
+        \begin{proof}
+            样本容量为 $n+1$ 时的样本均值 $\bar{x}_{n+1}$：
+            \begin{equation*}
+                \begin{aligned}
+                    \bar{x}_{n+1}= & \frac{1}{n+1}\sum_{i=1}^{n+1}x_i=\frac{1}{n+1}\left(\sum_{i=1}^nx_i+x_{n+1}\right)=\frac{1}{n+1}\left(n\bar{x}_n+x_{n+1}\right) \\
+                    =              & \frac{1}{n+1}[\left(n+1\right)\bar{x}_n-\bar{x}_n+x_{n+1}]=\bar{x}_n+\frac{1}{n+1}\left(x_{n+1}-\bar{x}_n\right)                \\
+                \end{aligned}
+            \end{equation*}
+
+            样本容量为 $n+1$ 时的样本方差 $s^2_{n+1}$：
+            \begin{equation*}
+                \begin{aligned}
+                    s^2_{n+1}= & \frac{1}{n}\sum_{i=1}^{n+1}\left(x_i-\bar{x}_{n+1}\right)^2                                                                                                                                                                 \\
+                    =          & \frac{1}{n}\sum_{i=1}^{n}\left\{x_i-\left[\bar{x}_n+\frac{1}{n+1}\left(x_{n+1}-\bar{x}_n\right)\right]\right\}^2                                                                                                            \\
+                    =          & \frac{1}{n}\sum_{i=1}^{n+1}\left[\left(x_i-\bar{x}_n\right)-\frac{1}{n+1}\left(x_{n+1}-\bar{x}_n\right)\right]^2                                                                                                            \\
+                    =          & \frac{1}{n}\sum_{i=1}^{n+1}\left\{\left(x_i-\bar{x}_n\right)^2-\frac{2}{n+1}\left(x_i-\bar{x}_n\right)\left(x_{n+1}-\bar{x}_n\right)+\frac{1}{\left(n+1\right)^2}\left(x_{n+1}-\bar{x}_n\right)^2\right\}                   \\
+                    =          & \frac{1}{n}\left[\sum_{i=1}^{n}\left(x_i-\bar{x}_n\right)^2\right]+\frac{1}{n}\left(x_{n+1}-\bar{x}_n\right)^2-\frac{2}{n\left(n+1\right)}\left(x_{n+1}-\bar{x}_n\right)\left[\sum_{i=1}^n\left(x_i-\bar{x}_n\right)\right] \\
+                               & -\frac{2}{n\left(n+1\right)}\left(x_{n+1}-\bar{x}_n\right)^2+\frac{1}{n\left(n+1\right)}\left(x_{n+1}-\bar{x}_n\right)^2                                                                                                    \\
+                    =          & \frac{n-1}{n}s_{n}^{2}+\frac{1}{n+1}\left(x_{n+1}-\bar{x}_{n}\right)^{2}                                                                                                                                                    \\
+                \end{aligned}
+            \end{equation*}
+
+            （另一种思路）
+            \begin{equation*}
+                \begin{aligned}
+                    s_{n+1}^{2}= & \frac{1}{n}\sum_{i=1}^{n+1}\left(x_{i}-\bar{x}_{n+1}\right)^{2}=\frac{1}{n}\sum_{i=1}^{n+1}\left[(x_{i}-\bar{x}_n)+(\bar{x}_n-\bar{x}_{n+1})\right]^{2}                                                                                          \\
+                    =            & \frac{1}{n}\left[\sum_{i=1}^{n+1}\left(x_{i}-\bar{x}_{n}\right)^{2}\right]+\frac{2}{n}\left(\bar{x}_{n}-\bar{x}_{n+1}\right)\sum_{i=1}^{n+1}\left(x_{i}-\bar{x}_{n}\right)+\frac{1}{n}\sum_{i=1}^{n+1}\left(\bar{x}_{n}-\bar{x}_{n+1}\right)^{2} \\
+                    =            & \frac{1}{n}\left[\sum_{i=1}^{n+1}\left(x_{i}-\bar{x}_{n}\right)^{2}\right]-\frac{n+1}{n}\left(\bar{x}_{n}-\bar{x}_{n+1}\right)^{2}                                                                                                               \\
+                    =            & \frac{1}{n}\left[\sum_{i=1}^{n}\left(x_{i}-\bar{x}_{n}\right)^{2}+\left(x_{n+1}-\bar{x}_{n}\right)^{2}\right]-\frac{n+1}{n}\frac{1}{(n+1)^{2}}\left(x_{n+1}-\bar{x}_{n}\right)^{2}                                                               \\
+                    =            & \frac{1}{n}\left[(n-1) \frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i}-\bar{x}_{n}\right)^{2}+\frac{n}{n+1}\left(x_{n+1}-\bar{x}_{n}\right)^{2}\right]                                                                                                   \\
+                    =            & \frac{n-1}{n} s_{n}^{2}+\frac{1}{n+1}\left(x_{n+1}-\bar{x}_{n}\right)^{2}
+                \end{aligned}
+            \end{equation*}
+        \end{proof}
+
+    \item[6]
+        \begin{proof}
+            样本 $B$ 的均值 $\bar{y}_{B}$：
+            \begin{equation*}
+                \begin{aligned}
+                    \bar{y}_{B}= & \frac{1}{n}\sum_{i=1}^{n}y_{i}=\frac{1}{n}\sum_{i=1}^{n}\left(ax_{i}+b\right)=\frac{1}{n}\left(a\sum_{i=1}^{n}x_{i}+nb\right) \\
+                    =            & a\cdot\frac{1}{n}\sum_{i=1}^{n}x_{i}+b=a\bar{x}_{A}+b                                                                         \\
+                \end{aligned}
+            \end{equation*}
+
+            样本 $B$ 的标准差 $s_{B}$：
+            \begin{equation*}
+                \begin{aligned}
+                    s_{B}= & \sqrt{\frac{1}{n-1} \sum_{i=1}^{n}\left(y_{i}-\bar{y}_{B}\right)^{2}}=\sqrt{\frac{1}{n-1} \sum_{i=1}^{n}\left(a x_{i}+b-a \bar{x}_{A}-b\right)^{2}} \\
+                    =      & |a| \cdot \sqrt{\frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i}-\bar{x}_{A}\right)^{2}}=|a| s_{A}                                                           \\
+                \end{aligned}
+            \end{equation*}
+
+            样本 $B$ 的极差 $R_{B}$：
+            \begin{equation*}
+                R_{B}=y_{(n)}-y_{(1)}=a x_{(n)}+b-a x_{(1)}-b=a\left[x_{(n)}-x_{(1)}\right]=a R_{A}
+            \end{equation*}
+
+            样本 $B$ 的中位数 ${m_{0.5}}_{B}$：
+
+            \begin{enumerate}
+                \item 当 $n$ 为偶数时，
+                      \begin{equation*}
+                          {m_{0.5}}_{B}=y_{\left(\frac{n+1}{2}\right)}=a x_{\left(\frac{n+1}{2}\right)}+b=a{m_{0.5}}_{A}+b
+                      \end{equation*}
+                \item 当 $n$ 为奇数时，
+                      \begin{equation*}
+                          \begin{aligned}
+                              {m_{0.5}}_{B}= & \frac{1}{2}\left[y_{\left(\frac{n}{2}\right)}+y_{\left(\frac{n}{2}+1\right)}\right]=\frac{1}{2}\left[a x_{\left(\frac{n}{2}\right)}+b+a x_{\left(\frac{n}{2}+1\right)}+b\right] \\
+                              =              & \frac{a}{2}\left[x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right]+b=a {m_{0.5}}_A+b                                                                           \\
+                          \end{aligned}
+                      \end{equation*}
+            \end{enumerate}
+
+            因此，样本 $B$ 的中位数 ${m_{0.5}}_{B}$ 为
+            \begin{equation*}
+                {m_{0.5}}_{B}=a{m_{0.5}}_{A}+b.
+            \end{equation*}
+        \end{proof}
+
+    \item[23]
+        \begin{proof}
+            （可参考例 3.3.4 与例 3.3.5）
+
+            \begin{equation*}
+                P\left(X\leq k\right)=\sum_{i=1}^{k}pq^{i-1}=\frac{p\left(1-q^{k}\right)}{1-q}=1-q^{k},\quad k=1,2,\ldots,
+            \end{equation*}
+
+            对于 $X_{(n)}$，有
+            \begin{equation*}
+                \begin{aligned}
+                    P\left(X_{(n)}=k\right)= & P\left(X_{(n)}\leq k\right)-P\left(X_{(n)}\leq k-1\right)                           \\
+                    =                        & \prod_{i=1}^{n}P\left(X_{i}\leq k\right)-\prod_{i=1}^{n}P\left(X_{i}\leq k-1\right) \\
+                    =                        & \left(1-q^{k}\right)^{n}-\left(1-q^{k-1}\right)^{n}
+                \end{aligned}
+            \end{equation*}
+
+            对于 $X_{(1)}$，有
+            \begin{equation*}
+                \begin{aligned}
+                    P\left(X_{(1)}=k\right)= & P\left(X_{(1)}\leq k\right)-P\left(X_{(1)}\leq k-1\right)                   \\
+                    =                        & 1-P\left(X_{(1)}>k\right)-\left[1-P\left(X_{(1)}>k-1\right)\right]          \\
+                    =                        & \prod_{i=1}^{n}P\left(X_{i}>k-1\right)-\prod_{i=1}^{n}P\left(X_{i}>k\right) \\
+                    =                        & q^{n(k-1)}-q^{n k}=q^{n(k-1)}\left(1-q^n\right)
+                \end{aligned}
+            \end{equation*}
+        \end{proof}
+
+    \item[32]
+        \begin{proof}
+            总体 $X$ 的密度函数和分布函数分别为
+            \begin{equation*}
+                p(x)=\left\{\begin{array}{ll}
+                    3x^{2}, & 0<x<1;        \\
+                    0,      & \text{ 其他}.
+                \end{array}\right.\quad
+                F(x)=\left\{\begin{array}{ll}
+                    0,     & x<0;       \\
+                    x^{3}, & 0\leq x<1; \\
+                    1,     & x\geq 1.
+                \end{array}\right.
+            \end{equation*}
+            所以，根据 P242 (5.3.16)，$\left(X_{(2)},X_{(4)}\right)$ 的联合密度函数为
+            \begin{equation*}
+                \begin{aligned}
+                    p\left(x,y\right) & =\frac{5!}{1! \cdot 1! \cdot 1!}\left[F\left(x\right)\right]^{2-1}\left[F\left(y\right)-F\left(x\right)\right]^{4-2-1}\left[1-F\left(y\right)\right]^{5-4}p\left(x\right)p\left(y\right) \\
+                                      & =120x^{3}\left(y^{3}-x^{3}\right)\left(1-y^{3}\right) \cdot 3x^{2} \cdot 3y^{2}                                                                                                          \\
+                                      & =1080x^{5}y^{2}\left(y^{3}-x^{3}\right)\left(1-y^{3}\right),\quad 0<x<y<1
+                \end{aligned}
+            \end{equation*}
+
+            为求 $\left(\frac{X_{(2)}}{X_{(4)}},X_{(4)}\right)$ 的联合密度，令
+            \begin{equation*}
+                \left\{\begin{array}{ll}
+                    \mu=\frac{x}{y} \\
+                    \nu=y
+                \end{array}\right.\quad\Longrightarrow
+                \left\{\begin{array}{ll}
+                    x=\mu\nu \\
+                    y=\nu
+                \end{array}\right.
+            \end{equation*}
+            则，其雅可比行列式为
+            \begin{equation*}
+                J=\frac{\partial\left(x,y\right)}{\partial\left(\mu,\nu\right)}=\left|\begin{array}{cc}
+                    \nu & \mu \\
+                    0   & 1
+                \end{array}\right|=\nu
+            \end{equation*}
+
+            由 $0<x<y<1$ 可得 $0<\mu<1,0<\nu<1$。于是，$\left(\frac{X_{(2)}}{X_{(4)}},X_{(4)}\right)$ 的联合密度函数为
+            \begin{equation*}
+                \begin{gathered}
+                    p\left(\mu,\nu\right)=p\left(\mu\nu,\nu\right)\cdot|J|=1080\left(\mu\nu\right)^{5}\nu^{2}\left[\nu^{3}-\left(\mu\nu\right)^{3}\right]\left(1-\nu^{3}\right) \\
+                    =1080\mu^{5}\left(1-\mu^{3}\right) \cdot \nu^{11}\left(1-\nu^{3}\right)
+                \end{gathered}
+            \end{equation*}
+
+            可求得其边际密度函数为，
+            \begin{equation*}
+                \begin{aligned}
+                    U=\frac{X_{(2)}}{X_{(4)}}\sim p(\mu) & =\int_{0}^{1}p(\mu,\nu)\,\mathrm{d}\nu=1080\mu^{5}\left(1-\mu^{3}\right)\int_{0}^{1}\nu^{11}\left(1-\nu^{3}\right)\,\mathrm{d}\nu \\
+                                                         & =18\mu^{5}\left(1-\mu^{3}\right),\quad 0<\mu<1
+                \end{aligned}
+            \end{equation*}
+            类似可得
+            \begin{equation*}
+                V=X_{(4)}\sim p(\nu)=60\nu^{11}\left(1-\nu^{3}\right),\quad 0<\nu<1
+            \end{equation*}
+            因此，可以证明
+            \begin{equation*}
+                p\left(\mu,\nu\right)=p(\mu) \cdot p(\nu)
+            \end{equation*}
+            即，$\frac{X_{(2)}}{X_{(4)}}$ 与 $X_{(4)}$ 独立。
+
+            \begin{remark}
+                也可利用变量独立的一个推论，判断 $p\left(\mu,\nu\right)$ 可分离变量，省去求解边际密度函数的步骤。
+            \end{remark}
+
+            \begin{corollary}
+                令 $(X,Y)\sim p(x,y)$, 则 $X$ 与 $Y$ 相互独立的充要条件是, $p(x,y)$ 可分离变量, 即存在非负函数 $g(x)$，$h(y)$ 使得 $p(x,y)=g(x)\cdot h(y)$。
+            \end{corollary}
+        \end{proof}
+\end{enumerate}
+\end{document}
