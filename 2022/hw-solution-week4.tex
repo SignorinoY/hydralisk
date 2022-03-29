@@ -1,0 +1,105 @@
+\documentclass[normal,cn]{elegantnote}
+\title{2022年春季学期/数理统计/第四周/课后作业解答}
+\author{龚梓阳}
+\date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[2]
+        \begin{proof}
+            因为 $X\sim N(\mu,16)$，所以 $\bar{X}\sim N\left(\mu,\frac{16}{n}\right)$。因此，
+            \begin{equation*}
+                \begin{aligned}
+                    P(|\bar{X}-\mu|<1)= & P\left(\left|\frac{\bar{X}-\mu}{\sqrt{16/n}}\right|<\frac{1}{\sqrt{16/n}}\right) \\
+                    =                   & \Phi\left(\frac{\sqrt{n}}{4}\right)-\Phi\left(-\frac{\sqrt{n}}{4}\right)         \\
+                    =                   & 2\Phi\left(\frac{\sqrt{n}}{4}\right)-1\geq0.95
+                \end{aligned}
+            \end{equation*}
+
+            所以，$\Phi\left(\frac{\sqrt{n}}{4}\right)\geq0.975$，$\frac{\sqrt{n}}{4}\geq1.96$，即 $n\geq61.47$。
+            因此，当 $n$ 至少为 $62$ 时，上述概率不等式才成立。
+        \end{proof}
+    \item[9]
+        \begin{proof}
+            因为，
+            \begin{equation*}
+                X_{1}\sim N(0,\sigma^2),\quad X_{2}\sim N(0,\sigma^2),
+            \end{equation*}
+            \begin{equation*}
+                X_{1}+X_{2}\sim N(0,2\sigma^2),\quad X_{1}-X_{2}\sim N(0,2\sigma^2),
+            \end{equation*}
+            因此，根据卡方分布定义有
+            \begin{equation*}
+                \left(\frac{X_{1}+X_{2}}{\sqrt{2}\sigma}\right)^2\sim\chi^{2}(1),\quad\left(\frac{X_{1}-X_{2}}{\sqrt{2}\sigma}\right)^2\sim\chi^{2}(1).
+            \end{equation*}
+
+            因为，
+            \begin{equation*}
+                \begin{aligned}
+                    \operatorname{Cov}(X_{1}+X_{2},X_{1}-X_{2})= & 2\operatorname{Cov}(X_{1},X_{2})+\operatorname{Var}(X_{1})-\operatorname{Var}(X_{2}) \\
+                    =                                            & 0+\sigma^2-\sigma^2=0
+                \end{aligned}
+            \end{equation*}
+
+            所以，由性质 3.4.13 有，对于二维正态分布 $(X_{1}+X_{2},X_{1}-X_{2})$，不相关与独立是等价的。
+
+            于是，根据 F 分布的定义有
+            \begin{equation*}
+                Y=\left(\frac{X_{1}+X_{2}}{X_{1}-X_{2}}\right)^{2}=\frac{\frac{\left(X_{1}+X_{2}\right)^{2}}{2\sigma^{2}}}{\frac{\left(X_{1}-X_{2}\right)^{2}}{2\sigma^{2}}}\sim F(1,1)
+            \end{equation*}
+        \end{proof}
+    \item[11]
+        \begin{proof}
+            因为，
+            \begin{equation*}
+                \bar{X}\sim N\left(\mu_{1},\frac{\sigma^{2}}{n}\right),\quad\bar{Y}\sim N\left(\mu_{2},\frac{\sigma^{2}}{m}\right)
+            \end{equation*}
+            有，
+            \begin{equation*}
+                c\left(\bar{X}-\mu_{1}\right)+d\left(\bar{Y}-\mu_{2}\right)\sim N\left(0,\frac{c^{2}\sigma^{2}}{n}+\frac{d^{2}\sigma^{2}}{m}\right)
+            \end{equation*}
+            则，
+            \begin{equation*}
+                \frac{c\left(\bar{X}-\mu_{1}\right)+d\left(\bar{Y}-\mu_{2}\right)}{\sigma\sqrt{\frac{c^{2}}{n}+\frac{d^{2}}{m}}}\sim N(0,1)
+            \end{equation*}
+            又因为，
+            \begin{gather*}
+                \frac{(n-1)S_{x}^{2}}{\sigma^{2}}=\frac{\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}}{\sigma^{2}}\sim\chi^{2}(n-1) \\
+                \frac{(m-1)S_{y}^{2}}{\sigma^{2}}=\frac{\sum_{j=1}^{m}\left(Y_{j}-\bar{Y}\right)^{2}}{\sigma^{2}}\sim\chi^{2}(m-1)
+            \end{gather*}
+            由于 $\frac{(n-1)S_{x}^{2}}{\sigma^{2}}$ 和 $\frac{(m-1)S_{y}^{2}}{\sigma^{2}}$ 相互独立，则，
+            \begin{equation*}
+                \frac{(n-1)S_{x}^{2}+(m-1)S_{y}^{2}}{\sigma^{2}}\sim\chi^{2}(n+m-2)
+            \end{equation*}
+            且 $\frac{(n-1)S_{x}^{2}+(m-1)S_{y}^{2}}{\sigma^{2}}$ 与 $c\left(\bar{X}-\mu_{1}\right)+d\left(\bar{Y}-\mu_{2}\right)$ 相互独立，故由 t 分布定义知
+            \begin{equation*}
+                \frac{\frac{c\left(\bar{X}-\mu_{1}\right)+d\left(\bar{Y}-\mu_{2}\right)}{\sigma\sqrt{\frac{c^{2}}{n}+\frac{d^{2}}{m}}}}{\sqrt{\frac{(n-1)S_{x}^{2}+(m-1)S_{y}^{2}}{\sigma^{2}}/(n+m-2)}}=\frac{c\left(\bar{X}-\mu_{1}\right)+d\left(\bar{Y}-\mu_{2}\right)}{S_{w}\sqrt{\frac{c^{2}}{n}+\frac{d^{2}}{m}}}\sim t(n+m-2)
+            \end{equation*}
+        \end{proof}
+    \item[12]
+        \begin{proof}
+            因为，
+            \begin{equation*}
+                \bar{X}_{n}\sim N\left(\mu,\frac{\sigma^{2}}{n}\right),\quad X_{n+1}\sim N\left(\mu,\sigma^{2}\right)
+            \end{equation*}
+            有，
+            \begin{equation*}
+                X_{n+1}-\bar{X}_{n}\sim N\left(0,\sigma^{2}+\frac{\sigma^{2}}{n}\right)
+            \end{equation*}
+            即，
+            \begin{equation*}
+                \frac{X_{n+1}-\bar{X}_{n}}{\sigma\sqrt{\frac{n+1}{n}}}\sim N(0,1)
+            \end{equation*}
+            又因为，
+            \begin{equation*}
+                \frac{(n-1)S_{n}^{2}}{\sigma^{2}}\sim\chi^{2}(n-1)
+            \end{equation*}
+            且 $\frac{(n-1)S_{n}^{2}}{\sigma^{2}}$ 与 $X_{n+1}-\bar{X}_{n}$ 相互独立，则由 t 分布定义知，
+            \begin{equation*}
+                \frac{\frac{X_{n+1}-\bar{X}_{n}}{\sigma\sqrt{\frac{n+1}{n}}}}{\sqrt{\frac{(n-1)S_{n}^{2}}{\sigma^{2}}/(n-1)}}=\sqrt{\frac{n}{n+1}}\frac{X_{n+1}-\bar{X}_{n}}{S_{n}}\sim t(n-1)
+            \end{equation*}
+            故当 $c=\sqrt{\frac{n}{n+1}}$ 时，$c\frac{X_{n+1}-\bar{X}_{n}}{S_{n}}$ 服从自由度为 $n-1$ 的 t 分布。
+        \end{proof}
+\end{enumerate}
+\end{document}
