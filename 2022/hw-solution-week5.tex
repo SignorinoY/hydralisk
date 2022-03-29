@@ -1,0 +1,76 @@
+\documentclass[normal,cn]{elegantnote}
+\title{2022年春季学期/数理统计/第五周/课后作业解答}
+\author{龚梓阳}
+\date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[2]
+        \begin{proof}
+            样本的联合概率函数为
+            \begin{equation*}
+                p\left(x_{1},x_{2},\cdots,x_{n};\lambda\right)=\prod_{i=1}^{n}\frac{\lambda^{x_{i}}}{x_{i}!}\mathrm{e}^{-\lambda}=\frac{\lambda^{\sum_{i=1}^{n}x_{i}}}{x_{1}!x_{2}!\cdots x_{n}!}\mathrm{e}^{-n\lambda}=\lambda^{\sum_{i=1}^{n}x_{i}}\mathrm{e}^{-n\lambda}\cdot\frac{1}{x_{1}!x_{2}!\cdots x_{n}!}
+            \end{equation*}
+            因 $T=\sum_{i=1}^{n}X_{i}$，有 $t=\sum_{i=1}^{n}x_{i}$，即
+            \begin{equation*}
+                p\left(x_{1},x_{2},\cdots,x_{n};\lambda\right)=\lambda^{t}\mathrm{e}^{-n\lambda}\cdot\frac{1}{x_{1}!x_{2}!\cdots x_{n}!}
+            \end{equation*}
+            取
+            \begin{equation*}
+                g(t;\lambda)=\lambda^{t}\mathrm{e}^{-n\lambda},\quad h\left(x_{1},x_{2},\cdots,x_{n}\right)=\frac{1}{x_{1}!x_{2}!\cdots x_{n}!}
+            \end{equation*}
+            故根据因子分解定理有，$T=\sum_{i=1}^{n}X_{i}$ 是 $\lambda$ 的充分统计量。
+        \end{proof}
+    \item[6]
+        \begin{proof}
+            样本的联合密度函数为
+            \begin{equation*}
+                \begin{aligned}
+                    p\left(x_{1},x_{2},\ldots,x_{n};\theta\right)= & \prod_{i=1}^{n}mx_{i}^{m-1}\theta^{-m}\mathrm{e}^{-\left(x_{i}/\theta\right)^{m}}                                       \\
+                    =                                              & m^{n}\left(x_{1} x_{2}\ldots x_{n}\right)^{m-1}\theta^{-mn}\mathrm{e}^{-\sum_{i=1}^{n}\left(x_{i}/\theta\right)^{m}}    \\
+                    =                                              & =\theta^{-mn}\mathrm{e}^{-\frac{\sum_{i=1}^{n}x_{i}^{m}}{\theta^{m}}}\cdot m^{n}\left(\prod_{i=1}^{n}x_{i}\right)^{m-1} \\
+                \end{aligned}
+            \end{equation*}
+
+            令
+            \begin{equation*}
+                T=\sum_{i=1}^{n}X_{i}^{m},\quad g\left(t;\theta\right)=\theta^{-mn}\mathrm{e}^{-\frac{t}{\theta^{m}}},\quad h\left(x_{1},x_{2},\ldots,x_{n}\right)=m^{n}\left(\prod_{i=1}^{n}x_{i}\right)^{m-1}.
+            \end{equation*}
+
+            故根据因子分解定理有，$T=\sum_{i=1}^{n}X_{i}^{m}$ 为 $\theta$ 的充分统计量。
+        \end{proof}
+    \item[8]
+        \begin{proof}
+            样本的联合密度函数为
+            \begin{equation*}
+                p\left(x_{1},x_{2},\ldots,x_{n};\mu\right)=\prod_{i=1}^{n}\frac{1}{2\theta}\mathrm{e}^{-\frac{\left|x_{i}\right|}{\theta}}=\frac{1}{(2\theta)^{n}}\mathrm{e}^{-\frac{1}{\theta}\sum_{i=1}^{n}\left|x_{i}\right|}
+            \end{equation*}
+
+            令
+            \begin{equation*}
+                T=\sum_{i=1}^{n}\left|X_{i}\right|,\quad g\left(t;\theta\right)=\frac{1}{(2\theta)^{n}}\mathrm{e}^{-\frac{1}{\theta}t},\quad h\left(x_{1},x_{2},\ldots,x_{n}\right)=1.
+            \end{equation*}
+
+            故根据因子分解定理有，$T=\sum_{i=1}^{n}\left|X_{i}\right|$ 为 $\theta$ 的充分统计量。
+        \end{proof}
+    \item[12]
+        \begin{proof}
+            样本的联合密度函数为
+            \begin{equation*}
+                \begin{aligned}
+                    p\left(x_{1},x_{2},\ldots,x_{n};\theta\right)= & \prod_{i=1}^{n}\frac{1}{\theta}I_{\{\theta<x_{i}<2\theta\}}         \\
+                    =                                              & \frac{1}{\theta^{n}}I_{\{\theta<x_{1},x_{2},\ldots,x_{n}<2\theta\}} \\
+                    =                                              & \frac{1}{\theta^{n}}I_{\{\theta<x_{(1)}\leq x_{(n)}<2\theta\}}
+                \end{aligned}
+            \end{equation*}
+
+            令
+            \begin{equation*}
+                \left(T_{1},T_{2}\right)=\left(X_{(1)},X_{(n)}\right),\quad g\left(t_{1},t_{2};\theta\right)=\frac{1}{\theta^{n}}I_{\{\theta<t_{1}\leq t_{2}<2\theta\}},\quad h\left(x_{1},x_{2},\ldots, x_{n}\right)=1.
+            \end{equation*}
+
+            故根据因子分解定理有，$\left(T_{1},T_{2}\right)=\left(X_{(1)},X_{(n)}\right)$ 为 $\theta$ 的充分统计量。
+        \end{proof}
+\end{enumerate}
+\end{document}
