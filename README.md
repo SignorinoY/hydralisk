@@ -21,9 +21,9 @@
 |  时间   |             作业内容             |                       作业解答                        |
 |:-----:|:------------------------------:|:-----------------------------------------------------:|
 | 第 3 周 |       习题 5.3 - 4，6，23，32       | [hw-solution-week3.pdf](./2022/hw-solution-week3.pdf) |
-| 第 4 周 |       习题 5.4 - 2，9，11，12       | [hw-solution-week4.pdf](./2021/hw-solution-week4.pdf) |
-| 第 5 周 |       习题 5.5 - 2，6，8，12        | [hw-solution-week5.pdf](./2021/hw-solution-week5.pdf) |
-| 第 6 周 |         习题 6.1 - 3，6，8         | [hw-solution-week6.pdf](./2021/hw-solution-week6.pdf) |
-| 第 7 周 | 习题 6.2 - 3(2)，4(2)，4(3)，4(4)，5 | [hw-solution-week7.pdf](./2021/hw-solution-week7.pdf) |
+| 第 4 周 |       习题 5.4 - 2，9，11，12       | [hw-solution-week4.pdf](./2022/hw-solution-week4.pdf) |
+| 第 5 周 |       习题 5.5 - 2，6，8，12        | [hw-solution-week5.pdf](./2022/hw-solution-week5.pdf) |
+| 第 6 周 |         习题 6.1 - 3，6，8         | [hw-solution-week6.pdf](./2022/hw-solution-week6.pdf) |
+| 第 7 周 | 习题 6.2 - 3(2)，4(2)，4(3)，4(4)，5 | [hw-solution-week7.pdf](./2022/hw-solution-week7.pdf) |
 
 参考教材：茆诗松，程依明和濮晓龙. 2019. 概率论与数理统计教程。第 3 版. “十二五”普通高等教育国家级规划教材。北京：高等教育出版社。
