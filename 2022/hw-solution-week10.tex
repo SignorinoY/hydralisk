@@ -1,0 +1,102 @@
+\documentclass[normal,cn]{elegantnote}
+\title{2022年春季学期/数理统计/第十周/课后作业解答}
+\author{龚梓阳}
+\date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[5]
+        \begin{proof}
+            令
+            \begin{equation*}
+                S_{\theta}=\frac{\partial\ln p\left(x;\theta\right)}{\partial\theta}
+            \end{equation*}
+            则，
+            \begin{equation*}
+                \begin{aligned}
+                    E\left(S_{\theta}\right)= & \int_{-\infty}^{+\infty}\frac{1}{p\left(x;\theta\right)}\cdot\frac{\partial p\left(x;\theta\right)}{\partial\theta}\cdot p\left(x;\theta\right)\,\mathrm{d}x                            \\
+                    =                         & \int_{-\infty}^{+\infty}\frac{\partial}{\partial\theta}p\left(x;\theta\right)\,\mathrm{d}x=\frac{\partial}{\partial\theta}\int_{-\infty}^{+\infty}p\left(x;\theta\right)\,\mathrm{d}x=0
+                \end{aligned}
+            \end{equation*}
+            所以，
+            \begin{equation*}
+                \frac{\partial}{\partial\theta}E\left(S_{\theta}\right)=0
+            \end{equation*}
+            同时，
+            \begin{equation*}
+                \begin{aligned}
+                    \frac{\partial E\left(S_{\theta}\right)}{\partial\theta} & =\frac{\partial}{\partial\theta} \int_{-\infty}^{+\infty}S_{\theta}\cdot p\left(x;\theta\right)\,\mathrm{d}x=\int_{-\infty}^{+\infty}\frac{\partial}{\partial\theta}\left[S_{\theta}\cdot p\left(x;\theta\right)\right]\,\mathrm{d}x                                           \\
+                    =                                                        & \int_{-\infty}^{\infty}\left[\frac{\partial S_{\theta}}{\partial\theta}\cdot p\left(x;\theta\right)+S_{\theta}\cdot\frac{\partial p\left(x;\theta\right)}{\partial\theta}\right]\,\mathrm{d}x                                                                                  \\
+                    =                                                        & \int_{-\infty}^{+\infty}\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}\cdot p\left(x;\theta\right)\,\mathrm{d}x+\int_{-\infty}^{+\infty}\left[\frac{\partial\ln p\left(x;\theta\right)}{\partial\theta}\right]^{2}\cdot p\left(x;\theta\right)\,\mathrm{d}x \\
+                    =                                                        & E\left[\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}\right]+E\left(S_{\theta}^{2}\right)                                                                                                                                                                   \\
+                    =                                                        & E\left[\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}\right]+I\left(\theta\right)=0
+                \end{aligned}
+            \end{equation*}
+            故，
+            \begin{equation*}
+                I\left(\theta\right)=-E\left[\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}\right]
+            \end{equation*}
+        \end{proof}
+    \item[6]
+        \begin{proof}
+            \begin{enumerate}
+                \item 样本 $x_{1},x_{2},\ldots,x_{n}$ 的似然函数为
+                      \begin{equation*}
+                          L\left(\theta\right)=\prod_{i=1}^{n}\theta x_{i}^{\theta-1}
+                      \end{equation*}
+                      对数似然函数为
+                      \begin{equation*}
+                          \ln L\left(\theta\right)=n\ln\theta+\left(\theta-1\right)\sum_{i=1}^{n}\ln x_{i}=-n\ln g\left(\theta\right)+\left[\frac{1}{g\left(\theta\right)}-1\right]\sum_{i=1}^{n}\ln x_{i}
+                      \end{equation*}
+                      令
+                      \begin{equation*}
+                          \frac{\partial\ln L\left(\theta\right)}{\partial g\left(\theta\right)}=-\frac{n}{g\left(\theta\right)}-\frac{1}{g^{2}\left(\theta\right)}\sum_{i=1}^{n}\ln x_{i}=0
+                      \end{equation*}
+                      所以，$g\left(\theta\right)$ 的极大似然估计为
+                      \begin{equation*}
+                          \hat{g}\left(\theta\right)=-\frac{1}{n}\sum_{i=1}^{n}\ln x_{i}
+                      \end{equation*}
+                \item 令 $Y=-\ln X$，则
+                      \begin{equation*}
+                          P\left(Y<y\right)=P\left(-\ln X<y\right)=P\left(X>\mathrm{e}^{-y}\right)=\int_{e^{-y}}^{1} \theta x^{\theta-1} \mathrm{~d} x=1-\mathrm{e}^{-\theta y}
+                      \end{equation*}
+                      因此，
+                      \begin{equation*}
+                          Y\sim\operatorname{Exp}(\theta),\quad\hat{g}\left(\theta\right)=\frac{1}{n}\sum_{i=1}^{n}Y\sim\operatorname{Ga}\left(n,n\theta\right)
+                      \end{equation*}
+                      于是，
+                      \begin{equation*}
+                          E\left(\hat{g}\right)=\frac{n}{n\theta}=\frac{1}{\theta}=g(\theta),\quad\operatorname{Var}\left(\hat{g}\right)=\frac{n}{\left(n\theta\right)^{2}}=\frac{1}{n\theta^{2}}
+                      \end{equation*}
+                      \begin{equation*}
+                          \frac{\partial p\left(x;\theta\right)}{\partial \theta}=\frac{1}{\theta}+\ln x,\quad\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}=-\frac{1}{\theta^{2}}
+                      \end{equation*}
+                      因此，$\theta$ 的费舍尔信息量为
+                      \begin{equation*}
+                          I\left(\theta\right)=-E\left[\frac{\partial^{2}}{\partial\theta^{2}}\ln p\left(x;\theta\right)\right]=\frac{1}{\theta^{2}}
+                      \end{equation*}
+                      故，$g\left(\theta\right)$ 的任一无偏估计的 C-R 下界为
+                      \begin{equation*}
+                          \frac{\left[g^{\prime}\left(\theta\right)\right]^{2}}{nI\left(\theta\right)}=\frac{1}{n\theta^{2}}
+                      \end{equation*}
+                      所以，$\hat{g}\left(\theta\right)=-\frac{1}{n}\sum_{i=1}^{n}\ln x_{i}$ 是 $g\left(\theta\right)$ 的有效估计。
+            \end{enumerate}
+        \end{proof}
+    \item[7]
+        \begin{proof}
+            对数密度函数为
+            \begin{equation*}
+                \ln p\left(x;\theta\right)=\ln 2+\ln\theta-3\ln x-\frac{\theta}{x^{2}}
+            \end{equation*}
+            于是，
+            \begin{equation*}
+                \frac{\partial\ln p\left(x;\theta\right)}{\partial\theta}=\frac{1}{\theta}-\frac{1}{x^{2}},\quad\frac{\partial^{2}\ln p\left(x;\theta\right)}{\partial\theta^{2}}=-\frac{1}{\theta^{2}}
+            \end{equation*}
+            因此，$\theta$ 的费舍尔信息量为
+            \begin{equation*}
+                I\left(\theta\right)=-E\left[\frac{\partial^{2}}{\partial\theta^{2}}\ln p\left(x;\theta\right)\right]=\frac{1}{\theta^{2}}
+            \end{equation*}
+        \end{proof}
+\end{enumerate}
+\end{document}
