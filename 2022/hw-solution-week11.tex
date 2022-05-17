@@ -1,0 +1,133 @@
+\documentclass[normal,cn]{elegantnote}
+\title{2022年春季学期/数理统计/第十一周/课后作业解答}
+\author{龚梓阳}
+\date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[1]
+        \begin{proof}
+            总体 $X$ 表示一页书上的错别字个数，且
+            \begin{equation*}
+                X\sim P(\lambda)
+            \end{equation*}
+            样本为 $x_{1}=3$，有
+            \begin{equation*}
+                P\left(X_{1}=k\right)=\frac{\lambda^{k}}{k!}\mathrm{e}^{-\lambda},k=0,1,2,\cdots
+            \end{equation*}
+            则
+            \begin{equation*}
+                \begin{aligned}
+                    P\left(X_{1}=3\right)= & P\left(\lambda=1.5\right)P\left(X_{1}=3\mid\lambda=1.5\right)+P\left(\lambda=1.8\right)P\left(X_{1}=3 \mid \lambda=1.8\right)    \\
+                    =                      & 0.45 \times \frac{1.5^{3}}{6} \cdot \mathrm{e}^{-1.5}+0.55 \times \frac{1.8^{3}}{6} \cdot \mathrm{e}^{-1.8}=0.0565+0.0884=0.1449
+                \end{aligned}
+            \end{equation*}
+
+            故参数 $\lambda$ 的后验分布为
+            \begin{gather*}
+                P\left(\lambda=1.5\mid X_{1}=3\right)=\frac{P\left(\lambda=1.5\right)P\left(X_{1}=3\mid \lambda=1.5\right)}{P\left(X_{1}=3\right)}=\frac{0.0565}{0.1449}=0.3899\\
+                P\left(\lambda=1.8\mid X_{1}=3\right)=\frac{P\left(\lambda=1.8\right)P\left(X_{1}=3\mid \lambda=1.8\right)}{P\left(X_{1}=3\right)}=\frac{0.0884}{0.1449}=0.6101
+            \end{gather*}
+        \end{proof}
+    \item[3]
+        \begin{proof}
+            \begin{enumerate}
+                \item
+                      参数 $\theta$ 的先验分布为
+                      \begin{equation*}
+                          \pi(\theta)=\mathrm{I}_{0<\theta<1}
+                      \end{equation*}
+
+                      总体 $X$ 的条件分布为
+                      \begin{equation*}
+                          P(X=k\mid\theta)=\theta(1-\theta)^{k},\quad k=0,1,2,\ldots
+                      \end{equation*}
+
+                      样本 $x_{1},x_{2},\ldots,x_{n}$ 的联合条件分布为
+                      \begin{equation*}
+                          p\left(x_{1},x_{2},\ldots,x_{n}\mid\theta\right)=\prod_{i=1}^{n}\theta(1-\theta)^{x_{i}}=\theta^{n}(1-\theta)^{\sum_{i=1}^{n}x_{i}}
+                      \end{equation*}
+
+                      则 $x_{1},x_{2},\ldots,x_{n}$ 和 $\theta$ 的联合分布为
+                      \begin{equation*}
+                          h\left(x_{1},x_{2},\ldots,x_{n},\theta\right)=\theta^{n}(1-\theta)^{\sum_{i=1}^{n}x_{i}}\cdot\mathrm{I}_{0<\theta<1}
+                      \end{equation*}
+
+                      可得样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
+                      \begin{equation*}
+                          m(x_{1},x_{2},\ldots,x_{n})=\int_{-\infty}^{+\infty}\theta^{n}(1-\theta)^{\sum_{i=1}^{n}x_{i}}\cdot\mathrm{I}_{0<\theta<1}\,\mathrm{d}\theta=B\left(n+1,\sum_{i=1}^{n}x_{i}+1\right)
+                      \end{equation*}
+
+                      因此 $\theta$ 的后验分布为
+                      \begin{equation*}
+                          \pi\left(\theta\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{\theta^{n}(1-\theta)^{\sum_{i=1}^{n}x_{i}}}{B\left(n+1,\sum_{i=1}^{n}x_{i}+1\right)},\quad 0<\theta<1
+                      \end{equation*}
+
+                      即，
+                      \begin{equation*}
+                          \theta\mid x_{1},x_{2},\ldots,x_{n}\sim\text{Be}\left(n+1,\sum_{i=1}^{n}x_{i}+1\right)
+                      \end{equation*}
+                \item
+                      在给定样本 $4,3,1,6$ 的条件下，$\theta$ 的后验分布为
+                      \begin{equation*}
+                          \theta\mid x_{1},x_{2},x_{3},x_{4}\sim\text{Be}\left(5,15\right)
+                      \end{equation*}
+
+                      若采用后验期望估计，则 $\theta$ 的贝叶斯估计为
+                      \begin{equation*}
+                          \hat{\theta}_{B}=\frac{5}{5+15}=0.25
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+    \item[6]
+        \begin{proof}
+            样本 $x_{1},x_{2},\ldots,x_{n}$ 的联合条件分布为
+            \begin{equation*}
+                p\left(x_{1},x_{2},\ldots,x_{n}\mid\theta\right)=\prod_{i=1}^{n}\frac{2x_{i}}{\theta^{2}}\mathrm{I}_{0<x_{i}<\theta}=\frac{2^{n}}{\theta^{2n}}\prod_{i=1}^{n}x_{i}\cdot\mathrm{I}_{x_{(n)}<\theta}
+            \end{equation*}
+            \begin{enumerate}
+                \item
+                      参数 $\theta$ 的先验分布为
+                      \begin{equation*}
+                          \pi(\theta)=\mathrm{I}_{0<\theta<1}
+                      \end{equation*}
+
+                      则样本 $x_{1},x_{2},\ldots,x_{n}$ 和 $\theta$ 的联合分布为
+                      \begin{equation*}
+                          h\left(x_{1},x_{2},\ldots,x_{n},\theta\right)=\frac{2^{n}}{\theta^{2n}}\prod_{i=1}^{n}x_{i}\cdot\mathrm{I}_{x_{(n)}<\theta<1}
+                      \end{equation*}
+
+                      可得样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
+                      \begin{equation*}
+                          m\left(x_{1},x_{2},\ldots,x_{n}\right)=\int_{x_{(n)}}^{1}\frac{2^{n}}{\theta^{2n}}\prod_{i=1}^{n}x_{i}\,\mathrm{d}\theta=\frac{2^{n}}{2n-1}\prod_{i=1}^{n}x_{i}\cdot\left[x_{(n)}^{-(2n-1)}-1\right]
+                      \end{equation*}
+
+                      因此 $\theta$ 的后验分布为
+                      \begin{equation*}
+                          \pi\left(\theta\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{2n-1}{\theta^{2n}\left[x_{(n)}^{-(2n-1)}-1\right]},\quad x_{(n)}<\theta<1
+                      \end{equation*}
+                \item
+                      参数 $\theta$ 的先验分布为
+                      \begin{equation*}
+                          \pi(\theta)=3\theta^{2}\cdot\mathrm{I}_{0<\theta<1}
+                      \end{equation*}
+
+                      则样本 $x_{1},x_{2},\ldots,x_{n}$ 和 $\theta$ 的联合分布为
+                      \begin{equation*}
+                          h\left(x_{1},x_{2},\ldots,x_{n},\theta\right)=\frac{3\cdot 2^{n}}{\theta^{2n-2}}\prod_{i=1}^{n}x_{i}\cdot I_{x_{(n)}<\theta<1}=\frac{3\cdot 2^{n}}{\theta^{2n-2}}\prod_{i=1}^{n}x_{i}\cdot I_{x_{(n)}<\theta<1}
+                      \end{equation*}
+
+                      可得样本 $x_{1},x_{2},\ldots,x_{n}$ 的边际分布为
+                      \begin{equation*}
+                          m\left(x_{1},x_{2},\ldots,x_{n}\right)=\int_{x(n)}^{1}\frac{3\cdot 2^{n}}{\theta^{2n-2}}\prod_{i=1}^{n}x_{i}\,\mathrm{d}\theta=\frac{3\cdot 2^{n}}{2n-3}\prod_{i=1}^{n}x_{i}\left[x_{(n)}^{-(2n-3)}-1\right]
+                      \end{equation*}
+
+                      因此 $\theta$ 的后验分布为
+                      \begin{equation*}
+                          \pi\left(\theta\mid x_{1},x_{2},\ldots,x_{n}\right)=\frac{2n-3}{\theta^{2n-2}\left[x_{(n)}^{-(2n-3)}-1\right]},\quad x_{(n)}<\theta<1
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+\end{enumerate}
+\end{document}
