@@ -28,5 +28,6 @@
 | 第 8 周 |         习题 6.3 - 2，3，5         | [hw-solution-week8.pdf](./2022/hw-solution-week8.pdf) |
 | 第 10 周 |         习题 6.4 - 5，6，7         | [hw-solution-week10.pdf](./2022/hw-solution-week10.pdf) |
 | 第 11 周 |         习题 6.5 - 1，3，6         | [hw-solution-week11.pdf](./2022/hw-solution-week11.pdf) |
+| 第 12 周 |         习题 6.6 - 2，3，5，9         | [hw-solution-week12.pdf](./2022/hw-solution-week12.pdf) |
 
 参考教材：茆诗松，程依明和濮晓龙. 2019. 概率论与数理统计教程。第 3 版. “十二五”普通高等教育国家级规划教材。北京：高等教育出版社。

@@ -1,0 +1,166 @@
+\documentclass[normal,cn]{elegantnote}
+    \title{2022年春季学期/数理统计/第十二周/课后作业解答}
+    \author{龚梓阳}
+    \date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[2]
+        \begin{proof}
+            由题设条件（$\sigma^{2}$ 已知），$\mu$ 的置信水平为 $1-\alpha$ 的置信区间为
+            \begin{equation*}
+                \left[\bar{x}-\mu_{1-\alpha/2} \frac{\sigma}{\sqrt{n}},\bar{x}+\mu_{1-\alpha/2} \frac{\sigma}{\sqrt{n}}\right]
+            \end{equation*}
+            其长度为 $2\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}$。给定置信度 $1-\alpha=0.95$，有 $\mu_{1-\alpha/2}=\mu_{0.975}=1.96$。若使置信区间的长度
+            \begin{equation*}
+                2\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}=2\times 1.96 \times\frac{\sigma}{\sqrt{n}}\leq k
+            \end{equation*}
+            故
+            \begin{equation*}
+                \sqrt{n}\geq 3.92\times\frac{\sigma}{k} \Rightarrow n\geq\frac{15.3664\sigma^{2}}{k^{2}}
+            \end{equation*}
+        \end{proof}
+    \item[3]
+        \begin{proof}
+            \begin{enumerate}
+                \item 由题设条件（$\sigma^{2}$ 已知），$\mu$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\bar{y}-\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}},\bar{y}+\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，有 $\mu_{1-\alpha/2}=\mu_{0.975}=1.96$，且有
+                      \begin{equation*}
+                          \sigma=1,\quad n=4,\quad \bar{y}=\frac{1}{4}(\ln 0.50+\ln 1.25+\ln 0.80+\ln 2.00)=0
+                      \end{equation*}
+                      故 $\mu$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[0 \pm 1.96 \times\frac{1}{\sqrt{4}}\right]=\left[-0.98,0.98\right]
+                      \end{equation*}
+                \item 因 $Y=\ln X$ 服从正态分布 $N\left(\mu,1\right)$，有 $X=\mathrm{e}^{Y}$。 且 $Y$ 的密度函数为
+                      \begin{equation*}
+                          p(y)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{(y-\mu)^{2}}{2}}
+                      \end{equation*}
+                      则
+                      \begin{equation*}
+                          \begin{aligned}
+                              E(X)= & \int_{-\infty}^{+\infty}\mathrm{e}^{y}\cdot\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{(y-\mu)^{2}}{2}}\,\mathrm{d}y                                           \\
+                              =     & \int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{y^{2}-2\mu y+\mu^{2}-2 }{2}}\,\mathrm{d}y                                                  \\
+                              =     & \int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{y^{2}-2(\mu+1)y+(\mu+1)^{2}-2\mu-1}{2}}\,\mathrm{d}y                                       \\
+                              =     & \mathrm{e}^{\mu+\frac{1}{2}}\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2 \pi}} \mathrm{e}^{-\frac{(y-\mu-1)^{2}}{2}}\,\mathrm{d}y=\mathrm{e}^{\mu+\frac{1}{2}}
+                          \end{aligned}
+                      \end{equation*}
+                      由于 $E(X)=\mathrm{e}^{\mu+\frac{1}{2}}$ 为 $\mu$ 的严格单调增函数，因此，$E(X)$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\mathrm{e}^{-0.98+0.5},\mathrm{e}^{0.98+0.5}\right]=[0.6188,4.3929]
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+    \item[5]
+        \begin{proof}
+            \begin{enumerate}
+                \item 由题设条件（$\sigma^{2}$ 未知），$\mu$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\bar{x}-t_{1-\alpha/2}(n-1)\frac{s}{\sqrt{n}},\bar{x}=t_{1-\alpha/2}(n-1)\frac{s}{\sqrt{n}}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，对于 $n=10$，有 $t_{1-\alpha/2}(n-1)=t_{0.975}(9)=2.2622$，且有
+                      \begin{equation*}
+                          \bar{x}=457.5,\quad s=35.2176
+                      \end{equation*}
+                      故 $\mu$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[457.5\pm 2.2622\times\frac{35.2176}{\sqrt{10}}\right]=[432.3064,482.6936]
+                      \end{equation*}
+                \item 由题设条件（$\sigma^{2}$ 已知），$\mu$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\bar{x}-\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}},\bar{x}+\mu_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$ 有 $\mu_{1-\alpha/2}=u_{0.975}=1.96$  且有
+                      \begin{equation*}
+                          n=10,\bar{x}=457.5, \quad \sigma=30
+                      \end{equation*}
+                      故 $\mu$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[457.5 \pm 1.96\times\frac{30}{\sqrt{10}}\right]=[438.9058,476.0942]
+                      \end{equation*}
+                \item 由题设条件（$\mu$ 未知），$\sigma^{2}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\frac{(n-1)\cdot s^{2}}{\chi_{1-\alpha/2}^{2}(n-1)},\frac{(n-1)\cdot s^{2}}{\chi_{\alpha/2}^{2}(n-1)}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，对于 $n=10$，有
+                      \begin{equation*}
+                          \chi_{\alpha/2}^{2}(n-1)=\chi_{0.025}^{2}(9)=2.7004, \quad\chi_{1-\alpha/2}^{2}(n-1)=\chi_{0.975}^{2}(9)=19.0228
+                      \end{equation*}
+                      且有 $s=35.2176$。故 $\sigma^{2}$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\frac{9\times 35.2176^{2}}{19.0228},\frac{9\times 35.2176^{2}}{2.7004}\right]=[586.7958,4133.6469]
+                      \end{equation*}
+                      因此，$\sigma$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          [\sqrt{586.7958},\sqrt{4133.6469}]=[24.2239,64.2934]
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+    \item[9]
+        \begin{proof}
+            \begin{enumerate}
+                \item 由题设条件（$\sigma_{1}^{2},\sigma_{2}^{2}$ 已知），$\mu_{1}-\mu_{2}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\left(\bar{x}-\bar{y}\right)-\mu_{1-\alpha/2}\cdot\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}},\left(\bar{x}-\bar{y}\right)+\mu_{1-\alpha/2}\cdot\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，有 $\mu_{1-\alpha/2}=\mu_{0.975}=1.96$，且有
+                      \begin{equation*}
+                          \bar{x}=82,\quad\bar{y}=76,\quad\sigma_{1}^{2}=64,\quad\sigma_{2}^{2}=49,\quad n_{1}=10,\quad n_{2}=15
+                      \end{equation*}
+                      故 $\mu_{1}-\mu_{2}$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\left(82-76\right) \pm 1.96\times\sqrt{\frac{64}{10}+\frac{49}{15}}\right]=[-0.0939,12.0939]
+                      \end{equation*}
+                \item 由题设条件（$\sigma_{1}^{2}=\sigma_{2}^{2}$），$\mu_{1}-\mu_{2}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\left(\bar{x}-\bar{y}\right) \pm \sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}s_{w}\cdot t_{1-\alpha/2}\left(n_{1}+n_{2}-2\right)\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，对于 $n_{1}=10,n_{2}=15$，有 $t_{1-\alpha/2}\left(n_{1}+n_{2}-2\right)=t_{0.975}(23)=2.0687$，且有
+                      \begin{equation*}
+                          \bar{x}=82,\quad s_{x}^{2}=56.5,\quad \bar{y}=76,\quad s_{y}^{2}=52.4,\quad s_{w}=\sqrt{\frac{9\times 56.5+14 \times 52.4}{23}}=7.3488
+                      \end{equation*}
+                      故 $\mu_{1}-\mu_{2}$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\left(82-76\right) \pm 2.0687 \times 7.3488 \times \sqrt{\frac{1}{10}+\frac{1}{15}}\right]=[-0.2063,12.2063]
+                      \end{equation*}
+                \item 由题设条件（$\sigma_{1}^{2},\sigma_{2}^{2}$ 未知），$\mu_{1}-\mu_{2}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\left(\bar{x}-\bar{y}\right) \pm t_{1-\alpha/2}\left(l_{0}\right)\cdot\sqrt{\frac{s_{x}^{2}}{n_{1}}+\frac{s_{y}^{2}}{n_{2}}}\right]
+                      \end{equation*}
+                      其中，
+                      \begin{equation*}
+                          l_{0}\left\lfloor\frac{\left(\frac{s_{x}^{2}}{n_{1}}+\frac{s_{y}^{2}}{n_{2}}\right)^{2}}{\frac{s_{x}^{4}}{n_{1}^{2}\left(n_{1}-1\right)}+\frac{s_{y}^{4}}{n_{2}^{2}\left(n_{2}-1\right)}}\right\rceil
+                      \end{equation*}
+                      对于 $n_{1}=10,n_{2}=15,s_{x}^{2}=56.5,s_{y}^{2}=52.4$, 有
+                      \begin{equation*}
+                          \frac{\left(\frac{56.5}{10}+\frac{52.4}{15}\right)^{2}}{\frac{56.5^{2}}{10^{2}\times 9}+\frac{52.4^{2}}{15^{2}\times 14}}=18.9201
+                      \end{equation*}
+                      取 $l_{0}=19$。给定置信度为 $1-\alpha=0.95$，有 $t_{1-\alpha/2}\left(l_{0}\right)=t_{0.975}(19)=2.0930$，且有
+                      \begin{equation*}
+                          \bar{x}=82,\quad s_{x}^{2}=56.5,\quad \bar{y}=76,\quad s_{y}^{2}=52.4
+                      \end{equation*}
+                      故 $\mu_{1}-\mu_{2}$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\left(82-76\right) \pm 2.0930 \times \sqrt{\frac{56.5}{10}+\frac{52.4}{15}}\right]=[-0.3288,12.3288]
+                      \end{equation*}
+                \item $\sigma_{1}^{2}/\sigma_{2}^{2}$ 的置信水平为 $1-\alpha$ 的置信区间为
+                      \begin{equation*}
+                          \left[\frac{s_{x}^{2}}{s_{y}^{2}}\cdot\frac{1}{F_{1-\alpha/2}\left(n_{1}-1,n_{2}-1\right)},\frac{s_{x}^{2}}{s_{y}^{2}}\cdot\frac{1}{F_{\alpha/2}\left(n_{1}-1,n_{2}-1\right)}\right]
+                      \end{equation*}
+                      给定置信度 $1-\alpha=0.95$，对于 $n_{1}=10,n_{2}=15$，有
+                      \begin{gather*}
+                          F_{1-\alpha/2}\left(n_{1}-1,n_{2}-1\right)=F_{0.975}(9,14)=3.21 \\
+                          F_{\alpha/2}\left(n_{1}-1,n_{2}-1\right)=F_{0.025}(9,14)=\frac{1}{F_{0.975}(14,9)}=\frac{1}{3.80}
+                      \end{gather*}
+                      且有 $s_{x}^{2}=56.5,\quad s_{y}^{2}=52.4$。故 $\sigma_{1}^{2}/\sigma_{2}^{2}$ 的置信水平为 95\% 的置信区间为
+                      \begin{equation*}
+                          \left[\frac{56.50}{52.4}\times\frac{1}{3.21},\frac{56.50}{52.4}\times 3.80\right]=[0.3359,4.0973]
+                      \end{equation*}
+            \end{enumerate}
+        \end{proof}
+\end{enumerate}
+\end{document}
