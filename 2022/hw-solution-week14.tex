@@ -1,0 +1,178 @@
+\documentclass[normal,cn]{elegantnote}
+    \title{2022年春季学期/数理统计/第十四周/课后作业解答}
+    \author{龚梓阳}
+    \date{\zhtoday}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[6]
+        \begin{proof}
+            设这批钢管内直径 $X\sim N\left(\mu,\sigma^{2}\right)$，假设
+            \begin{equation*}
+                \mathrm{H}_{0}:\mu=100\quad\text{vs}\quad\mathrm{H}_{1}:\mu>100
+            \end{equation*}
+            \begin{enumerate}
+                \item 由于 $\sigma^{2}$ 已知，选取统计量
+                      \begin{equation*}
+                          U=\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)
+                      \end{equation*}
+                      给定显著性水平 $\alpha=0.05$，有 $u_{1-\alpha}=u_{0.95}=1.645$，右侧拒绝域为
+                      \begin{equation*}
+                          W=\{u \geq 1.645\}
+                      \end{equation*}
+                      且有
+                      \begin{equation*}
+                          \bar{x}=100.104,\quad\mu=100,\quad \sigma=0.5,\quad n=10
+                      \end{equation*}
+                      则
+                      \begin{equation*}
+                          u=\frac{100.104-100}{0.5/\sqrt{10}}=0.6578\notin W
+                      \end{equation*}
+                      故接受原假设，即不能认为 $\mu>100$。
+                \item 由于 $\sigma^{2}$ 未知，选取统计量
+                      \begin{equation*}
+                          t=\frac{\bar{x}-\mu}{S/\sqrt{n}}\sim t(n-1)
+                      \end{equation*}
+                      给定显著性水平 $\alpha=0.05$，对于 $n=10$，有 $t_{1-\alpha}(n-1)=t_{0.95}(9)=1.8331$，故右侧拒绝域为
+                      \begin{equation*}
+                          W=\{t\geq 1.8331\}
+                      \end{equation*}
+                      且有
+                      \begin{equation*}
+                          \bar{x}=100.104,\quad\mu=100,\quad s=0.4760,\quad n=10
+                      \end{equation*}
+                      则
+                      \begin{equation*}
+                          t=\frac{100.104-100}{0.4760/\sqrt{10}}=0.6909\notin W
+                      \end{equation*}
+                      故接受原假设，即不能认为 $\mu>100$。
+            \end{enumerate}
+        \end{proof}
+    \item[7]
+        \begin{proof}
+            设这次考试考生的成绩 $X\sim N\left(\mu,\sigma^{2}\right)$，假设 \begin{equation*}
+                \mathrm{H}_{0}:\mu=70 \text{ vs }\mathrm{H}_{1}:\mu\neq 70,
+            \end{equation*}
+            由于末知 $\sigma^{2}$，选取统计量，
+            \begin{equation*}
+                T=\frac{\bar{X}-\mu}{S/\sqrt{n}}\sim t(n-1)
+            \end{equation*}
+            给定显著性水平 $\alpha=0.05$，$t_{1-\alpha/2}(n-1)=t_{0.975}(35)=2.0301$, 双侧拒绝域 $W=\{|t|\geq 2.0301\}$。因 $\bar{x}=66.5,\mu=70,s=15,n=36$，则
+            \begin{equation*}
+                t=\frac{66.5-70}{15 /\sqrt{36}}=-1.4\notin W
+            \end{equation*}
+            并且检验的 $p$ 值 $p=2P\{T \leq-1.4\}=0.1703>\alpha=0.05$，故接受 $\mathrm{H}_{0}$，拒绝 $\mathrm{H}_{1}$，即可以认为这次考试全体考生的平均成绩为 70 分。
+        \end{proof}
+    \item[12]
+        \begin{proof}
+            设两种型号的计算器充电以后所能使用的时间分别为
+            \begin{equation*}
+                X\sim N\left(\mu_{1},\sigma_{1}^{2}\right),\quad Y\sim N\left(\mu_{2},\sigma_{2}^{2}\right),\quad\sigma_{1}^{2}=\sigma_{2}^{2}
+            \end{equation*}
+            假设
+            \begin{equation*}
+                \mathrm{H}_{0}:\mu_{1}=\mu_{2}\quad\text{vs}\quad \mathrm{H}_{1}:\mu_{1}>\mu_{2}
+            \end{equation*}
+            由于 $\sigma_{1}^{2},\sigma_{2}^{2}$ 未知，但 $\sigma_{1}^{2}=\sigma_{2}^{2}$。选取统计量
+            \begin{equation*}
+                T=\frac{\bar{x}-\bar{y}}{s_{w}\sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}}\sim t\left(n_{1}+n_{2}-2\right)
+            \end{equation*}
+            给定显著性水平 $\alpha=0.01$，对于 $n_{1}=11,n_{2}=12$，有 $t_{1-\alpha}\left(n_{1}+n_{2}-2\right)=t_{0.99}(21)=2.5176$，右侧拒绝域为
+            \begin{equation*}
+                W=\{t \geq 2.5176\}
+            \end{equation*}
+            且有
+            \begin{gather*}
+                \bar{x}=5.5,\quad\bar{y}=4.3667,\quad s_{x}=0.5235, \quad s_{y}=0.4677,\quad n_{1}=11,\quad n_{2}=12 \\
+                s_{w}=\sqrt{\frac{\left(n_{1}-1\right)s_{x}^{2}+\left(n_{2}-1\right)s_{y}^{2}}{n_{1}+n_{2}-2}}=\sqrt{\frac{10\times 0.5235^{2}+11\times 0.4677^{2}}{21}}=0.4951
+            \end{gather*}
+            则
+            \begin{equation*}
+                t=\frac{5.5-4.3667}{0.4951\times\sqrt{\frac{1}{11}+\frac{1}{12}}}=5.4837\in W
+            \end{equation*}
+            故拒绝原假设，即可以认为型号 A 的计算器平均使用时间明显比型号 B 来得长。
+        \end{proof}
+    \item[13]
+        \begin{proof}
+            设东、西两支矿脉的含锌量分别为
+            \begin{equation*}
+                X_{1}\sim N\left(\mu_{1},\sigma_{1}^{2}\right),\quad X_{2}\sim N\left(\mu_{2},\sigma_{2}^{2}\right),\quad\sigma_{1}^{2}=\sigma_{2}^{2}
+            \end{equation*}
+            假设
+            \begin{equation*}
+                \mathrm{H}_{0}:\mu_{1}=\mu_{2}\quad\text{vs}\quad\mathrm{H}_{1}:\mu_{1}\neq\mu_{2}
+            \end{equation*}
+            由于 $\sigma_{1}^{2},\sigma_{2}^{2}$ 未知，但 $\sigma_{1}^{2}=\sigma_{2}^{2}$，选取统计量
+            \begin{equation*}
+                T=\frac{\bar{x}_{1}-\bar{x}_{2}}{s_{w}\sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}}\sim t\left(n_{1}+n_{2}-2\right)
+            \end{equation*}
+            给定显著性水平 $\alpha=0.05$，对于 $n_{1}=9,n_{2}=8$，有$t_{1-\alpha/2}\left(n_{1}+n_{2}-2\right)=t_{0.975}(15)=2.1314$，双侧拒绝域为
+            \begin{equation*}
+                W=\{|t|\geq 2.1314\}
+            \end{equation*}
+            且有
+            \begin{gather*}
+                \bar{x}_{1}=0.230,\quad s_{1}^{2}=0.1337,\quad\bar{x}_{2}=0.269,\quad s_{2}^{2}=0.1736,\quad n_{1}=9,\quad n_{2}=8\\
+                s_{w}=\sqrt{\frac{\left(n_{1}-1\right)s_{1}^{2}+\left(n_{2}-1\right)s_{2}^{2}}{n_{1}+n_{2}-2}}=\sqrt{\frac{8 \times 0.1337+7 \times 0.1736}{15}}=0.3903
+            \end{gather*}
+            则
+            \begin{equation*}
+                t=\frac{0.230-0.269}{0.3903\times\sqrt{\frac{1}{9}+\frac{1}{8}}}=-0.2056\notin W
+            \end{equation*}
+            故接受原假设，即可以认为东、西两支矿脉含锌量的平均值是一样的。
+        \end{proof}
+    \item[24]
+        \begin{proof}
+            设两台车床生产的滚珠直径分别为
+            \begin{equation*}
+                X\sim N\left(\mu_{1},\sigma_{1}^{2}\right),\quad Y\sim N\left(\mu_{2},\sigma_{2}^{2}\right)
+            \end{equation*}
+            假设
+            \begin{equation*}
+                \mathrm{H}_{0}:\sigma_{1}^{2}=\sigma_{2}^{2}\text{ vs }\mathrm{H}_{1}:\sigma_{1}^{2}\neq\sigma_{2}^{2}
+            \end{equation*}
+            选取统计量
+            \begin{equation*}
+                F=\frac{S_{x}^{2}}{S_{y}^{2}}\sim F\left(n_{1}-1,n_{2}-1\right)
+            \end{equation*}
+            给定显著性水平 $\alpha=0.05$，则，
+            \begin{equation*}
+                \begin{aligned}
+                    F_{\alpha/2}\left(n_{1}-1,n_{2}-1\right)=   & F_{0.025}(7,8)=\frac{1}{F_{0.975}(8,7)}=\frac{1}{4.9}=0.2041 \\
+                    F_{1-\alpha/2}\left(n_{1}-1,n_{2}-1\right)= & F_{0.975}(7,8)=4.53
+                \end{aligned}
+            \end{equation*}
+            双侧拒绝域为 $W=\{F\leq 0.2041\text{ 或 }F\geq 4.53\}$，且有 $s_{x}^{2}=0.3091^{2},\quad s_{y}^{2}=0.1616^{2}$，则
+            \begin{equation*}
+                F=\frac{0.3091^{2}}{0.1616^{2}}=3.6590 \notin W
+            \end{equation*}
+            并且检验的 $p$ 值 $p=2 P\{F \geq 3.6591\}=0.0892>\alpha=0.05$，故接受 $\mathrm{H}_{0}$，拒绝 $\mathrm{H}_{1}$，即可以认为两台车床生产的滚珠直径的方差没有明显差异。
+        \end{proof}
+    \item[25]
+        \begin{proof}
+            设两台机器生产金属部件质量分别为
+            \begin{equation*}
+                X\sim N\left(\mu_{1},\sigma_{1}^{2}\right),\quad Y\sim N\left(\mu_{2},\sigma_{2}^{2}\right)
+            \end{equation*}
+            假设
+            \begin{equation*}
+                \mathrm{H}_{0}:\sigma_{1}^{2}=\sigma_{2}^{2}\quad\text{vs}\quad\mathrm{H}_{1}:\sigma_{1}^{2}>\sigma_{2}^{2}
+            \end{equation*}
+            选取统计量
+            \begin{equation*}
+                F=\frac{S_{1}^{2}}{S_{2}^{2}}\sim F(m-1,n-1)
+            \end{equation*}
+            给定显著性水平 $\alpha=0.05$，对于 $m=14,n=12$，有 $F_{1-\alpha}(m-1,n-1)=F_{0.95}(13,11)=2.7614$，右侧拒绝域为
+            \begin{equation*}
+                W=\{F\geq 2.7614\}
+            \end{equation*}
+            且有 $s_{1}^{2}=15.46,\quad s_{2}^{2}=9.66,\quad m=14,\quad n=12$
+            则
+            \begin{equation*}
+                F=\frac{15.46}{9.66}=1.6004\notin W
+            \end{equation*}
+            故接受原假设，即可以认为 $\sigma_{1}^{2}=\sigma_{2}^{2}$。
+        \end{proof}
+\end{enumerate}
+\end{document}
